@@ -1,0 +1,144 @@
+@import 'variables';
+
+// General
+::selection {
+  text-shadow: none;
+  background: $dark;
+  color: $light;
+}
+
+html {
+  background-color: $light;
+}
+
+body {
+  font-family: 'Lausanne', sans-serif;
+  margin: 0;
+  color: $dark;
+  font-size: 1.5rem;
+}
+
+main {
+  padding: 1rem;
+  margin: 3rem auto;
+  font-weight: normal;
+}
+
+a:not([class]) {
+  color: $blue;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+ul {
+  margin-bottom: 0;
+  padding-left: 2rem;
+
+  li+li {
+    margin-top: .5rem;
+  }
+}
+
+h1 {
+  font-size: 2.625rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.constrain {
+  max-width: 60rem;
+}
+
+// Header
+header {
+  top: 0;
+  position: sticky;
+}
+
+.header {
+  background: $dark;
+  display: block;
+  color: $light;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+
+  &-name {
+    padding: .75rem 1rem;
+    margin: auto;
+
+    &-letter {
+      display: inline-block;
+      transition: transform .1s ease-out;
+    }
+  }
+
+  &:hover,
+  &:focus {
+
+    .header-name-letter:nth-child(4n+1) {
+      transform: rotate(-10deg);
+    }
+
+    .header-name-letter:nth-child(4n+2) {
+      transform: translateY(-2px);
+    }
+
+    .header-name-letter:nth-child(4n+3) {
+      transform: rotate(10deg);
+    }
+
+    .header-name-letter:nth-child(4n+4) {
+      transform: translateY(2px);
+    }
+  }
+}
+
+// Navigation
+.nav {
+  margin: 0 auto;
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0.5rem 0;
+
+  a {
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    color: $dark;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background-color: $tan;
+    }
+  }
+}
+
+// Homebase
+.homebase {
+  display: flex;
+  gap: 2rem;
+
+  &-visual {
+    flex: 0 0 18rem;
+
+    img {
+      border-radius: 24px;
+    }
+  }
+}
+
+// About
+.about {
+  &-section {
+    padding-bottom: 1rem;
+  }
+}

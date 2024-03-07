@@ -1,0 +1,36 @@
+$light: #f6f0e8;
+$tan: #e4d8cd;
+$dark: #1b1b1b;
+$blue: #005198;
+
+@mixin breakpoint($point, $value: "") {
+  @if $point =='extra-large' {
+    @media only screen and (min-width: 2000px) {
+      @content;
+    }
+  }
+
+  @if $point =='large' {
+    @media only screen and (min-width: 1600px) {
+      @content;
+    }
+  }
+
+  @else if $point =='medium' {
+    @media only screen and (max-width: 1000px) {
+      @content;
+    }
+  }
+
+  @else if $point =='small' {
+    @media only screen and (max-width: 700px) {
+      @content;
+    }
+  }
+
+  @else if $point =='extra-small' {
+    @media only screen and (max-width: 400px) {
+      @content;
+    }
+  }
+}
