@@ -2,11 +2,11 @@
 
 ## General
 
-This is the source code for a future version of my portfolio website at [michaeledelstone.com](https://michaeledelstone.com), releasing some time in the first half of 2024. It's built from scratch using the [11ty static site generator](https://www.11ty.dev) and is designed to be super minimal and content-focused.
+This is the source code for a future version of my portfolio website at [michaeledelstone.com](https://michaeledelstone.com), releasing some time in the first half of 2024. It's built from scratch using the [11ty static site generator](https://www.11ty.dev) and is designed to be super minimal, fast, and content-focused.
 
 ## Typography
 
-[Lausanne](https://www.weltkern.com/shop/detail-typeface/lausanne) by Nizar Kazan at TYPE.WELTKERN.
+[Lausanne](https://www.weltkern.com/shop/detail-typeface/lausanne) by Nizar Kazan at WELTKERN&reg;.
 
 ## Colors
 
