@@ -50,12 +50,15 @@ h2 {
   font-size: 2rem;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 .constrain {
   max-width: 60rem;
 }
 
 // Skip to main content
-
 .skip-to-main {
   position: absolute;
   left: -999px;
@@ -171,7 +174,6 @@ header {
 }
 
 // 404 
-
 .not-found {
   img {
     margin-top: 2rem;
@@ -179,7 +181,6 @@ header {
 }
 
 // Work
-
 .work {
   display: flex;
   flex-direction: column;
@@ -216,28 +217,27 @@ header {
       padding: 1rem;
       background-color: $tan;
 
-      h2 {
-        font-size: 1.5rem;
+      h3 {
         margin: 0 0 0.75rem;
+
+        a {
+          color: $dark;
+          display: inline-flex;
+          align-items: center;
+
+          .external-link {
+            width: auto;
+            height: 1.25rem;
+            display: inline;
+            border: none;
+            margin-left: .75rem;
+          }
+        }
       }
 
       p {
         margin: 0;
         font-size: 1.25rem;
-      }
-
-      a {
-        color: $dark;
-        display: inline-flex;
-        align-items: center;
-
-        .external-link {
-          width: auto;
-          height: 1.25rem;
-          display: inline;
-          border: none;
-          margin-left: .75rem;
-        }
       }
     }
   }
