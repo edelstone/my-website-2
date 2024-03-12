@@ -17,7 +17,7 @@ This is the source code for a future version of my portfolio website. It's built
 
 ## Local development
 
-### Please use *any* of my code or design for your own purposes.
+### Please use *any* of my code or design for your own purposes (except the fonts, which are licensed).
 
 *Prerequisites: Node.js 14+*
 
