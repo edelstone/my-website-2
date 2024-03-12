@@ -190,6 +190,25 @@ header {
   }
 }
 
+.heart-emoji {
+  animation: 1.25s infinite beat;
+  display: inline-flex;
+}
+
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+
+  5% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 // 404 
 .not-found {
   img {
@@ -278,6 +297,7 @@ header {
       font-size: 1.25rem;
     }
   }
+
   &-content {
     margin-top: 0;
   }
