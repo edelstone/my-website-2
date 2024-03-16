@@ -9,6 +9,14 @@
 
 html {
   background-color: $light;
+
+  @include breakpoint('small') {
+    font-size: 92.5%;
+  }
+
+  @include breakpoint('extra-small') {
+    font-size: 87.5%;
+  }
 }
 
 body {
@@ -21,6 +29,10 @@ body {
 main {
   padding: 1rem;
   margin: 3rem auto;
+
+  @include breakpoint('small') {
+    margin: 1.5rem auto;
+  }
 }
 
 a:not([class]) {
@@ -168,17 +180,33 @@ header {
   }
 }
 
-// Homebase
+// Home
 .homebase {
   display: flex;
   gap: 2rem;
 
+  @include breakpoint('small') {
+    gap: 1.5rem;
+  }
+
+  @include breakpoint('extra-small') {
+    flex-direction: column;
+  }
+
   &-visual {
     flex: 0 0 18rem;
+
+    @include breakpoint('extra-small') {
+      flex-basis: 100%;
+    }
 
     img {
       border-radius: 8px;
       border: 2px solid $dark;
+
+      @include breakpoint('extra-small') {
+        content: url(/images/me-wide.jpg);
+      }
     }
   }
 }
@@ -193,6 +221,8 @@ header {
 .heart-emoji {
   animation: 1.25s infinite beat;
   display: inline-flex;
+  position: relative;
+  z-index: -1;
 }
 
 @keyframes beat {
@@ -227,11 +257,23 @@ header {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
+    @include breakpoint('small') {
+      gap: 1.5rem;
+    }
   }
 
   &-row {
     display: flex;
     gap: 2rem;
+
+    @include breakpoint('small') {
+      gap: 1.5rem;
+    }
+
+    @include breakpoint('extra-small') {
+      flex-direction: column;
+    }
   }
 
   &-card {
@@ -252,13 +294,14 @@ header {
     figcaption {
       padding: 1rem;
       background-color: $tan;
+      height: 100%;
 
       a {
         margin-bottom: .5rem;
         color: $dark;
-        display: inline-flex;
-        align-items: center;
         font-weight: bold;
+        display: inline-block;
+        text-wrap: balance;
 
         .external-link {
           width: auto;
@@ -291,10 +334,24 @@ header {
     padding: .5rem 0;
     margin-top: -.5rem;
 
+    @include breakpoint('small') {
+      position: unset;
+    }
+
+    @include breakpoint('small') {
+      flex-direction: column;
+      align-items: start;
+      gap: .75rem;
+    }
+
     &-nav {
       display: flex;
       gap: 1rem;
       font-size: 1.25rem;
+
+      @include breakpoint('small') {
+        order: -1;
+      }
     }
   }
 
@@ -302,6 +359,10 @@ header {
     display: flex;
     gap: 1.5rem;
     margin-top: 1.5rem;
+
+    @include breakpoint('extra-small') {
+      flex-direction: column;
+    }
 
     figure {
       margin: 0;
