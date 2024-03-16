@@ -1,8 +1,10 @@
 # [<img src="/icon.svg" width="25px" />](https://michaeledelstone.com) &nbsp;[My website and portfolio](https://michaeledelstone.com)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/04b3019c-b59a-40e8-91c2-173019e07f8b/deploy-status)](https://app.netlify.com/sites/edelstone/deploys)
+
 ## General
 
-This is the source code for my portfolio website. It's built from scratch using the [11ty static site generator](https://www.11ty.dev) and is designed to be super minimal, accessible, fast, and content-focused.
+This is the source code for my portfolio website. It's built from scratch using the [11ty static site generator](https://www.11ty.dev) and is designed to be simple, accessible, fast, and content-focused.
 
 ## Typography
 
