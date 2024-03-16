@@ -340,5 +340,10 @@ header {
     &-browser {
       margin-bottom: -2rem;
     }
+
+    &-insert {
+      padding: 1rem;
+      background-color: $white;
+    }
   }
 }
