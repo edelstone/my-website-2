@@ -10,11 +10,11 @@
 html {
   background-color: $light;
 
-  @include breakpoint('small') {
+  @include breakpoint('medium') {
     font-size: 92.5%;
   }
 
-  @include breakpoint('extra-small') {
+  @include breakpoint('small') {
     font-size: 87.5%;
   }
 }
@@ -30,7 +30,7 @@ main {
   padding: 1rem;
   margin: 3rem auto;
 
-  @include breakpoint('small') {
+  @include breakpoint('medium') {
     margin: 1.5rem auto;
   }
 }
@@ -185,18 +185,18 @@ header {
   display: flex;
   gap: 2rem;
 
-  @include breakpoint('small') {
+  @include breakpoint('medium') {
     gap: 1.5rem;
   }
 
-  @include breakpoint('extra-small') {
+  @include breakpoint('small') {
     flex-direction: column;
   }
 
   &-visual {
     flex: 0 0 18rem;
 
-    @include breakpoint('extra-small') {
+    @include breakpoint('small') {
       flex-basis: 100%;
     }
 
@@ -204,7 +204,7 @@ header {
       border-radius: 8px;
       border: 2px solid $dark;
 
-      @include breakpoint('extra-small') {
+      @include breakpoint('small') {
         content: url(/images/me-wide.jpg);
       }
     }
@@ -258,7 +258,7 @@ header {
     flex-direction: column;
     gap: 2rem;
 
-    @include breakpoint('small') {
+    @include breakpoint('medium') {
       gap: 1.5rem;
     }
   }
@@ -267,11 +267,11 @@ header {
     display: flex;
     gap: 2rem;
 
-    @include breakpoint('small') {
+    @include breakpoint('medium') {
       gap: 1.5rem;
     }
 
-    @include breakpoint('extra-small') {
+    @include breakpoint('small') {
       flex-direction: column;
     }
   }
@@ -334,14 +334,11 @@ header {
     padding: .5rem 0;
     margin-top: -.5rem;
 
-    @include breakpoint('small') {
+    @include breakpoint('medium') {
       position: unset;
-    }
-
-    @include breakpoint('small') {
       flex-direction: column;
+      gap: .5rem;
       align-items: start;
-      gap: .75rem;
     }
 
     &-nav {
@@ -349,7 +346,7 @@ header {
       gap: 1rem;
       font-size: 1.25rem;
 
-      @include breakpoint('small') {
+      @include breakpoint('medium') {
         order: -1;
       }
     }
@@ -360,8 +357,9 @@ header {
     gap: 1.5rem;
     margin-top: 1.5rem;
 
-    @include breakpoint('extra-small') {
+    @include breakpoint('small') {
       flex-direction: column;
+      gap: 0;
     }
 
     figure {
@@ -371,6 +369,28 @@ header {
       background-color: $tan;
       border: 2px solid $dark;
       flex-basis: calc(100% / 3);
+
+      @include breakpoint('small') {
+        &:nth-child(1) {
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+          border-bottom: none;
+          padding-bottom: .5rem;
+        }
+
+        &:nth-child(2) {
+          border-radius: 0;
+          border-bottom: none;
+          border-top: none;
+          padding-bottom: .5rem;
+        }
+
+        &:nth-child(3) {
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+          border-top: none;
+        }
+      }
 
       h2 {
         font-size: 1.5rem;
