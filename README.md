@@ -1,8 +1,8 @@
-# My website and portfolio
+# [<img src="/icon.svg" width="25px" />](https://michaeledelstone.com) &nbsp;[My website and portfolio](https://michaeledelstone.com)
 
 ## General
 
-This is the source code for a future version of my portfolio website. It's built from scratch using the [11ty static site generator](https://www.11ty.dev) and is designed to be super minimal, accessible, fast, and content-focused.
+This is the source code for my portfolio website. It's built from scratch using the [11ty static site generator](https://www.11ty.dev) and is designed to be super minimal, accessible, fast, and content-focused.
 
 ## Typography
 
@@ -10,6 +10,7 @@ This is the source code for a future version of my portfolio website. It's built
 
 ## Colors
 
+- White: `#ffffff`
 - Light: `#f6f0e8`
 - Tan: `#e4d8cd`
 - Blue: `#005198`
@@ -17,7 +18,7 @@ This is the source code for a future version of my portfolio website. It's built
 
 ## Local development
 
-### Please use *any* of my code or design for your own purposes (except the fonts, which are licensed).
+### Please use *any* of my code or design for your own purposes (fonts must be licensed).
 
 *Prerequisites: Node.js 14+*
 
