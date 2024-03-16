@@ -219,7 +219,7 @@ header {
 }
 
 .heart-emoji {
-  animation: 1.25s infinite beat;
+  animation: 1s infinite beat;
   display: inline-flex;
   position: relative;
   z-index: -1;
@@ -230,7 +230,7 @@ header {
     transform: scale(1);
   }
 
-  5% {
+  1% {
     transform: scale(1.25);
   }
 
