@@ -115,6 +115,7 @@ header {
   &-name {
     padding: .75rem 1rem;
     margin: auto;
+    height: 3rem;
 
     &-letter {
       display: inline-block;
@@ -320,7 +321,7 @@ header {
     justify-content: space-between;
     gap: 2rem;
     position: sticky;
-    top: 3rem;
+    top: 3rem; /* height of the main header */
     background-color: $light;
     padding: .5rem 0;
     margin-top: -.5rem;
