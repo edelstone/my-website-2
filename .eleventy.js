@@ -6,5 +6,4 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("*.png");
   eleventyConfig.addPassthroughCopy("*.ico");
   eleventyConfig.addPassthroughCopy("*.webmanifest");
-  eleventyConfig.addPassthroughCopy("*.pdf");
 };
