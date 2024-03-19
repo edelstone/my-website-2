@@ -205,8 +205,20 @@ header {
       border-radius: 8px;
       border: 2px solid $dark;
 
-      @include breakpoint('small') {
-        content: url(/images/me-wide.jpg);
+      &:nth-child(1) {
+        display: block;
+
+        @include breakpoint('small') {
+          display: none;
+        }
+      }
+
+      &:nth-child(2) {
+        display: none;
+
+        @include breakpoint('small') {
+          display: block;
+        }
       }
     }
   }
@@ -321,7 +333,8 @@ header {
     justify-content: space-between;
     gap: 2rem;
     position: sticky;
-    top: 3rem; /* height of the main header */
+    top: 3rem;
+    /* height of the main header */
     background-color: $light;
     padding: .5rem 0;
     margin-top: -.5rem;
