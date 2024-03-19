@@ -1,4 +1,4 @@
-// Add a class to the sticky case study headers
+// Add a class to the case study headers when scrolled
 let scrollHeader = window.scrollY
 const header = document.querySelector(".case-study-header")
 
