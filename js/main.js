@@ -8,7 +8,7 @@ const removeClass = () => header.classList.remove("pinned")
 window.addEventListener('scroll', function () {
   scrollHeader = window.scrollY;
 
-  if (scrollHeader >= 104) { addClass() }
+  if (scrollHeader >= 96) { addClass() }
   else { removeClass() }
 
   console.log(scrollHeader)
