@@ -336,6 +336,7 @@ header {
 
     &.pinned {
       box-shadow: 0 2px $dark;
+
       @include breakpoint('medium') {
         box-shadow: none;
       }
@@ -359,6 +360,14 @@ header {
         flex-direction: column;
         gap: .5rem;
         align-items: start;
+      }
+
+      h1 {
+        img {
+          max-height: 1.8rem;
+          display: inline;
+          margin-right: 1.25rem;
+        }
       }
     }
 
