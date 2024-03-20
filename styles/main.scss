@@ -67,7 +67,7 @@ h2 {
 }
 
 .no-link {
-  color: rgba($dark, .65);
+  opacity: 0.4;
   margin: 0;
 }
 
@@ -356,12 +356,6 @@ header {
       padding: .5rem 1rem;
       margin: auto;
 
-      @include breakpoint('medium') {
-        flex-direction: column;
-        gap: .5rem;
-        align-items: start;
-      }
-
       h1 {
         img {
           height: auto;
@@ -393,9 +387,16 @@ header {
       display: flex;
       gap: 1rem;
       font-size: 1.25rem;
+      flex-shrink: 0;
 
-      @include breakpoint('medium') {
-        order: -1;
+      img {
+        width: 2rem;
+        height: 2rem;
+
+        @include breakpoint('small') {
+          width: 1.5rem;
+          height: 2rem;
+        }
       }
     }
   }
