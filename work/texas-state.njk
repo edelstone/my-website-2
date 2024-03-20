@@ -7,10 +7,10 @@ caseStudy: true
 <div class="case-study">
   <div class="case-study-header">
     <div class="case-study-header-content constrain">
-      <h1><img class="inline-image-4" src="/images/txst-logo.svg">{{ title }}</h1>
+      <h1>{% include "logos/txst.html" %}{{ title }}</h1>
       <div class="case-study-header-nav">
-        <a href="../kuali"><img alt="Previous" src="/images/caret-left.svg"></a>
-        <a href="../tints-and-shades"><img alt="Next" src="/images/caret-right.svg"></a>
+        <a title="Previous" href="../kuali">{% include "previous.html" %}</a>
+        <a title="Next" href="../tints-and-shades">{% include "next.html" %}</a>
       </div>
     </div>
   </div>

@@ -7,10 +7,10 @@ caseStudy: true
 <div class="case-study">
   <div class="case-study-header">
     <div class="case-study-header-content constrain">
-      <h1><img class="inline-image-1" src="/images/gt-logo.svg">{{ title }}</h1>
+      <h1>{% include "logos/gt.html" %}{{ title }}</h1>
       <div class="case-study-header-nav">
-        <p class="no-link"><img alt="" src="/images/caret-left.svg"></p>
-        <a href="../balto"><img alt="Next" src="/images/caret-right.svg"></a>
+        <a aria-disabled="true">{% include "previous.html" %}</a>
+        <a title="Next" href="../balto">{% include "next.html" %}</a>
       </div>
     </div>
   </div>

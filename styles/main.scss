@@ -66,11 +66,6 @@ h2 {
   max-width: 60rem;
 }
 
-.no-link {
-  opacity: 0.4;
-  margin: 0;
-}
-
 // Skip to main content
 .skip-to-main {
   position: absolute;
@@ -352,30 +347,30 @@ header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
+      gap: 1rem;
       padding: .5rem 1rem;
       margin: auto;
 
       h1 {
-        img {
+        svg {
           height: auto;
           display: inline;
           margin-right: 1.25rem;
 
-          &.inline-image {
-            &-1 {
+          &.logo {
+            &-gt {
               width: 3.2rem;
             }
 
-            &-2 {
+            &-balto {
               width: 2.5rem;
             }
 
-            &-3 {
+            &-kuali {
               width: 1.8rem;
             }
 
-            &-4 {
+            &-txst {
               width: 4rem;
             }
           }
@@ -389,13 +384,18 @@ header {
       font-size: 1.25rem;
       flex-shrink: 0;
 
-      img {
-        width: 2rem;
-        height: 2rem;
-
-        @include breakpoint('small') {
-          width: 1.5rem;
+      a {
+        svg {
+          display: block;
+          width: 2rem;
           height: 2rem;
+          fill: $dark;
+        }
+
+        &[aria-disabled] {
+          svg {
+            fill: rgba($dark, .25);
+          }
         }
       }
     }

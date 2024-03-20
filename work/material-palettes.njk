@@ -9,8 +9,8 @@ caseStudy: true
     <div class="case-study-header-content constrain">
       <h1>{{ title }}</h1>
       <div class="case-study-header-nav">
-        <a href="../tints-and-shades"><img alt="Next" src="/images/caret-left.svg"></a>
-        <p class="no-link"><img alt="" src="/images/caret-right.svg"></p>
+        <a title="Previous" href="../tints-and-shades">{% include "previous.html" %}</a>
+        <a aria-disabled="true">{% include "next.html" %}</a>
       </div>
     </div>
   </div>
