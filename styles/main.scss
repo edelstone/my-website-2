@@ -384,18 +384,18 @@ header {
       font-size: 1.25rem;
       flex-shrink: 0;
 
-      a {
-        svg {
-          display: block;
-          width: 2rem;
-          height: 2rem;
-          fill: $dark;
-        }
+      svg {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        fill: $dark;
+      }
 
-        &[aria-disabled] {
-          svg {
-            fill: rgba($dark, .25);
-          }
+      p.disabled {
+        margin: 0;
+
+        svg {
+          fill: rgba($dark, .25);
         }
       }
     }
