@@ -1,4 +1,0 @@
-Sitemap: https://www.michaeledelstone.com/sitemap.xml
-
-User-agent: *
-Disallow:
