@@ -1,3 +1,7 @@
+---
+excludeFromSitemap: true
+---
+
 # [<img src="icon.svg" width="28px" />](https://michaeledelstone.com) &nbsp;[My website and portfolio](https://michaeledelstone.com)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/04b3019c-b59a-40e8-91c2-173019e07f8b/deploy-status)](https://app.netlify.com/sites/edelstone/deploys)
@@ -20,7 +24,7 @@ This is the source code for my portfolio website. It's built from scratch using 
 
 ## Local development
 
-### Please use *any* of my code or design for your own purposes (fonts must be licensed).
+### Please use *any* of my code or design for your own purposes (except fonts, which must be licensed).
 
 *Prerequisites: Node.js 14+*
 
@@ -28,4 +32,4 @@ This is the source code for my portfolio website. It's built from scratch using 
 1. Navigate to the project in your terminal.
 1. Install dependencies: `npm install`.
 1. Start the server: `npm start`.
-1. Navigate to [localhost:8080](http://localhost:8080/) in your browser.
+1. Navigate to `localhost:8080` in your browser.

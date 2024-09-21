@@ -2,25 +2,7 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H5KFJDXTSR"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-H5KFJDXTSR');
-  </script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ site.description }}">
-  {% include "share.html" %}
-  {% include "favicons.html" %}
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  <link rel="stylesheet" href="/css/fonts.css">
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <title>{{ title }} | {{ site.name }}</title>
+  {% include "head.html" %}
 </head>
 
 <body>
@@ -29,8 +11,17 @@
   <main id="main" class="main constrain">
     {{ content | safe }}
   </main>
-  {% if (caseStudy) %}
-  <script src="/js/main.js"></script>
+  {% if caseStudy %}
+  <script>
+    // Add a class to header when it becomes sticky
+    const el = document.querySelector(".case-study-header");
+    const stickyTop = parseInt(window.getComputedStyle(el).top);
+  
+    window.addEventListener("scroll", () => {
+      const currentTop = el.getBoundingClientRect().top;
+      el.classList.toggle("pinned", currentTop === stickyTop);
+    });
+  </script>
   {% endif %}
 </body>
 

@@ -352,6 +352,7 @@ header {
       margin: auto;
 
       h1 {
+
         svg {
           height: auto;
           display: inline;
@@ -372,6 +373,14 @@ header {
 
             &-txst {
               width: 4rem;
+            }
+
+            &-tints-and-shades {
+              width: 1.9rem;
+            }
+
+            &-material-palettes {
+              width: 2rem;
             }
           }
         }
