@@ -9,7 +9,7 @@
     "watch:11ty": "eleventy --serve",
     "build:11ty": "eleventy",
     "build": "npm run build:css && npm run build:11ty",
-    "start": "concurrently \"npm run watch:sass\" \"npm run watch:11ty\""
+    "start": "concurrently \"npm run watch:css\" \"npm run watch:11ty\""
   },
   "keywords": [
     "product-design",
