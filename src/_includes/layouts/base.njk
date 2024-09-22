@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  {% include "head.njk" %}
+  {% include "snippets/head.njk" %}
 </head>
 
 <body>
-  {% include "header.njk" %}
-  {% include "nav.njk" %}
+  {% include "snippets/header.njk" %}
+  {% include "snippets/nav.njk" %}
   <main id="main" class="main constrain">
     {{ content | safe }}
   </main>
