@@ -20,7 +20,7 @@ This is the source code for my portfolio website. It's built from scratch using 
 
 ## Local development
 
-### Please use *any* of my code or design for your own purposes (except fonts, which must be licensed).
+### MIT License: please use my code or design for your own purposes (except fonts, which must be licensed separately).
 
 *Prerequisites: Node.js 14+*
 
