@@ -1,4 +1,4 @@
-# [<img src="icon.svg" width="28px" />](https://michaeledelstone.com) &nbsp;[My website and portfolio](https://michaeledelstone.com)
+# [<img src="src/icon.svg" width="28px" />](https://michaeledelstone.com) &nbsp;[My website and portfolio](https://michaeledelstone.com)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/04b3019c-b59a-40e8-91c2-173019e07f8b/deploy-status)](https://app.netlify.com/sites/edelstone/deploys)
 

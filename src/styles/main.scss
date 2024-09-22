@@ -121,7 +121,6 @@ header {
 
   &:hover,
   &:focus {
-
     .header-name-letter:nth-child(8n+1) {
       transform: rotate(-10deg);
     }
@@ -221,10 +220,8 @@ header {
 }
 
 // About
-.about {
-  &-section {
-    padding-bottom: 1rem;
-  }
+.about-section {
+  padding-bottom: 1rem;
 }
 
 .heart-emoji {
@@ -249,10 +246,8 @@ header {
 }
 
 // 404 
-.not-found {
-  img {
-    margin-top: 2rem;
-  }
+.not-found img {
+  margin-top: 2rem;
 }
 
 // Work
@@ -351,37 +346,34 @@ header {
       padding: .5rem 1rem;
       margin: auto;
 
-      h1 {
+      h1 svg {
+        height: auto;
+        display: inline;
+        margin-right: 1.25rem;
 
-        svg {
-          height: auto;
-          display: inline;
-          margin-right: 1.25rem;
+        &.logo {
+          &-gt {
+            width: 3.2rem;
+          }
 
-          &.logo {
-            &-gt {
-              width: 3.2rem;
-            }
+          &-balto {
+            width: 2.5rem;
+          }
 
-            &-balto {
-              width: 2.5rem;
-            }
+          &-kuali {
+            width: 1.8rem;
+          }
 
-            &-kuali {
-              width: 1.8rem;
-            }
+          &-txst {
+            width: 4rem;
+          }
 
-            &-txst {
-              width: 4rem;
-            }
+          &-tints-and-shades {
+            width: 1.9rem;
+          }
 
-            &-tints-and-shades {
-              width: 1.9rem;
-            }
-
-            &-material-palettes {
-              width: 2rem;
-            }
+          &-material-palettes {
+            width: 2rem;
           }
         }
       }
