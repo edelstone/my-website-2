@@ -4,11 +4,11 @@
   "description": "I’m a product designer focusing on utilitarian software and brands. I like dogs, national parks, and making useful things with talented people.",
   "main": "index.js",
   "scripts": {
-    "watch:sass": "sass --watch src/styles:_site/css",
-    "build:sass": "sass src/styles:_site/css",
+    "watch:css": "sass --watch src/styles:_site/css",
+    "build:css": "sass src/styles:_site/css",
     "watch:11ty": "eleventy --serve",
     "build:11ty": "eleventy",
-    "build": "concurrently \"npm run build:sass\" \"npm run build:11ty\"",
+    "build": "npm run build:css && npm run build:11ty",
     "start": "concurrently \"npm run watch:sass\" \"npm run watch:11ty\""
   },
   "keywords": [
