@@ -6,6 +6,8 @@
 
 This is the source code for my portfolio website. It's built from scratch using the [11ty static site generator](https://www.11ty.dev) and is designed to be simple, accessible, fast, and content-focused.
 
+Please use any of my code or design for your own purposes (except fonts, which must be licensed separately).
+
 ## Typography
 
 [Lausanne](https://www.weltkern.com/shop/detail-typeface/lausanne) by Nizar Kazan at WELTKERN&reg;.
@@ -19,8 +21,6 @@ This is the source code for my portfolio website. It's built from scratch using 
 - Dark: `#1b1b1b`
 
 ## Local development
-
-### Please use any of my code or design for your own purposes (except fonts, which must be licensed separately).
 
 *Prerequisites: Node.js 14+*
 
