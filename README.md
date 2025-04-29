@@ -10,7 +10,7 @@ Please use any of my code or design for your own purposes (except fonts, which m
 
 ## Typography
 
-[Lausanne](https://www.weltkern.com/shop/detail-typeface/lausanne) by Nizar Kazan at WELTKERN&reg;.
+[Lausanne](https://weltkern.com/typefaces/lausanne) by Nizar Kazan at WELTKERN&reg;.
 
 ## Colors
 
