@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/*.png");
   eleventyConfig.addPassthroughCopy("src/*.ico");
   eleventyConfig.addPassthroughCopy("src/*.webmanifest");
+  eleventyConfig.addPassthroughCopy('src/_redirects');
 
   eleventyConfig.setServerOptions({
     watch: ["./_site/css/**/*.css"]
