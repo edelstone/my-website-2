@@ -252,9 +252,12 @@ header {
 
 // Work
 .work {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+
+  &-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
   &-grid {
     margin-top: 2rem;
