@@ -1,1 +1,1 @@
-/portfolio  /work
+/portfolio/*  /work/:splat
