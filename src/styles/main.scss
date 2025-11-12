@@ -1,4 +1,6 @@
-@import 'variables';
+@use 'fonts';
+@use 'reset';
+@use 'variables' as *;
 
 // General
 ::selection {
@@ -224,27 +226,6 @@ header {
   padding-bottom: 1rem;
 }
 
-.heart-emoji {
-  animation: 1s infinite beat;
-  display: inline-flex;
-  position: relative;
-  z-index: -1;
-}
-
-@keyframes beat {
-  0% {
-    transform: scale(1);
-  }
-
-  1% {
-    transform: scale(1.25);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
 // 404 
 .not-found img {
   margin-top: 2rem;
@@ -286,31 +267,45 @@ header {
   &-card {
     border: 2px solid $dark;
     border-radius: .5rem;
-    margin: 0;
     flex: 0 1 50%;
-    overflow: hidden;
     background-color: $tan;
+    overflow: hidden;
+    text-decoration: none;
 
-    img {
-      height: 10rem;
-      width: 100%;
-      object-fit: cover;
-      object-position: top;
-      border-bottom: 2px solid $dark;
+    &:focus,
+    &:hover {
+      h3 {
+        text-decoration: none;
+      }
     }
 
-    figcaption {
-      padding: 1rem;
+    figure {
+      margin: 0;
 
-      a {
-        margin-bottom: .5rem;
-        color: $dark;
-        font-weight: bold;
+      img {
+        height: 10rem;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
       }
 
-      p {
-        margin: 0;
-        font-size: 1.25rem;
+      figcaption {
+        padding: 1rem;
+        color: $dark;
+
+        h3 {
+          margin-bottom: .5rem;
+          font-weight: bold;
+          font-size: 1.5rem;
+          line-height: 1.5;
+          margin: 0;
+          text-decoration: underline;
+        }
+
+        p {
+          margin: 0;
+          font-size: 1.25rem;
+        }
       }
     }
   }

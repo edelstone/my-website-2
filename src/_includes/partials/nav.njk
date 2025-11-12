@@ -1,0 +1,7 @@
+<nav class="nav constrain">
+  {% for i in nav %}
+  <a href="{{ i.url }}" {% if page.url==i.url %}aria-current="page" {% endif %}>
+    {{ i.label }}
+  </a>
+  {% endfor %}
+</nav>
