@@ -1,6 +1,9 @@
 <nav class="nav constrain">
   {% for i in nav %}
-  <a href="{{ i.url }}" {% if page.url==i.url %}aria-current="page" {% endif %}>
+  {% set url = i.url %}
+  {% set isExact = (page.url == url) %}
+  {% set isSection = (url != '/' and page.url.indexOf(url) == 0) %}
+  <a href="{{ url }}" {% if isExact or isSection %} aria-current="page" {% endif %}>
     {{ i.label }}
   </a>
   {% endfor %}
