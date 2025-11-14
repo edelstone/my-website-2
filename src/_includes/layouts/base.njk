@@ -12,16 +12,7 @@
     {{ content | safe }}
   </main>
   {% if caseStudy %}
-  <script>
-    // Add a class to header when it becomes sticky
-    const el = document.querySelector(".case-study-header");
-    const stickyTop = parseInt(window.getComputedStyle(el).top);
-  
-    window.addEventListener("scroll", () => {
-      const currentTop = el.getBoundingClientRect().top;
-      el.classList.toggle("pinned", currentTop === stickyTop);
-    });
-  </script>
+  {% include "partials/scripts.njk" %}
   {% endif %}
 </body>
 

@@ -1,0 +1,22 @@
+<script>
+  const h = document.querySelector(".case-study-header");
+  if (h) {
+    let start;
+
+    const calc = () => {
+      const top = parseFloat(getComputedStyle(h).top) || 0;
+      const r = h.getBoundingClientRect();
+      const y = scrollY;
+      start = r.top + y - top;
+    };
+
+    const run = () => {
+      h.classList.toggle("pinned", scrollY >= start);
+    };
+
+    calc();
+    run();
+    addEventListener("scroll", run);
+    addEventListener("resize", () => { calc(); run(); });
+  }
+</script>
