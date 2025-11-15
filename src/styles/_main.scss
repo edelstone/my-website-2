@@ -9,6 +9,7 @@
 
 html {
   background-color: $light;
+  font-size: 125%;
 
   @include breakpoint('medium') {
     font-size: 92.5%;
