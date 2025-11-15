@@ -1,22 +1,16 @@
 <script>
-  const h = document.querySelector(".case-study-header");
-  if (h) {
-    let start;
+  const header = document.querySelector('.case-study-header');
 
-    const calc = () => {
-      const top = parseFloat(getComputedStyle(h).top) || 0;
-      const r = h.getBoundingClientRect();
-      const y = scrollY;
-      start = r.top + y - top;
-    };
+  if (header) {
+    const sentinel = document.createElement('div');
+    sentinel.style.position = 'absolute';
+    header.before(sentinel);
 
-    const run = () => {
-      h.classList.toggle("pinned", scrollY >= start);
-    };
+    const top = parseFloat(getComputedStyle(header).top) || 0;
 
-    calc();
-    run();
-    addEventListener("scroll", run);
-    addEventListener("resize", () => { calc(); run(); });
+    new IntersectionObserver(
+      ([e]) => header.classList.toggle('pinned', !e.isIntersecting),
+      { rootMargin: `-${top}px 0px 0px 0px` }
+    ).observe(sentinel);
   }
 </script>
