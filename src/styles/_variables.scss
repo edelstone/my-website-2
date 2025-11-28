@@ -5,6 +5,12 @@ $dark: #1b1b1b;
 $blue: #005198;
 
 @mixin breakpoint($point, $value: "") {
+  @if $point =='large' {
+    @media only screen and (max-width: 70rem) {
+      @content;
+    }
+  }
+
   @if $point =='medium' {
     @media only screen and (max-width: 50rem) {
       @content;

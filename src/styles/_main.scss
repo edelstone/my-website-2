@@ -11,6 +11,10 @@ html {
   background-color: $light;
   font-size: 110%;
 
+  @include breakpoint('large') {
+    font-size: 100%;
+  }
+
   @include breakpoint('medium') {
     font-size: 92.5%;
   }
