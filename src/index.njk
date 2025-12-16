@@ -6,8 +6,10 @@ permalink: /
 
 <div class="homebase">
   <div class="homebase-visual">
-    <img src="images/me-portrait.jpg" alt=""> <!-- for bigger screens -->
-    <img src="images/me-landscape.jpg" alt=""> <!-- for smaller screens -->
+    <picture>
+      <source srcset="images/me-landscape.jpg" media="{{ media.portraitSwap }}">
+      <img src="images/me-portrait.jpg" alt="">
+    </picture>
   </div>
   <div class="homebase-text">
     <div class="homebase-text-header">

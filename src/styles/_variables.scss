@@ -4,22 +4,33 @@ $tan: #e4d8cd;
 $dark: #1b1b1b;
 $blue: #005198;
 
-@mixin breakpoint($point, $value: "") {
-  @if $point =='large' {
-    @media only screen and (max-width: 70rem) {
-      @content;
-    }
+$radius: .5rem;
+
+$banner-wave: (
+  1: rotate(-10deg),
+  2: translateY(-2px) rotate(-5deg),
+  3: translateY(-3px),
+  4: translateY(-2px) rotate(5deg),
+  5: rotate(10deg),
+  6: translateY(2px) rotate(5deg),
+  7: translateY(3px),
+  8: translateY(2px) rotate(-5deg)
+);
+
+$breakpoints: (
+  small: 40rem,
+  medium: 50rem,
+  large: 70rem
+);
+
+@mixin breakpoint($point) {
+  $limit: map-get($breakpoints, $point);
+
+  @if not $limit {
+    @warn "No breakpoint defined for `#{$point}`.";
   }
 
-  @if $point =='medium' {
-    @media only screen and (max-width: 50rem) {
-      @content;
-    }
-  }
-
-  @else if $point =='small' {
-    @media only screen and (max-width: 40rem) {
-      @content;
-    }
+  @media only screen and (max-width: $limit) {
+    @content;
   }
 }
