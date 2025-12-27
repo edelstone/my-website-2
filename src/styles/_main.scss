@@ -84,7 +84,7 @@ header {
 
   .banner {
     background: $dark;
-    display: flex;
+    display: grid;
     align-items: center;
     color: $light;
     text-decoration: none;
@@ -95,9 +95,11 @@ header {
 
     &-name {
       padding: 0 1rem;
-      flex: 1;
-      display: flex;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
       gap: .3rem;
+      width: 100%;
 
       &-letter {
         display: inline-block;
@@ -121,7 +123,9 @@ header {
 // Navigation
 .nav {
   font-size: 1rem;
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
   gap: 1rem;
   padding: 0 .5rem;
   margin-top: .5rem;
@@ -140,7 +144,8 @@ header {
 
 // Home
 .homebase {
-  display: flex;
+  display: grid;
+  grid-template-columns: 18rem 1fr;
   gap: 2rem;
 
   @include breakpoint('medium') {
@@ -148,16 +153,10 @@ header {
   }
 
   @include breakpoint('small') {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   &-visual {
-    flex: 0 0 18rem;
-
-    @include breakpoint('small') {
-      flex-basis: 100%;
-    }
-
     img {
       border-radius: $radius;
       border: 2px solid $dark;
@@ -174,15 +173,13 @@ header {
 .work {
 
   &-sections {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 1rem;
   }
 
   &-grid {
     margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 2rem;
 
     @include breakpoint('medium') {
@@ -191,22 +188,22 @@ header {
   }
 
   &-row {
-    display: flex;
+    display: grid;
     gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
 
     @include breakpoint('medium') {
       gap: 1.5rem;
     }
 
     @include breakpoint('small') {
-      flex-direction: column;
+      grid-template-columns: 1fr;
     }
   }
 
   &-card {
     border: 2px solid $dark;
     border-radius: $radius;
-    flex: 0 1 50%;
     background-color: $tan;
     overflow: hidden;
     text-decoration: none;
@@ -262,9 +259,9 @@ header {
     }
 
     &-content {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      justify-content: space-between;
       gap: 1rem;
       padding: .5rem 1rem;
 
@@ -302,10 +299,11 @@ header {
     }
 
     &-nav {
-      display: flex;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
       gap: 1rem;
       font-size: 1.25rem;
-      flex-shrink: 0;
 
       svg {
         display: block;
@@ -317,12 +315,13 @@ header {
   }
 
   &-cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-top: 1.5rem;
 
     @include breakpoint('medium') {
-      flex-direction: column;
+      grid-template-columns: 1fr;
       gap: 0;
     }
 
@@ -332,7 +331,6 @@ header {
       border-radius: $radius;
       background-color: $tan;
       border: 2px solid $dark;
-      flex-basis: calc(100% / 3);
 
       @include breakpoint('medium') {
         &:nth-child(1) {
@@ -374,8 +372,8 @@ header {
 
   &-visuals {
     margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 2rem;
 
     img {
