@@ -12,5 +12,10 @@
       ([e]) => header.classList.toggle('pinned', !e.isIntersecting),
       { rootMargin: `-${top}px 0px 0px 0px` }
     ).observe(sentinel);
+
+    requestAnimationFrame(() => {
+      const rectTop = header.getBoundingClientRect().top;
+      header.classList.toggle('pinned', rectTop <= top);
+    });
   }
 </script>

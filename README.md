@@ -18,6 +18,7 @@ Please use any of my code or design for your own purposes (except fonts, which m
 - Light: `#f6f0e8`
 - Tan: `#e4d8cd`
 - Blue: `#005198`
+- Neutral: `#8d8d8d`
 - Dark: `#1b1b1b`
 
 ## Local development

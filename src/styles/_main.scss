@@ -216,12 +216,6 @@ header {
     figure {
       margin: 0;
 
-      img {
-        aspect-ratio: 2.8 / 1;
-        object-fit: cover;
-        object-position: top;
-      }
-
       figcaption {
         padding: 1rem;
         color: $dark;
@@ -377,6 +371,10 @@ header {
     grid-template-columns: 1fr;
     gap: 3rem;
 
+    img:not([class]) {
+      border: 1px solid $neutral;
+    }
+    
     &-browser {
       margin-bottom: -2rem;
     }
