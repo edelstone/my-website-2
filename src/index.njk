@@ -4,14 +4,32 @@ title: Welcome to my website
 permalink: /
 ---
 
+{% from "partials/picture.njk" import picture %}
+
 <div class="homebase">
   <div class="homebase-visual">
-    <picture>
-      <source srcset="images/me-landscape.webp" type="image/webp" media="{{ media.portraitSwap }}">
-      <source srcset="images/me-landscape.jpg" media="{{ media.portraitSwap }}">
-      <source srcset="images/me-portrait.webp" type="image/webp">
-      <img src="images/me-portrait.jpg" alt="">
-    </picture>
+    {{ picture({
+      name: "me-portrait",
+      ext: "jpg",
+      decorative: true,
+      sizes: "(max-width: 40rem) 100vw, 18rem",
+      loading: "eager",
+      fetchpriority: "high",
+      sources: [
+        {
+          name: "me-landscape",
+          format: "webp",
+          type: "image/webp",
+          media: media.portraitSwap
+        },
+        {
+          name: "me-landscape",
+          format: "jpg",
+          type: "image/jpeg",
+          media: media.portraitSwap
+        }
+      ]
+    }) }}
   </div>
   <div class="homebase-text">
     <div class="homebase-text-header">

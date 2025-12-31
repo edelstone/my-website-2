@@ -5,6 +5,8 @@ caseStudy: true
 permalink: /work/material-palettes/
 ---
 
+{% from "partials/picture.njk" import picture %}
+
 <div class="case-study">
   <div class="case-study-header">
     <div class="case-study-header-content constrain">
@@ -23,13 +25,19 @@ permalink: /work/material-palettes/
     </ul>
   </div>
   <div class="case-study-visuals">
-    <picture>
-      <source srcset="/images/material-home.webp" type="image/webp">
-      <img src="/images/material-home.png" class="case-study-visuals-browser" alt="Product shot, home">
-    </picture>
-    <picture>
-      <source srcset="/images/material-export.webp" type="image/webp">
-      <img src="/images/material-export.png" class="case-study-visuals-browser" alt="Product shot, export">
-    </picture>
+    {{ picture({
+      name: "material-home",
+      ext: "png",
+      alt: "Product shot, home",
+      class: "case-study-visuals-browser",
+      loading: "eager",
+      fetchpriority: "high"
+    }) }}
+    {{ picture({
+      name: "material-export",
+      ext: "png",
+      alt: "Product shot, export",
+      class: "case-study-visuals-browser"
+    }) }}
   </div>
 </div>

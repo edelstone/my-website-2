@@ -161,6 +161,7 @@ header {
     img {
       border-radius: $radius;
       border: 2px solid $dark;
+      width: 100%;
     }
   }
 }
@@ -374,7 +375,7 @@ header {
     img:not([class]) {
       border: 1px solid $neutral;
     }
-    
+
     &-browser {
       margin-bottom: -2rem;
     }

@@ -5,6 +5,8 @@ caseStudy: true
 permalink: /work/tints-and-shades/
 ---
 
+{% from "partials/picture.njk" import picture %}
+
 <div class="case-study">
   <div class="case-study-header">
     <div class="case-study-header-content constrain">
@@ -24,17 +26,25 @@ permalink: /work/tints-and-shades/
     </ul>
   </div>
   <div class="case-study-visuals">
-    <picture>
-      <source srcset="/images/tints-shades-home.webp" type="image/webp">
-      <img src="/images/tints-shades-home.png" class="case-study-visuals-browser" alt="Product shot, home">
-    </picture>
-    <picture>
-      <source srcset="/images/tints-shades-palettes.webp" type="image/webp">
-      <img src="/images/tints-shades-palettes.png" class="case-study-visuals-browser" alt="Product shot, generated color palettes">
-    </picture>
-    <picture>
-      <source srcset="/images/tints-shades-export.webp" type="image/webp">
-      <img src="/images/tints-shades-export.png" class="case-study-visuals-browser" alt="Product shot, export all colors">
-    </picture>
+    {{ picture({
+      name: "tints-shades-home",
+      ext: "png",
+      alt: "Product shot, home",
+      class: "case-study-visuals-browser",
+      loading: "eager",
+      fetchpriority: "high"
+    }) }}
+    {{ picture({
+      name: "tints-shades-palettes",
+      ext: "png",
+      alt: "Product shot, generated color palettes",
+      class: "case-study-visuals-browser"
+    }) }}
+    {{ picture({
+      name: "tints-shades-export",
+      ext: "png",
+      alt: "Product shot, export all colors",
+      class: "case-study-visuals-browser"
+    }) }}
   </div>
 </div>

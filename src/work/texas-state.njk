@@ -5,6 +5,8 @@ caseStudy: true
 permalink: /work/texas-state/
 ---
 
+{% from "partials/picture.njk" import picture %}
+
 <div class="case-study">
   <div class="case-study-header">
     <div class="case-study-header-content constrain">
@@ -34,29 +36,38 @@ permalink: /work/texas-state/
     <p>I identified and led several initiatives to close this gap, resulting in 1&rpar; an accessible, multi-column template used by hundreds of content creators, 2&rpar; an admissions-focused, responsive homepage, and 3&rpar; a flexible digital identity documented to guide future product updates. Each represented a first for the university.</p>
   </div>
   <div class="case-study-visuals">
-    <picture>
-      <source srcset="/images/txst-browser.webp" type="image/webp">
-      <img src="/images/txst-browser.png" class="case-study-visuals-browser" alt="Texas State style guide">
-    </picture>
-    <picture>
-      <source srcset="/images/txst-homepage.webp" type="image/webp">
-      <img src="/images/txst-homepage.png" alt="Texas State homepage mockup">
-    </picture>
-    <picture>
-      <source srcset="/images/txst-components.webp" type="image/webp">
-      <img src="/images/txst-components.png" alt="Style guide component examples">
-    </picture>
-    <picture>
-      <source srcset="/images/txst-sliders.webp" type="image/webp">
-      <img src="/images/txst-sliders.png" alt="Style guide slider component">
-    </picture>
-    <picture>
-      <source srcset="/images/txst-template.webp" type="image/webp">
-      <img src="/images/txst-template.png" alt="Texas State template examples">
-    </picture>
-    <picture>
-      <source srcset="/images/txst-marketing.webp" type="image/webp">
-      <img src="/images/txst-marketing.png" alt="University Marketing team bios page">
-    </picture>
+    {{ picture({
+      name: "txst-browser",
+      ext: "png",
+      alt: "Texas State style guide",
+      class: "case-study-visuals-browser",
+      loading: "eager",
+      fetchpriority: "high"
+    }) }}
+    {{ picture({
+      name: "txst-homepage",
+      ext: "png",
+      alt: "Texas State homepage mockup"
+    }) }}
+    {{ picture({
+      name: "txst-components",
+      ext: "png",
+      alt: "Style guide component examples"
+    }) }}
+    {{ picture({
+      name: "txst-sliders",
+      ext: "png",
+      alt: "Style guide slider component"
+    }) }}
+    {{ picture({
+      name: "txst-template",
+      ext: "png",
+      alt: "Texas State template examples"
+    }) }}
+    {{ picture({
+      name: "txst-marketing",
+      ext: "png",
+      alt: "University Marketing team bios page"
+    }) }}
   </div>
 </div>

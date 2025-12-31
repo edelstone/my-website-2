@@ -5,6 +5,8 @@ caseStudy: true
 permalink: /work/balto/
 ---
 
+{% from "partials/picture.njk" import picture %}
+
 <div class="case-study">
   <div class="case-study-header">
     <div class="case-study-header-content constrain">
@@ -34,25 +36,33 @@ permalink: /work/balto/
     <p>Building on Balto&rsquo;s machine learning foundation, I conceived and validated multiple user flows that resulted in a new product offering, <em>Real-Time Coaching</em>. The module introduced a native chat experience and an array of data-visualization tools, giving managers an at-a-glance view of team activity and productivity.</p>
   </div>
   <div class="case-study-visuals">
-    <picture>
-      <source srcset="/images/balto-browser.webp" type="image/webp">
-      <img src="/images/balto-browser.png" class="case-study-visuals-browser" alt="Product shot, agent chat">
-    </picture>
-    <picture>
-      <source srcset="/images/balto-alerts.webp" type="image/webp">
-      <img src="/images/balto-alerts.png" alt="Product shot, alerts table">
-    </picture>
-    <picture>
-      <source srcset="/images/balto-form.webp" type="image/webp">
-      <img src="/images/balto-form.png" alt="Product shot, create an alert">
-    </picture>
-    <picture>
-      <source srcset="/images/balto-log.webp" type="image/webp">
-      <img src="/images/balto-log.png" alt="Product shot, activity log">
-    </picture>
-    <picture>
-      <source srcset="/images/balto-scores.webp" type="image/webp">
-      <img src="/images/balto-scores.png" alt="Product shot, agent scores">
-    </picture>
+    {{ picture({
+      name: "balto-browser",
+      ext: "png",
+      alt: "Product shot, agent chat",
+      class: "case-study-visuals-browser",
+      loading: "eager",
+      fetchpriority: "high"
+    }) }}
+    {{ picture({
+      name: "balto-alerts",
+      ext: "png",
+      alt: "Product shot, alerts table"
+    }) }}
+    {{ picture({
+      name: "balto-form",
+      ext: "png",
+      alt: "Product shot, create an alert"
+    }) }}
+    {{ picture({
+      name: "balto-log",
+      ext: "png",
+      alt: "Product shot, activity log"
+    }) }}
+    {{ picture({
+      name: "balto-scores",
+      ext: "png",
+      alt: "Product shot, agent scores"
+    }) }}
   </div>
 </div>

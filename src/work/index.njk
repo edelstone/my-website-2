@@ -4,6 +4,9 @@ title: Recent work
 permalink: /work/
 ---
 
+{% from "partials/picture.njk" import picture %}
+{% set thumbSizes = "(max-width: 40rem) 100vw, (max-width: 70rem) 50vw, 528px" %}
+
 <div class="work">
   <div class="work-header">
     <h1>My portfolio</h1>
@@ -17,10 +20,12 @@ permalink: /work/
         <div class="work-row">
           <a href="gtreasury" class="work-card">
             <figure>
-              <picture>
-                <source srcset="/images/thumb-gt.webp" type="image/webp">
-                <img src="/images/thumb-gt.png" alt="">
-              </picture>
+              {{ picture({
+                name: "thumb-gt",
+                ext: "png",
+                decorative: true,
+                sizes: thumbSizes
+              }) }}
               <figcaption>
                 <h3>Modernizing a monolith</h3>
                 <p>A component-based redesign and content strategy for a global financial firm.</p>
@@ -29,10 +34,12 @@ permalink: /work/
           </a>
           <a href="balto" class="work-card">
             <figure>
-              <picture>
-                <source srcset="/images/thumb-balto.webp" type="image/webp">
-                <img src="/images/thumb-balto.png" alt="">
-              </picture>
+              {{ picture({
+                name: "thumb-balto",
+                ext: "png",
+                decorative: true,
+                sizes: thumbSizes
+              }) }}
               <figcaption>
                 <h3>A.I. phone home</h3>
                 <p>Real-time chat and listening tools for coaches in high-volume contact centers.</p>
@@ -43,10 +50,12 @@ permalink: /work/
         <div class="work-row">
           <a href="kuali" class="work-card">
             <figure>
-              <picture>
-                <source srcset="/images/thumb-kuali.webp" type="image/webp">
-                <img src="/images/thumb-kuali.png" alt="">
-              </picture>
+              {{ picture({
+                name: "thumb-kuali",
+                ext: "png",
+                decorative: true,
+                sizes: thumbSizes
+              }) }}
               <figcaption>
                 <h3>For the common good</h3>
                 <p>A unifying experience for the world&rsquo;s most crucial research projects.</p>
@@ -55,10 +64,12 @@ permalink: /work/
           </a>
           <a href="texas-state" class="work-card">
             <figure>
-              <picture>
-                <source srcset="/images/thumb-txst.webp" type="image/webp">
-                <img src="/images/thumb-txst.png" alt="">
-              </picture>
+              {{ picture({
+                name: "thumb-txst",
+                ext: "png",
+                decorative: true,
+                sizes: thumbSizes
+              }) }}
               <figcaption>
                 <h3>Branding a bobcat</h3>
                 <p>An accessible digital identity to align and inspire a renowned Texas institution.</p>
@@ -76,10 +87,12 @@ permalink: /work/
         <div class="work-row">
           <a href="tints-and-shades" class="work-card">
             <figure>
-              <picture>
-                <source srcset="/images/thumb-tints-shades.webp" type="image/webp">
-                <img src="/images/thumb-tints-shades.png" alt="">
-              </picture>
+              {{ picture({
+                name: "thumb-tints-shades",
+                ext: "png",
+                decorative: true,
+                sizes: thumbSizes
+              }) }}
               <figcaption>
                 <h3>Tint &amp; Shade Generator</h3>
                 <p>One of the most popular color tools on the web, with users in over 180 countries.</p>
@@ -88,10 +101,12 @@ permalink: /work/
           </a>
           <a href="material-palettes" class="work-card">
             <figure>
-              <picture>
-                <source srcset="/images/thumb-material.webp" type="image/webp">
-                <img src="/images/thumb-material.png" alt="">
-              </picture>
+              {{ picture({
+                name: "thumb-material",
+                ext: "png",
+                decorative: true,
+                sizes: thumbSizes
+              }) }}
               <figcaption>
                 <h3>Material Palettes</h3>
                 <p>Perfect color palettes based on Google&rsquo;s design system methodology.</p>

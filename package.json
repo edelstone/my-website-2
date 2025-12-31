@@ -10,7 +10,8 @@
     "build:11ty": "eleventy",
     "build:images": "node scripts/build-images.js",
     "clean:images": "node -e \"require('fs').rmSync('.cache/images', { recursive: true, force: true }); console.log('Cleared .cache/images');\"",
-    "build": "npm run build:css && npm run build:11ty && npm run build:images",
+    "check:images": "node scripts/check-image-references.js",
+    "build": "npm run build:css && npm run build:images && npm run build:11ty && npm run check:images",
     "start": "concurrently \"npm run watch:css\" \"npm run watch:11ty\""
   },
   "keywords": [

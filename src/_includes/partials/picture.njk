@@ -1,0 +1,55 @@
+{% macro picture(opts) %}
+  {% set widths = opts.widths or [800, 1400, 2000] %}
+  {% set sizes = opts.sizes or "(max-width: 50rem) 100vw, 1020px" %}
+  {% set defaultWidth = widths[widths.length // 2] %}
+  {% set defaultWidthKey = defaultWidth ~ "" %}
+  {% set className = opts.class or "" %}
+  {% set elementId = opts.id %}
+  {% set inlineStyle = opts.style %}
+  {% set loading = opts.loading or "lazy" %}
+  {% set decoding = opts.decoding or "async" %}
+  {% set fetchpriority = opts.fetchpriority %}
+  {% set metaSource = imageMeta if imageMeta is defined else {} %}
+  {% set meta = metaSource[opts.name ~ "." ~ opts.ext] %}
+  {% set sizeData = null %}
+  {% if meta and meta.widths and meta.widths[defaultWidthKey] %}
+    {% set sizeData = meta.widths[defaultWidthKey] %}
+  {% endif %}
+  <picture>
+    {% if opts.sources %}
+      {% for source in opts.sources %}
+        <source
+          {% if source.media %}media="{{ source.media }}"{% endif %}
+          type="{{ source.type }}"
+          srcset="{% for w in widths %}/images/{{ source.name }}-{{ w }}w.{{ source.format }} {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}"
+          sizes="{{ sizes }}"
+        >
+      {% endfor %}
+    {% endif %}
+    {% if opts.includeDefaultWebp is not defined or opts.includeDefaultWebp %}
+      <source
+        type="image/webp"
+        srcset="{% for w in widths %}/images/{{ opts.name }}-{{ w }}w.webp {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}"
+        sizes="{{ sizes }}"
+      >
+    {% endif %}
+    <img
+      src="/images/{{ opts.name }}-{{ defaultWidth }}w.{{ opts.ext }}"
+      srcset="{% for w in widths %}/images/{{ opts.name }}-{{ w }}w.{{ opts.ext }} {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}"
+      sizes="{{ sizes }}"
+      {% if sizeData %}width="{{ sizeData.width }}" height="{{ sizeData.height }}"{% endif %}
+      {% if opts.decorative %}
+      alt=""
+      aria-hidden="true"
+      {% else %}
+      alt="{{ opts.alt or "" }}"
+      {% endif %}
+      {% if className %}class="{{ className }}"{% endif %}
+      {% if elementId %}id="{{ elementId }}"{% endif %}
+      {% if inlineStyle %}style="{{ inlineStyle }}"{% endif %}
+      {% if loading %}loading="{{ loading }}"{% endif %}
+      {% if decoding %}decoding="{{ decoding }}"{% endif %}
+      {% if fetchpriority %}fetchpriority="{{ fetchpriority }}"{% endif %}
+    >
+  </picture>
+{% endmacro %}
