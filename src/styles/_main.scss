@@ -375,14 +375,10 @@ header {
     margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
-
-    img {
-      border-radius: $radius;
-    }
+    gap: 3rem;
 
     &-browser {
-      margin-bottom: -1rem;
+      margin-bottom: -2rem;
     }
 
     &-insert {

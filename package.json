@@ -8,7 +8,9 @@
     "build:css": "sass src/styles:_site/css --style=compressed",
     "watch:11ty": "eleventy --serve",
     "build:11ty": "eleventy",
-    "build": "npm run build:css && npm run build:11ty",
+    "build:images": "node scripts/build-images.js",
+    "clean:images": "node -e \"require('fs').rmSync('.cache/images', { recursive: true, force: true }); console.log('Cleared .cache/images');\"",
+    "build": "npm run build:css && npm run build:11ty && npm run build:images",
     "start": "concurrently \"npm run watch:css\" \"npm run watch:11ty\""
   },
   "keywords": [
@@ -24,6 +26,8 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "concurrently": "^9.0.1",
-    "sass": "^1.71.1"
+    "oxipng-bin": "^9.0.0",
+    "sass": "^1.71.1",
+    "sharp": "^0.33.4"
   }
 }
