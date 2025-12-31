@@ -4,7 +4,7 @@ title: Recent work
 permalink: /work/
 ---
 
-{% from "partials/picture.njk" import picture %}
+{% from "partials/picture.njk" import picture with context %}
 {% set thumbSizes = "(max-width: 40rem) 100vw, (max-width: 70rem) 50vw, 528px" %}
 
 <div class="work">
@@ -110,6 +110,22 @@ permalink: /work/
               <figcaption>
                 <h3>Material Palettes</h3>
                 <p>Perfect color palettes based on Google&rsquo;s design system methodology.</p>
+              </figcaption>
+            </figure>
+          </a>
+        </div>
+        <div class="work-row">
+          <a href="tock" class="work-card">
+            <figure>
+              {{ picture({
+                name: "thumb-tock",
+                ext: "png",
+                decorative: true,
+                sizes: thumbSizes
+              }) }}
+              <figcaption>
+                <h3>Tock</h3>
+                <p>A super-minimal menu bar timer with natural-language parsing and configurable tones.</p>
               </figcaption>
             </figure>
           </a>

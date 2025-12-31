@@ -33,6 +33,10 @@ body {
   overflow-x: clip;
 }
 
+img {
+  height: auto;
+}
+
 main {
   padding: 1rem;
   margin: 3rem 0;
@@ -261,7 +265,8 @@ header {
       gap: 1rem;
       padding: .5rem 1rem;
 
-      h1 svg {
+      h1 svg,
+      h1 img {
         height: auto;
         display: inline;
         margin-right: 1.25rem;
@@ -289,6 +294,10 @@ header {
 
           &-material-palettes {
             width: 2rem;
+          }
+
+          &-tock {
+            width: 1.4rem;
           }
         }
       }
@@ -373,7 +382,7 @@ header {
     gap: 3rem;
 
     img:not([class]) {
-      border: 1px solid $neutral;
+      border: 1px solid $gray;
     }
 
     &-browser {

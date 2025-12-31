@@ -7,15 +7,15 @@ const sharp = require("sharp");
 const SOURCE_DIR = path.join(__dirname, "..", "src", "images");
 const OUTPUT_DIR = path.join(__dirname, "..", "_site", "images");
 const CACHE_DIR = path.join(__dirname, "..", ".cache", "images");
-const MANIFEST_PATH = path.join(__dirname, "..", "src", "_data", "image-meta.json");
+const MANIFEST_PATH = path.join(__dirname, "..", "src", "_data", "imageMeta.json");
 const WEBP_QUALITY = 80;
 const RESPONSIVE_WIDTHS = [800, 1400, 2000];
 
 const PNG_EXTENSIONS = new Set([".png"]);
 const JPG_EXTENSIONS = new Set([".jpg", ".jpeg"]);
 const GIF_EXTENSIONS = new Set([".gif"]);
-const NO_WEBP = new Set(["me-share.jpg"]);
-const NO_RESPONSIVE = new Set(["me-share.jpg"]);
+const NO_WEBP = new Set(["me-share.jpg", "tock-icon.png"]);
+const NO_RESPONSIVE = new Set(["me-share.jpg", "tock-icon.png"]);
 const OXIPNG_LEVEL = process.env.OXIPNG_LEVEL || "3";
 const CACHE_VERSION = "v2";
 
@@ -112,14 +112,15 @@ async function processPng(inputPath, width, cachePaths, outputPaths) {
     console.warn(`oxipng skipped for ${path.basename(cachePng)}: ${error.message}`);
   }
 
-  await ensureDirForFile(cacheWebp);
-  await resized
-    .clone()
-    .webp({ lossless: true, effort: 6 })
-    .toFile(cacheWebp);
-
   await copyFromCache(cachePng, outputPng);
-  await copyFromCache(cacheWebp, outputWebp);
+  if (cacheWebp && outputWebp) {
+    await ensureDirForFile(cacheWebp);
+    await resized
+      .clone()
+      .webp({ lossless: true, effort: 6 })
+      .toFile(cacheWebp);
+    await copyFromCache(cacheWebp, outputWebp);
+  }
 }
 
 async function processJpg(inputPath, width, cachePaths, outputPaths) {
@@ -204,22 +205,26 @@ async function buildImages() {
       }
     }
     if (PNG_EXTENSIONS.has(extension)) {
+      const shouldSkipWebp = NO_WEBP.has(path.basename(file));
       for (const width of widths) {
         const outputPng = width
           ? getOutputPathForWidth(file, ".png", width)
           : getOutputPath(file, ".png");
-        const outputWebp = width
-          ? getOutputPathForWidth(file, ".webp", width)
-          : getOutputPath(file, ".webp");
+        const outputWebp = shouldSkipWebp
+          ? null
+          : width
+            ? getOutputPathForWidth(file, ".webp", width)
+            : getOutputPath(file, ".webp");
         const hash = hashWithSettings(fileBuffer, {
           ...baseSettings,
           width,
-          webpLossless: true,
+          webpLossless: shouldSkipWebp ? null : true,
           format: "png"
         });
         const cachePng = getCachePath(hash, outputPng);
-        const cacheWebp = getCachePath(hash, outputWebp);
-        const hit = await Promise.all([cachePng, cacheWebp].map(async (p) => {
+        const cacheWebp = outputWebp ? getCachePath(hash, outputWebp) : null;
+        const expected = [cachePng, cacheWebp].filter(Boolean);
+        const hit = await Promise.all(expected.map(async (p) => {
           try {
             await fs.access(p);
             return true;
@@ -229,7 +234,9 @@ async function buildImages() {
         }));
         if (hit.every(Boolean)) {
           await copyFromCache(cachePng, outputPng);
-          await copyFromCache(cacheWebp, outputWebp);
+          if (cacheWebp && outputWebp) {
+            await copyFromCache(cacheWebp, outputWebp);
+          }
           cacheHits += 1;
         } else {
           await processPng(

@@ -5,7 +5,7 @@ caseStudy: true
 permalink: /work/material-palettes/
 ---
 
-{% from "partials/picture.njk" import picture %}
+{% from "partials/picture.njk" import picture with context %}
 
 <div class="case-study">
   <div class="case-study-header">
@@ -13,7 +13,7 @@ permalink: /work/material-palettes/
       <h1>{% include "assets/material-palettes.njk" %}{{ title }}</h1>
       <div class="case-study-header-nav">
         <a title="Previous" href="../tints-and-shades">{% include "assets/previous.njk" %}</a>
-        <a title="Next" href="../gtreasury">{% include "assets/next.njk" %}</a>
+        <a title="Next" href="../tock">{% include "assets/next.njk" %}</a>
       </div>
     </div>
   </div>

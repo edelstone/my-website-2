@@ -18,7 +18,7 @@ Please use any of my code or design for your own purposes (except fonts, which m
 - Light: `#f6f0e8`
 - Tan: `#e4d8cd`
 - Blue: `#005198`
-- Neutral: `#8d8d8d`
+- Gray: `#8d8d8d`
 - Dark: `#1b1b1b`
 
 ## Local development
@@ -40,9 +40,13 @@ npm run build
 
 Images are processed during `npm run build` and written to `_site/images` (generated files are not tracked). Processed outputs are cached in `.cache/images` to speed up rebuilds. Cached images are reused until the source image changes or the image-processing rules are updated.
 
+- Responsive variants: PNG/JPG sources generate `-800w/-1400w/-2000w` versions for `srcset`.
+- Manifest: `build:images` writes `src/_data/imageMeta.json` with dimensions for width/height attributes.
+- Build guard: `check:images` runs on `npm run build` and fails if `/images/...` references are missing.
 - PNG: lossless optimization + lossless WebP generation
 - JPG: optimized + lossy WebP generation (quality 80)
-- JPG exceptions (no WebP): add filenames to `NO_WEBP` in `scripts/build-images.js`
+- WebP exceptions (no WebP): add filenames to `NO_WEBP` in `scripts/build-images.js`
+- Responsive exceptions (no responsive sizes): add filenames to `NO_RESPONSIVE` in `scripts/build-images.js`
 - GIF: copied as-is
 
 Tune PNG optimization level:

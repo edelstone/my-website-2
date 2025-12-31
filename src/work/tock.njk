@@ -1,0 +1,37 @@
+---
+layout: layouts/base
+title: Tock
+caseStudy: true
+permalink: /work/tock/
+---
+
+{% from "partials/picture.njk" import picture with context %}
+
+<div class="case-study">
+  <div class="case-study-header">
+    <div class="case-study-header-content constrain">
+      <h1><img src="/images/tock-icon.png" alt="" aria-hidden="true" class="logo-tock">{{ title }}</h1>
+      <div class="case-study-header-nav">
+        <a title="Previous" href="../material-palettes">{% include "assets/previous.njk" %}</a>
+        <a title="Next" href="../gtreasury">{% include "assets/next.njk" %}</a>
+      </div>
+    </div>
+  </div>
+  <div class="case-study-blurb">
+    <p><a href="https://edelstone.github.io/tock/">Tock</a> is a super-minimal menu bar timer for the Mac. I built it after Apple deprecated its native timer and none of the third-party alternatives felt right. Designed for speed and focus, it&rsquo;s keyboard-driven, supports natural-language input, and intentionally centers on a single active timer to keep the interface uncluttered. Keyboard shortcuts, notification tones, repeat behavior, and volume are all configurable.</p>
+    <ul>
+      <li><a href="https://edelstone.github.io/tock/">Live website</a></li>
+      <li><a href="https://github.com/edelstone/tock">Source code</a></li>
+    </ul>
+  </div>
+  <div class="case-study-visuals">
+    {{ picture({
+      name: "tock-app",
+      ext: "png",
+      alt: "Collage of various Tock popovers and settings menu",
+      class: "case-study-visuals-browser",
+      loading: "eager",
+      fetchpriority: "high"
+    }) }}
+  </div>
+</div>
