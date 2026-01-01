@@ -43,6 +43,7 @@ Images are processed during `npm run build` and written to `_site/images` (gener
 - Responsive variants: PNG/JPG sources generate `-800w/-1400w/-2000w` versions for `srcset`.
 - Manifest: `build:images` writes `src/_data/imageMeta.json` with dimensions for width/height attributes.
 - Build guard: `check:images` runs on `npm run build` and fails if `/images/...` references are missing.
+- Build guard: `check:alts` runs on `npm run build` and fails if any picture macro call omits both `alt` and `decorative`.
 - PNG: lossless optimization + lossless WebP generation
 - JPG: optimized + lossy WebP generation (quality 80)
 - WebP exceptions (no WebP): add filenames to `NO_WEBP` in `scripts/build-images.js`
