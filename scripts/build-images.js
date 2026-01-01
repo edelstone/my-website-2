@@ -14,9 +14,20 @@ const RESPONSIVE_WIDTHS = [800, 1400, 2000];
 const PNG_EXTENSIONS = new Set([".png"]);
 const JPG_EXTENSIONS = new Set([".jpg", ".jpeg"]);
 const GIF_EXTENSIONS = new Set([".gif"]);
+
+// Files listed here will NOT get WebP variants.
+// Use for assets that must remain in their original format.
 const NO_WEBP = new Set(["me-share.jpg", "tock-icon.png"]);
+
+// Files listed here will NOT get responsive size variants.
+// Use for assets where resizing provides no benefit.
 const NO_RESPONSIVE = new Set(["me-share.jpg", "tock-icon.png"]);
+
+// PNG compression level for oxipng (lossless).
+// 0–6: 0 = fastest/minimal, 3 = balanced default, 6 = slowest/max compression
+// One-off override: OXIPNG_LEVEL=4 npm run build
 const OXIPNG_LEVEL = process.env.OXIPNG_LEVEL || "3";
+
 const CACHE_VERSION = "v2";
 
 async function walkFiles(dir) {
