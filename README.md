@@ -4,9 +4,9 @@
 
 ## About
 
-This is the source code for my portfolio website. It's built from scratch using the [Eleventy (11ty) static site generator](https://www.11ty.dev) and is designed to be simple, accessible, fast, and content-focused.
+This is the source code for my portfolio website. It's built with the [Eleventy (11ty) static site generator](https://www.11ty.dev) and is designed to be simple, accessible, fast, and content-focused.
 
-Please use any of my code or design for your own purposes (except fonts, which must be licensed separately).
+Please use any of my code or design for your own purposes (except fonts, which must be licensed).
 
 ## Typography
 
@@ -25,41 +25,30 @@ Please use any of my code or design for your own purposes (except fonts, which m
 
 *Prerequisites: Node.js 18+*
 
-1. Clone this project.
-2. Install dependencies: `npm install`.
-3. Start the dev server: `npm start`.
-4. Open `http://localhost:8080`.
+1. Clone this project
+2. Install dependencies: `npm install`
+3. Start the dev server: `npm start`
+4. Open `http://localhost:8080`
 
-Build for production:
+Build for production with `npm run build`.
 
-```sh
-npm run build
-```
+### Image pipeline
 
-### Images
+Images are built automatically during `npm run build` and written to `_site/images`. Generated files are not committed.
 
-Images are processed during `npm run build` and written to `_site/images` (generated files are not tracked). Processed outputs are cached in `.cache/images` to speed up rebuilds. Cached images are reused until the source image changes or the image-processing rules are updated.
+#### Features
 
-- Responsive variants: PNG/JPG sources generate `-800w/-1400w/-2000w` versions for `srcset`.
-- Manifest: `build:images` writes `src/_data/imageMeta.json` with dimensions for width/height attributes.
-- Build guard: `check:images` runs on `npm run build` and fails if `/images/...` references are missing.
-- Build guard: `check:alts` runs on `npm run build` and fails if any picture macro call omits both `alt` and `decorative`.
-- PNG: lossless optimization + lossless WebP generation
-- JPG: optimized + lossy WebP generation (quality 80)
-- WebP exceptions (no WebP): add filenames to `NO_WEBP` in `scripts/build-images.js`
-- Responsive exceptions (no responsive sizes): add filenames to `NO_RESPONSIVE` in `scripts/build-images.js`
-- GIF: copied as-is
+- Responsive images with correct width and height attributes
+- Alt text enforced (or explicit `decorative`)
+- Build fails on missing image references
+- Images are cached until source or processing rules are updated
 
-Tune PNG optimization level:
+Clear the cache with `npm run clean:images`.
 
-```sh
-OXIPNG_LEVEL=4 npm run build
-```
+#### Formats
 
-Default is `3`. Lower values (e.g., `2`) are faster with slightly less compression; higher values (e.g., `4`) are slower with potentially smaller files.
+- PNG → lossless optimized + WebP
+- JPG → optimized + WebP
+- GIF → copied as-is
 
-Clear the image cache:
-
-```sh
-npm run clean:images
-```
+Format/responsive exceptions live in `scripts/build-images.js`.
