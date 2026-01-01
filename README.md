@@ -42,8 +42,7 @@ Images are built automatically during `npm run build` and written to `_site/imag
 - Alt text enforced (or explicit `decorative`)
 - Build fails on missing image references
 - Images are cached until source or processing rules are updated
-
-Clear the cache with `npm run clean:images`.
+- Cache is clearable with `npm run clean:images`
 
 #### Formats
 
