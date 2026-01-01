@@ -50,5 +50,3 @@ Clear the cache with `npm run clean:images`.
 - PNG → lossless optimized + WebP
 - JPG → optimized + WebP
 - GIF → copied as-is
-
-Format/responsive exceptions live in `scripts/build-images.js`.
