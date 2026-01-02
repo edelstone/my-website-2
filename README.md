@@ -44,7 +44,7 @@ Images are built automatically during `npm run build` and written to `_site/imag
 - Images are cached until source or processing rules are updated
 - Cache is clearable with `npm run clean:images`
 
-#### Formats
+#### Format outputs
 
 - PNG → lossless optimized + WebP
 - JPG → optimized + WebP
