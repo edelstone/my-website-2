@@ -173,15 +173,6 @@ async function processGif(inputPath, cachePaths, outputPaths) {
 }
 
 async function buildImages() {
-  console.log(`Netlify cache dir: ${NETLIFY_CACHE_DIR || "not set"}`);
-  console.log(`Image cache dir: ${CACHE_DIR}`);
-  try {
-    const entries = await fs.readdir(CACHE_DIR);
-    console.log(`Image cache restore: found (${entries.length} entries).`);
-  } catch {
-    console.log("Image cache restore: missing.");
-  }
-
   await fs.rm(OUTPUT_DIR, { recursive: true, force: true });
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
   await fs.mkdir(CACHE_DIR, { recursive: true });
