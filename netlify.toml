@@ -3,3 +3,7 @@
 
   [plugins.inputs]
     paths = [".cache/images"]
+
+[build]
+  [build.environment]
+    NODE_VERSION = "22"
