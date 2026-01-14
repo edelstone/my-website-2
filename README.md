@@ -43,6 +43,7 @@ Images are built automatically during `npm run build` and written to `_site/imag
 - Build fails on missing image references
 - Images are cached until source or processing rules are updated
 - Cache is clearable with `npm run clean:images`
+- Exceptions lists for format/size overrides
 
 #### Format outputs
 
