@@ -25,26 +25,29 @@ permalink: /work/tints-and-shades/
       <li><a href="https://www.figma.com/community/plugin/1580658889126377365/tint-shade-generator">Figma plugin</a></li>
     </ul>
   </div>
-  <div class="case-study-visuals">
+  <div class="case-study-visuals pswp-gallery">
     {{ picture({
       name: "tints-shades-home",
       ext: "png",
       alt: "Product shot, home",
       class: "case-study-visuals-browser",
       loading: "eager",
+      lightbox: true,
       fetchpriority: "high"
     }) }}
     {{ picture({
       name: "tints-shades-palettes",
       ext: "png",
       alt: "Product shot, generated color palettes",
-      class: "case-study-visuals-browser"
+      class: "case-study-visuals-browser",
+      lightbox: true
     }) }}
     {{ picture({
       name: "tints-shades-export",
       ext: "png",
       alt: "Product shot, export all colors",
-      class: "case-study-visuals-browser"
+      class: "case-study-visuals-browser",
+      lightbox: true
     }) }}
   </div>
 </div>

@@ -4,7 +4,7 @@
 
 ## About
 
-This is the source code for my portfolio website. It's built with the [Eleventy (11ty) static site generator](https://www.11ty.dev) and is designed to be simple, accessible, fast, and content-focused.
+This is the source code for my portfolio website. It's built with the [Eleventy static site generator](https://www.11ty.dev) and is designed to be simple, accessible, fast, and content-focused.
 
 Please use any of my code or design for your own purposes (except fonts, which must be licensed).
 
@@ -20,6 +20,14 @@ Please use any of my code or design for your own purposes (except fonts, which m
 - Blue: `#005198`
 - Gray: `#8d8d8d`
 - Dark: `#1b1b1b`
+
+## Credits
+
+- [Eleventy](https://www.11ty.dev)
+- [oxipng-bin](https://www.npmjs.com/package/oxipng-bin)
+- [PhotoSwipe](https://photoswipe.com)
+- [Sass](https://sass-lang.com)
+- [Sharp](https://sharp.pixelplumbing.com)
 
 ## Local development
 
@@ -43,7 +51,7 @@ Images are built automatically during `npm run build` and written to `_site/imag
 - Build fails on missing image references
 - Images are cached until source or processing rules are updated
 - Cache is clearable with `npm run clean:images`
-- Exceptions lists for format/size overrides
+- Exception lists for format/size overrides
 
 #### Format outputs
 

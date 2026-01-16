@@ -9,11 +9,28 @@
   {% set loading = opts.loading or "lazy" %}
   {% set decoding = opts.decoding or "async" %}
   {% set fetchpriority = opts.fetchpriority %}
+  {% set lightbox = opts.lightbox %}
   {% set metaSource = imageMeta if imageMeta is defined else {} %}
   {% set meta = metaSource[opts.name ~ "." ~ opts.ext] %}
   {% set sizeData = null %}
   {% if meta and meta.widths and meta.widths[defaultWidthKey] %}
     {% set sizeData = meta.widths[defaultWidthKey] %}
+  {% endif %}
+  {% set largestWidth = widths[widths.length - 1] %}
+  {% set largestWidthKey = largestWidth ~ "" %}
+  {% set lightboxSize = null %}
+  {% if meta and meta.widths and meta.widths[largestWidthKey] %}
+    {% set lightboxSize = meta.widths[largestWidthKey] %}
+  {% endif %}
+  {% if lightbox %}
+  <a
+    class="pswp-item"
+    href="/images/{{ opts.name }}-{{ largestWidth }}w.{{ opts.ext }}"
+    {% if lightboxSize %}data-pswp-width="{{ lightboxSize.width }}" data-pswp-height="{{ lightboxSize.height }}"{% endif %}
+    data-pswp-srcset="{% for w in widths %}/images/{{ opts.name }}-{{ w }}w.{{ opts.ext }} {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}"
+    data-pswp-sizes="{{ sizes }}"
+    {% if opts.alt %}data-pswp-caption="{{ opts.alt | escape }}"{% endif %}
+  >
   {% endif %}
   <picture>
     {% if opts.sources %}
@@ -52,4 +69,7 @@
       {% if fetchpriority %}fetchpriority="{{ fetchpriority }}"{% endif %}
     >
   </picture>
+  {% if lightbox %}
+  </a>
+  {% endif %}
 {% endmacro %}

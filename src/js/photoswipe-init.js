@@ -1,0 +1,13 @@
+import PhotoSwipeLightbox from "/js/vendor/photoswipe-lightbox.esm.js";
+
+const galleries = document.querySelectorAll(".pswp-gallery");
+
+if (galleries.length) {
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: ".pswp-gallery",
+    children: "a.pswp-item",
+    pswpModule: () => import("/js/vendor/photoswipe.esm.js")
+  });
+
+  lightbox.init();
+}
