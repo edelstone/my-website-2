@@ -383,10 +383,6 @@ header {
     grid-template-columns: 1fr;
     gap: 3rem;
 
-    .pswp__img {
-      background-color: transparent !important;
-    }
-
     img:not([class]) {
       border: 1px solid $gray;
     }
@@ -400,6 +396,11 @@ header {
       background-color: $white;
     }
   }
+}
+
+// Photoswipe
+.pswp__img {
+  background-color: transparent !important;
 }
 
 // Skip to main content
