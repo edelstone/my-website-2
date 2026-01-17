@@ -403,6 +403,10 @@ header {
   background-color: transparent !important;
 }
 
+.pswp__button {
+  outline-offset: -.5rem;
+}
+
 // Skip to main content
 .skip-to-main {
   position: absolute;
