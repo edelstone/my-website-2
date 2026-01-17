@@ -11,8 +11,9 @@
     "build:images": "node scripts/build-images.js",
     "clean:images": "node -e \"require('fs').rmSync('.cache/images', { recursive: true, force: true }); console.log('Cleared .cache/images');\"",
     "check:images": "node scripts/check-image-refs.js",
+    "check:unused-images": "node scripts/check-unused-images.js",
     "check:alts": "node scripts/check-image-alt.js",
-    "build": "npm run build:css && npm run build:images && npm run build:11ty && npm run check:images && npm run check:alts",
+    "build": "npm run build:css && npm run build:images && npm run build:11ty && npm run check:images && npm run check:unused-images && npm run check:alts",
     "start": "concurrently \"npm run watch:css\" \"npm run watch:11ty\""
   },
   "keywords": [

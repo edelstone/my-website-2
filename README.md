@@ -4,9 +4,7 @@
 
 ## About
 
-This is the source code for my portfolio website. It's built with the [Eleventy static site generator](https://www.11ty.dev) and is designed to be simple, accessible, fast, and content-focused.
-
-Please use any of my code or design for your own purposes (except fonts, which must be licensed).
+This is the source code for my portfolio website. Please use any of my code or design for your own purposes.
 
 ## Typography
 
@@ -49,6 +47,7 @@ Images are built automatically during `npm run build` and written to `_site/imag
 - Responsive images with correct width and height attributes
 - Alt text enforced (or explicit `decorative`)
 - Build fails on missing image references
+- Build fails on unused source images
 - Images are cached until source or processing rules are updated
 - Cache is clearable with `npm run clean:images`
 - Exception lists for format/size overrides

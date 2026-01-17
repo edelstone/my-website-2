@@ -2,6 +2,8 @@ const fs = require("fs/promises");
 const path = require("path");
 
 const SITE_DIR = path.join(__dirname, "..", "_site");
+const SOURCE_DIR = path.join(__dirname, "..", "src", "images");
+const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".gif"]);
 
 async function walkFiles(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -89,45 +91,78 @@ function extractImageUrls(html) {
   return Array.from(sources.keys());
 }
 
-async function checkImages() {
+function stripWidthSuffix(relativePath) {
+  const ext = path.posix.extname(relativePath);
+  const dir = path.posix.dirname(relativePath);
+  const base = path.posix.basename(relativePath, ext);
+  const normalizedBase = base.replace(/-\d+w$/, "");
+  if (dir === ".") return normalizedBase;
+  return `${dir}/${normalizedBase}`;
+}
+
+async function buildSourceIndex() {
+  const allFiles = await walkFiles(SOURCE_DIR);
+  const sourceImages = allFiles.filter((file) =>
+    IMAGE_EXTENSIONS.has(path.extname(file).toLowerCase())
+  );
+
+  const baseToSources = new Map();
+  const allSources = new Set();
+
+  for (const file of sourceImages) {
+    const relative = path.relative(SOURCE_DIR, file).split(path.sep).join("/");
+    const base = relative.replace(path.extname(relative), "");
+    if (!baseToSources.has(base)) baseToSources.set(base, []);
+    baseToSources.get(base).push(relative);
+    allSources.add(relative);
+  }
+
+  return { baseToSources, allSources };
+}
+
+async function checkUnusedImages() {
   let htmlFiles = [];
   try {
     const allFiles = await walkFiles(SITE_DIR);
     htmlFiles = allFiles.filter((file) => file.endsWith(".html"));
   } catch (error) {
-    console.warn("Image check skipped: _site not found.");
+    console.warn("Unused image check skipped: _site not found.");
     return;
   }
 
-  const missing = [];
+  const { baseToSources, allSources } = await buildSourceIndex();
+  const usedSources = new Set();
+
   for (const file of htmlFiles) {
     const html = await fs.readFile(file, "utf8");
     const srcs = extractImageUrls(html);
     for (const src of srcs) {
       const normalized = normalizeUrl(src);
       if (!normalized || !normalized.startsWith("images/")) continue;
-      const diskPath = path.join(SITE_DIR, normalized);
-      try {
-        await fs.access(diskPath);
-      } catch {
-        missing.push({ file, src });
+      const relativeImage = normalized.slice("images/".length);
+      if (!relativeImage) continue;
+      const baseKey = stripWidthSuffix(relativeImage);
+      const sources = baseToSources.get(baseKey);
+      if (!sources) continue;
+      for (const source of sources) {
+        usedSources.add(source);
       }
     }
   }
 
-  if (missing.length) {
-    console.error("Image reference check: missing files detected.");
-    for (const entry of missing) {
-      const relativeFile = path.relative(SITE_DIR, entry.file);
-      console.error(`- ${entry.src} referenced in ${relativeFile}`);
+  const unused = Array.from(allSources).filter((source) => !usedSources.has(source));
+  if (unused.length) {
+    console.error("Unused image check: source images not referenced in built HTML.");
+    for (const file of unused.sort()) {
+      console.error(`- ${file}`);
     }
     process.exitCode = 1;
   } else {
-    console.log("Image reference check: no missing files found.");
+    console.log("Unused image check: no unused source images found.");
   }
 }
 
-checkImages().catch((error) => {
+checkUnusedImages().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
