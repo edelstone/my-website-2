@@ -74,9 +74,8 @@ if (galleries.length) {
   const lightbox = new PhotoSwipeLightbox({
     gallery: ".pswp-gallery",
     children: "a.pswp-item",
-    trapFocus: true,
-    returnFocus: true,
-    pswpModule: () => import("/js/vendor/photoswipe.esm.js")
+    pswpModule: () => import("/js/vendor/photoswipe.esm.js"),
+    padding: { top: 10, bottom: 10 }
   });
 
   lightbox.on("afterInit", () => {
