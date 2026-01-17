@@ -1,6 +1,5 @@
 @use 'variables' as *;
 
-// General
 ::selection {
   text-shadow: none;
   background: $dark;
@@ -26,7 +25,7 @@ html {
 }
 
 body {
-  font-family: 'Lausanne', sans-serif;
+  font-family: $font-prime;
   margin: 0;
   color: $dark;
   font-size: 1.5rem;
@@ -82,43 +81,37 @@ h2 {
 }
 
 // Header
-header {
-  top: 0;
-  position: sticky;
-  z-index: 2;
+.banner {
+  background: $dark;
+  display: grid;
+  align-items: center;
+  color: $light;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  height: 3rem;
 
-  .banner {
-    background: $dark;
+  &-name {
+    padding: 0 1rem;
     display: grid;
-    align-items: center;
-    color: $light;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 1rem;
-    height: 3rem;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: .3rem;
+    width: 100%;
 
-    &-name {
-      padding: 0 1rem;
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: max-content;
-      gap: .3rem;
-      width: 100%;
-
-      &-letter {
-        display: inline-block;
-        transition: transform .1s ease-out;
-        will-change: transform;
-      }
+    &-letter {
+      display: inline-block;
+      transition: transform .1s ease-out;
+      will-change: transform;
     }
+  }
 
-    &:is(:hover, :focus-visible) {
-      .banner-name {
-        @each $i, $transform in $banner-wave {
-          &-letter:nth-child(8n + #{$i}) {
-            transform: $transform;
-          }
+  &:is(:hover, :focus-visible) {
+    .banner-name {
+      @each $i, $transform in $banner-wave {
+        &-letter:nth-child(8n + #{$i}) {
+          transform: $transform;
         }
       }
     }
@@ -137,7 +130,7 @@ header {
 
   a {
     padding: .25rem .5rem;
-    border-radius: $radius;
+    border-radius: $radius-prime;
     color: $dark;
     text-decoration: none;
 
@@ -163,7 +156,7 @@ header {
 
   &-visual {
     img {
-      border-radius: $radius;
+      border-radius: $radius-prime;
       border: 2px solid $dark;
       width: 100%;
     }
@@ -171,13 +164,14 @@ header {
 }
 
 // About
-.about-section {
-  padding-bottom: 1rem;
+.about {
+  &-section {
+    padding-bottom: 1rem;
+  }
 }
 
 // Work
 .work {
-
   &-sections {
     display: grid;
     gap: 1rem;
@@ -209,7 +203,7 @@ header {
 
   &-card {
     border: 2px solid $dark;
-    border-radius: $radius;
+    border-radius: $radius-prime;
     background-color: $tan;
     overflow: hidden;
     text-decoration: none;
@@ -247,23 +241,14 @@ header {
 .case-study {
   &-header {
     background-color: $light;
-    position: sticky;
-    top: 3rem;
-    margin-top: -.5rem;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    z-index: 1;
-
-    &.pinned {
-      box-shadow: 0 2px $dark;
-    }
+    margin: 0 calc(50% - 50vw);
 
     &-content {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 1rem;
-      padding: .5rem 1rem;
+      padding: 0 1rem .5rem;
 
       h1 svg,
       h1 img {
@@ -335,7 +320,7 @@ header {
     figure {
       margin: 0;
       padding: 1rem;
-      border-radius: $radius;
+      border-radius: $radius-prime;
       background-color: $tan;
       border: 2px solid $dark;
 
@@ -375,6 +360,10 @@ header {
 
   &-writeup {
     margin-top: 2rem;
+
+    &-no-cards {
+      margin-top: 0;
+    }
   }
 
   &-visuals {
@@ -436,7 +425,7 @@ header {
     padding: .5rem 1rem;
     text-decoration: none;
     z-index: 3;
-    border-radius: $radius;
+    border-radius: $radius-prime;
   }
 }
 
