@@ -12,8 +12,8 @@
     {{ content | safe }}
   </main>
   {% if caseStudy %}
-  {% include "partials/detect-sticky.njk" %}
-  {% include "partials/photoswipe-init.njk" %}
+  <script src="/js/detect-sticky.js"></script>
+  <script type="module" src="/js/photoswipe-init.js"></script>
   {% endif %}
 </body>
 
