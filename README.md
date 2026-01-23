@@ -4,7 +4,7 @@
 
 ## About
 
-This is the source code for my portfolio website. Please use any of my code or design for your own purposes.
+This is the source code for my portfolio website. You’re free to use any of the code or design for your own purposes. Credit is appreciated but not required.
 
 ## Typography
 
@@ -19,7 +19,7 @@ This is the source code for my portfolio website. Please use any of my code or d
 - Gray: `#8d8d8d`
 - Dark: `#1b1b1b`
 
-## Credits
+## Built with
 
 - [Eleventy](https://www.11ty.dev)
 - [oxipng-bin](https://www.npmjs.com/package/oxipng-bin)

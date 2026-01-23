@@ -9,26 +9,26 @@ permalink: /
 <div class="homebase">
   <div class="homebase-visual">
     {{ picture({
-      name: "me-portrait",
-      ext: "jpg",
-      decorative: true,
-      sizes: "(max-width: 40rem) 100vw, 18rem",
-      loading: "eager",
-      fetchpriority: "high",
-      sources: [
-        {
-          name: "me-landscape",
-          format: "webp",
-          type: "image/webp",
-          media: media.portraitSwap
-        },
-        {
-          name: "me-landscape",
-          format: "jpg",
-          type: "image/jpeg",
-          media: media.portraitSwap
-        }
-      ]
+    name: "me-portrait",
+    ext: "jpg",
+    decorative: true,
+    sizes: "(max-width: 40rem) 100vw, 18rem",
+    loading: "eager",
+    fetchpriority: "high",
+    sources: [
+    {
+    name: "me-landscape",
+    format: "webp",
+    type: "image/webp",
+    media: media.portraitSwap
+    },
+    {
+    name: "me-landscape",
+    format: "jpg",
+    type: "image/jpeg",
+    media: media.portraitSwap
+    }
+    ]
     }) }}
   </div>
   <div class="homebase-text">

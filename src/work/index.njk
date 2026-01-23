@@ -1,15 +1,15 @@
 ---
 layout: layouts/base
-title: Recent work
+title: My portfolio
 permalink: /work/
 ---
 
 {% from "partials/picture.njk" import picture with context %}
-{% set thumbSizes = "(max-width: 40rem) 100vw, (max-width: 70rem) 50vw, 528px" %}
+{% set thumbSizes = "(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc((100vw - 4rem) / 2), 29rem" %}
 
 <div class="work">
   <div class="work-header">
-    <h1>My portfolio</h1>
+    <h1>{{ title }}</h1>
   </div>
   <div class="work-sections">
     <div class="work-section">
@@ -21,10 +21,10 @@ permalink: /work/
           <a href="gtreasury" class="work-card">
             <figure>
               {{ picture({
-                name: "thumb-gt",
-                ext: "png",
-                alt: "GTreasury dashboard cashflow chart in action",
-                sizes: thumbSizes
+              name: "thumb-gt",
+              ext: "png",
+              alt: "GTreasury dashboard cashflow chart in action",
+              sizes: thumbSizes
               }) }}
               <figcaption>
                 <h3>Modernizing a monolith</h3>
@@ -35,10 +35,10 @@ permalink: /work/
           <a href="balto" class="work-card">
             <figure>
               {{ picture({
-                name: "thumb-balto",
-                ext: "png",
-                alt: "Balto chat client with an active conversation",
-                sizes: thumbSizes
+              name: "thumb-balto",
+              ext: "png",
+              alt: "Balto chat client with an active conversation",
+              sizes: thumbSizes
               }) }}
               <figcaption>
                 <h3>A.I. phone home</h3>
@@ -51,10 +51,10 @@ permalink: /work/
           <a href="kuali" class="work-card">
             <figure>
               {{ picture({
-                name: "thumb-kuali",
-                ext: "png",
-                alt: "Kuali Research header and sidebar, highlighting co-branding",
-                sizes: thumbSizes
+              name: "thumb-kuali",
+              ext: "png",
+              alt: "Kuali Research header and sidebar, highlighting co-branding",
+              sizes: thumbSizes
               }) }}
               <figcaption>
                 <h3>For the common good</h3>
@@ -65,10 +65,10 @@ permalink: /work/
           <a href="texas-state" class="work-card">
             <figure>
               {{ picture({
-                name: "thumb-txst",
-                ext: "png",
-                alt: "Texas State color hierarchy and typography samples",
-                sizes: thumbSizes
+              name: "thumb-txst",
+              ext: "png",
+              alt: "Texas State color hierarchy and typography samples",
+              sizes: thumbSizes
               }) }}
               <figcaption>
                 <h3>Branding a bobcat</h3>
@@ -88,10 +88,10 @@ permalink: /work/
           <a href="tints-and-shades" class="work-card">
             <figure>
               {{ picture({
-                name: "thumb-tints-shades",
-                ext: "png",
-                alt: "Tint & Shade Generator palettes with complementary colors menu open",
-                sizes: thumbSizes
+              name: "thumb-tints-shades",
+              ext: "png",
+              alt: "Tint & Shade Generator palettes with complementary colors menu open",
+              sizes: thumbSizes
               }) }}
               <figcaption>
                 <h3>Tint &amp; Shade Generator</h3>
@@ -102,10 +102,10 @@ permalink: /work/
           <a href="material-palettes" class="work-card">
             <figure>
               {{ picture({
-                name: "thumb-material",
-                ext: "png",
-                alt: "Material Palettes primary and secondary color arrays",
-                sizes: thumbSizes
+              name: "thumb-material",
+              ext: "png",
+              alt: "Material Palettes primary and secondary color arrays",
+              sizes: thumbSizes
               }) }}
               <figcaption>
                 <h3>Material Palettes</h3>
@@ -118,10 +118,10 @@ permalink: /work/
           <a href="tock" class="work-card">
             <figure>
               {{ picture({
-                name: "thumb-tock",
-                ext: "png",
-                alt: "Tock app popover open below Mac menu bar with several common apps",
-                sizes: thumbSizes
+              name: "thumb-tock",
+              ext: "png",
+              alt: "Tock app popover open below Mac menu bar with several common apps",
+              sizes: thumbSizes
               }) }}
               <figcaption>
                 <h3>Tock</h3>

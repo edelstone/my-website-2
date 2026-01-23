@@ -13,7 +13,11 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.name }}">
+{% if page.url == '/' %}
+<meta property="og:title" content="{{ site.name }}">
+{% else %}
 <meta property="og:title" content="{{ title }} | {{ site.name }}">
+{% endif %}
 <meta property="og:description" content="{{ site.description }}">
 <meta property="og:image" content="{{ site.shareImage }}">
 {% if page.url != '/404.html' %}
@@ -24,4 +28,8 @@
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/css/styles.css">
+{% if page.url == '/' %}
+<title>{{ site.name }}</title>
+{% else %}
 <title>{{ title }} | {{ site.name }}</title>
+{% endif %}
