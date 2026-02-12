@@ -20,6 +20,8 @@ This is the source code for my portfolio website. You’re free to use any of th
 ## Built with
 
 - [Eleventy](https://www.11ty.dev)
+- [Netlify](https://www.netlify.com)
+- [Nunjucks](https://mozilla.github.io/nunjucks/)
 - [oxipng-bin](https://www.npmjs.com/package/oxipng-bin)
 - [PhotoSwipe](https://photoswipe.com)
 - [Sass](https://sass-lang.com)
