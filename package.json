@@ -1,6 +1,7 @@
 {
   "name": "michaeledelstone.com",
-  "version": "1.0.0",
+  "version": "0.0.0",
+  "private": true,
   "description": "I’m a product designer focusing on utilitarian software and brands. I like dogs, national parks, and making useful things with talented people.",
   "main": "index.js",
   "scripts": {
