@@ -22,7 +22,6 @@ This is the source code for my portfolio website. You’re free to use any of th
 - [Eleventy](https://www.11ty.dev)
 - [Netlify](https://www.netlify.com)
 - [Nunjucks](https://mozilla.github.io/nunjucks/)
-- [oxipng-bin](https://www.npmjs.com/package/oxipng-bin)
 - [PhotoSwipe](https://photoswipe.com)
 - [Sass](https://sass-lang.com)
 - [Sharp](https://sharp.pixelplumbing.com)
@@ -54,6 +53,6 @@ Images are built automatically during `npm run build` and written to `_site/imag
 
 #### Format outputs
 
-- PNG → lossless optimized + WebP
+- PNG → compressed + WebP
 - JPG → optimized + WebP
 - GIF → copied as-is

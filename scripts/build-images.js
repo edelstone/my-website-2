@@ -1,6 +1,5 @@
 const fs = require("fs/promises");
 const path = require("path");
-const { execFile } = require("child_process");
 const crypto = require("crypto");
 const sharp = require("sharp");
 
@@ -25,11 +24,6 @@ const NO_WEBP = new Set(["me-share.jpg", "tock-icon.png"]);
 // Files listed here will NOT get responsive size variants.
 // Use for assets where resizing provides no benefit.
 const NO_RESPONSIVE = new Set(["me-share.jpg", "tock-icon.png"]);
-
-// PNG compression level for oxipng (lossless).
-// 0–6: 0 = fastest/minimal, 3 = balanced default, 6 = slowest/max compression
-// One-off override: OXIPNG_LEVEL=4 npm run build
-const OXIPNG_LEVEL = process.env.OXIPNG_LEVEL || "3";
 
 const CACHE_VERSION = "v2";
 
@@ -90,22 +84,6 @@ async function copyFromCache(cachePath, outputPath) {
   await fs.copyFile(cachePath, outputPath);
 }
 
-function runOxipng(filePath) {
-  return new Promise((resolve, reject) => {
-    execFile(
-      "oxipng",
-      ["-o", OXIPNG_LEVEL, "--strip", "all", filePath],
-      (error) => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        resolve();
-      }
-    );
-  });
-}
-
 async function processPng(inputPath, width, cachePaths, outputPaths) {
   const [cachePng, cacheWebp] = cachePaths;
   const [outputPng, outputWebp] = outputPaths;
@@ -119,12 +97,6 @@ async function processPng(inputPath, width, cachePaths, outputPaths) {
     .clone()
     .png({ compressionLevel: 9, adaptiveFiltering: true })
     .toFile(cachePng);
-
-  try {
-    await runOxipng(cachePng);
-  } catch (error) {
-    console.warn(`oxipng skipped for ${path.basename(cachePng)}: ${error.message}`);
-  }
 
   await copyFromCache(cachePng, outputPng);
   if (cacheWebp && outputWebp) {
@@ -194,8 +166,7 @@ async function buildImages() {
     const baseSettings = {
       cacheVersion: CACHE_VERSION,
       ext: extension,
-      webpQuality: WEBP_QUALITY,
-      oxipngLevel: OXIPNG_LEVEL
+      webpQuality: WEBP_QUALITY
     };
     const isResponsive = !NO_RESPONSIVE.has(path.basename(file));
     const widths = isResponsive ? [null, ...RESPONSIVE_WIDTHS] : [null];
