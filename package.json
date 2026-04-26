@@ -29,7 +29,7 @@
     "node": ">=18"
   },
   "devDependencies": {
-    "astro": "^5.13.5",
+    "astro": "^6.1.9",
     "netlify-plugin-cache": "^1.0.3",
     "sass": "^1.97.3",
     "sharp": "^0.33.4"
