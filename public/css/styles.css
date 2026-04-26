@@ -1,0 +1,930 @@
+/* A (more) Modern CSS Reset: https://piccalil.li/blog/a-more-modern-css-reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/*! PhotoSwipe main CSS by Dmytro Semenov | photoswipe.com */
+.pswp {
+  --pswp-bg: #000;
+  --pswp-placeholder-bg: #222;
+  --pswp-root-z-index: 100000;
+  --pswp-preloader-color: rgba(79, 79, 79, 0.4);
+  --pswp-preloader-color-secondary: rgba(255, 255, 255, 0.9);
+  /* defined via js:
+  --pswp-transition-duration: 333ms; */
+  --pswp-icon-color: #fff;
+  --pswp-icon-color-secondary: #4f4f4f;
+  --pswp-icon-stroke-color: #4f4f4f;
+  --pswp-icon-stroke-width: 2px;
+  --pswp-error-text-color: var(--pswp-icon-color);
+}
+
+/*
+	Styles for basic PhotoSwipe (pswp) functionality (sliding area, open/close transitions)
+*/
+.pswp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--pswp-root-z-index);
+  display: none;
+  touch-action: none;
+  outline: 0;
+  opacity: 0.003;
+  contain: layout style size;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Prevents focus outline on the root element,
+  (it may be focused initially) */
+.pswp:focus {
+  outline: 0;
+}
+
+.pswp * {
+  box-sizing: border-box;
+}
+
+.pswp img {
+  max-width: none;
+}
+
+.pswp--open {
+  display: block;
+}
+
+.pswp,
+.pswp__bg {
+  transform: translateZ(0);
+  will-change: opacity;
+}
+
+.pswp__bg {
+  opacity: 0.005;
+  background: var(--pswp-bg);
+}
+
+.pswp,
+.pswp__scroll-wrap {
+  overflow: hidden;
+}
+
+.pswp__scroll-wrap,
+.pswp__bg,
+.pswp__container,
+.pswp__item,
+.pswp__content,
+.pswp__img,
+.pswp__zoom-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pswp__img,
+.pswp__zoom-wrap {
+  width: auto;
+  height: auto;
+}
+
+.pswp--click-to-zoom.pswp--zoom-allowed .pswp__img {
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in;
+}
+
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img:active {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+/* :active to override grabbing cursor */
+.pswp--no-mouse-drag.pswp--zoomed-in .pswp__img,
+.pswp--no-mouse-drag.pswp--zoomed-in .pswp__img:active,
+.pswp__img {
+  cursor: -webkit-zoom-out;
+  cursor: -moz-zoom-out;
+  cursor: zoom-out;
+}
+
+/* Prevent selection and tap highlights */
+.pswp__container,
+.pswp__img,
+.pswp__button,
+.pswp__counter {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pswp__item {
+  /* z-index for fade transition */
+  z-index: 1;
+  overflow: hidden;
+}
+
+.pswp__hidden {
+  display: none !important;
+}
+
+/* Allow to click through pswp__content element, but not its children */
+.pswp__content {
+  pointer-events: none;
+}
+
+.pswp__content > * {
+  pointer-events: auto;
+}
+
+/*
+
+  PhotoSwipe UI
+
+*/
+/*
+	Error message appears when image is not loaded
+	(JS option errorMsg controls markup)
+*/
+.pswp__error-msg-container {
+  display: grid;
+}
+
+.pswp__error-msg {
+  margin: auto;
+  font-size: 1em;
+  line-height: 1;
+  color: var(--pswp-error-text-color);
+}
+
+/*
+class pswp__hide-on-close is applied to elements that
+should hide (for example fade out) when PhotoSwipe is closed
+and show (for example fade in) when PhotoSwipe is opened
+ */
+.pswp .pswp__hide-on-close {
+  opacity: 0.005;
+  will-change: opacity;
+  transition: opacity var(--pswp-transition-duration) cubic-bezier(0.4, 0, 0.22, 1);
+  z-index: 10;
+  /* always overlap slide content */
+  pointer-events: none;
+  /* hidden elements should not be clickable */
+}
+
+/* class pswp--ui-visible is added when opening or closing transition starts */
+.pswp--ui-visible .pswp__hide-on-close {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* <button> styles, including css reset */
+.pswp__button {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  opacity: 0.85;
+  -webkit-appearance: none;
+  -webkit-touch-callout: none;
+}
+
+.pswp__button:hover,
+.pswp__button:active,
+.pswp__button:focus {
+  transition: none;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.pswp__button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+}
+
+.pswp__icn {
+  fill: var(--pswp-icon-color);
+  color: var(--pswp-icon-color-secondary);
+}
+
+.pswp__icn {
+  position: absolute;
+  top: 14px;
+  left: 9px;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pswp__icn-shadow {
+  stroke: var(--pswp-icon-stroke-color);
+  stroke-width: var(--pswp-icon-stroke-width);
+  fill: none;
+}
+
+.pswp__icn:focus {
+  outline: 0;
+}
+
+/*
+	div element that matches size of large image,
+	large image loads on top of it,
+	used when msrc is not provided
+*/
+div.pswp__img--placeholder,
+.pswp__img--with-bg {
+  background: var(--pswp-placeholder-bg);
+}
+
+.pswp__top-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  z-index: 10;
+  /* allow events to pass through top bar itself */
+  pointer-events: none !important;
+}
+
+.pswp__top-bar > * {
+  pointer-events: auto;
+  /* this makes transition significantly more smooth,
+     even though inner elements are not animated */
+  will-change: opacity;
+}
+
+/*
+
+  Close button
+
+*/
+.pswp__button--close {
+  margin-right: 6px;
+}
+
+/*
+
+  Arrow buttons
+
+*/
+.pswp__button--arrow {
+  position: absolute;
+  top: 0;
+  width: 75px;
+  height: 100px;
+  top: 50%;
+  margin-top: -50px;
+}
+
+.pswp__button--arrow:disabled {
+  display: none;
+  cursor: default;
+}
+
+.pswp__button--arrow .pswp__icn {
+  top: 50%;
+  margin-top: -30px;
+  width: 60px;
+  height: 60px;
+  background: none;
+  border-radius: 0;
+}
+
+.pswp--one-slide .pswp__button--arrow {
+  display: none;
+}
+
+/* hide arrows on touch screens */
+.pswp--touch .pswp__button--arrow {
+  visibility: hidden;
+}
+
+/* show arrows only after mouse was used */
+.pswp--has_mouse .pswp__button--arrow {
+  visibility: visible;
+}
+
+.pswp__button--arrow--prev {
+  right: auto;
+  left: 0px;
+}
+
+.pswp__button--arrow--next {
+  right: 0px;
+}
+
+.pswp__button--arrow--next .pswp__icn {
+  left: auto;
+  right: 14px;
+  /* flip horizontally */
+  transform: scale(-1, 1);
+}
+
+/*
+
+  Zoom button
+
+*/
+.pswp__button--zoom {
+  display: none;
+}
+
+.pswp--zoom-allowed .pswp__button--zoom {
+  display: block;
+}
+
+/* "+" => "-" */
+.pswp--zoomed-in .pswp__zoom-icn-bar-v {
+  display: none;
+}
+
+/*
+
+  Loading indicator
+
+*/
+.pswp__preloader {
+  position: relative;
+  overflow: hidden;
+  width: 50px;
+  height: 60px;
+  margin-right: auto;
+}
+
+.pswp__preloader .pswp__icn {
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  animation: pswp-clockwise 600ms linear infinite;
+}
+
+.pswp__preloader--active .pswp__icn {
+  opacity: 0.85;
+}
+
+@keyframes pswp-clockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*
+
+  "1 of 10" counter
+
+*/
+.pswp__counter {
+  height: 30px;
+  margin-top: 15px;
+  margin-inline-start: 20px;
+  font-size: 14px;
+  line-height: 30px;
+  color: var(--pswp-icon-color);
+  text-shadow: 1px 1px 3px var(--pswp-icon-color-secondary);
+  opacity: 0.85;
+}
+
+.pswp--one-slide .pswp__counter {
+  display: none;
+}
+
+@font-face {
+  font-family: "Lausanne";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/TWKLausanne-300.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lausanne";
+  font-style: italic;
+  font-weight: normal;
+  src: url("/fonts/TWKLausanne-300Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lausanne";
+  font-style: normal;
+  font-weight: bold;
+  src: url("/fonts/TWKLausanne-700.woff2") format("woff2");
+}
+::selection {
+  text-shadow: none;
+  background: #1b1b1b;
+  color: #f6f0e8;
+  height: auto;
+}
+
+html {
+  background-color: #f6f0e8;
+  font-size: 110%;
+}
+@media only screen and (max-width: 70rem) {
+  html {
+    font-size: 100%;
+  }
+}
+@media only screen and (max-width: 50rem) {
+  html {
+    font-size: 92.5%;
+  }
+}
+@media only screen and (max-width: 40rem) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+body {
+  font-family: "Lausanne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  color: #1b1b1b;
+  font-size: 1.5rem;
+  overflow-x: clip;
+}
+
+img {
+  height: auto;
+}
+
+main {
+  padding: 1rem;
+  margin: 3rem 0;
+}
+@media only screen and (max-width: 50rem) {
+  main {
+    margin: 1.5rem 0;
+  }
+}
+
+a:not([class]) {
+  color: #005198;
+}
+a:not([class]):is(:hover, :focus-visible) {
+  text-decoration: none;
+}
+
+ul {
+  margin-bottom: 0;
+  padding-left: 2rem;
+}
+ul li + li {
+  margin-top: 0.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+@media only screen and (max-width: 40rem) {
+  h1 {
+    font-size: 2.2rem;
+  }
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+.constrain {
+  max-width: 60rem;
+  margin-inline: auto;
+}
+
+.banner {
+  background: #1b1b1b;
+  display: grid;
+  align-items: center;
+  color: #f6f0e8;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  height: 3rem;
+}
+.banner-name {
+  padding: 0 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 0.3rem;
+  width: 100%;
+}
+.banner-name-letter {
+  display: inline-block;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+.banner:is(:hover, :focus-visible) .banner-name-letter:nth-child(8n+1) {
+  transform: rotate(-10deg);
+}
+.banner:is(:hover, :focus-visible) .banner-name-letter:nth-child(8n+2) {
+  transform: translateY(-2px) rotate(-5deg);
+}
+.banner:is(:hover, :focus-visible) .banner-name-letter:nth-child(8n+3) {
+  transform: translateY(-3px);
+}
+.banner:is(:hover, :focus-visible) .banner-name-letter:nth-child(8n+4) {
+  transform: translateY(-2px) rotate(5deg);
+}
+.banner:is(:hover, :focus-visible) .banner-name-letter:nth-child(8n+5) {
+  transform: rotate(10deg);
+}
+.banner:is(:hover, :focus-visible) .banner-name-letter:nth-child(8n+6) {
+  transform: translateY(2px) rotate(5deg);
+}
+.banner:is(:hover, :focus-visible) .banner-name-letter:nth-child(8n+7) {
+  transform: translateY(3px);
+}
+.banner:is(:hover, :focus-visible) .banner-name-letter:nth-child(8n+8) {
+  transform: translateY(2px) rotate(-5deg);
+}
+
+.nav {
+  font-size: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 1rem;
+  padding: 0 0.5rem;
+  margin-top: 0.5rem;
+}
+.nav a {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  color: #1b1b1b;
+  text-decoration: none;
+}
+.nav a:is(:hover, :focus-visible) {
+  background-color: #e4d8cd;
+}
+
+.homebase {
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  gap: 2rem;
+}
+@media only screen and (max-width: 50rem) {
+  .homebase {
+    gap: 1.5rem;
+  }
+}
+@media only screen and (max-width: 40rem) {
+  .homebase {
+    grid-template-columns: 1fr;
+  }
+}
+.homebase-visual img {
+  border-radius: 0.5rem;
+  border: 2px solid #1b1b1b;
+  width: 100%;
+}
+
+.about-section {
+  padding-bottom: 1rem;
+}
+
+.work-sections {
+  display: grid;
+  gap: 1rem;
+}
+.work-grid {
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+@media only screen and (max-width: 50rem) {
+  .work-grid {
+    gap: 1.5rem;
+  }
+}
+.work-row {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media only screen and (max-width: 50rem) {
+  .work-row {
+    gap: 1.5rem;
+  }
+}
+@media only screen and (max-width: 40rem) {
+  .work-row {
+    grid-template-columns: 1fr;
+  }
+}
+.work-card {
+  border: 2px solid #1b1b1b;
+  border-radius: 0.5rem;
+  background-color: #e4d8cd;
+  overflow: hidden;
+  text-decoration: none;
+}
+.work-card:is(:hover, :focus-visible) h3 {
+  text-decoration: none;
+}
+.work-card figure {
+  margin: 0;
+}
+.work-card figure figcaption {
+  padding: 1rem;
+  color: #1b1b1b;
+}
+.work-card figure figcaption h3 {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 0;
+  text-decoration: underline;
+}
+.work-card figure figcaption p {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.case-study-header {
+  background-color: #f6f0e8;
+  margin: 0 calc(50% - 50vw);
+}
+.case-study-header-content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem 0.5rem;
+}
+.case-study-header-content h1 svg,
+.case-study-header-content h1 img {
+  height: auto;
+  display: inline;
+  margin-right: 1.25rem;
+}
+.case-study-header-content h1 svg.logo-gt,
+.case-study-header-content h1 img.logo-gt {
+  width: 3.2rem;
+}
+.case-study-header-content h1 svg.logo-balto,
+.case-study-header-content h1 img.logo-balto {
+  width: 2.5rem;
+}
+.case-study-header-content h1 svg.logo-kuali,
+.case-study-header-content h1 img.logo-kuali {
+  width: 1.8rem;
+}
+.case-study-header-content h1 svg.logo-txst,
+.case-study-header-content h1 img.logo-txst {
+  width: 4rem;
+}
+.case-study-header-content h1 svg.logo-tints-and-shades,
+.case-study-header-content h1 img.logo-tints-and-shades {
+  width: 1.9rem;
+}
+.case-study-header-content h1 svg.logo-material-palettes,
+.case-study-header-content h1 img.logo-material-palettes {
+  width: 2rem;
+}
+.case-study-header-content h1 svg.logo-tock,
+.case-study-header-content h1 img.logo-tock {
+  width: 2.2rem;
+  position: relative;
+  top: 0.2rem;
+}
+.case-study-header-nav {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 1rem;
+  font-size: 1.25rem;
+}
+.case-study-header-nav svg {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  fill: #1b1b1b;
+}
+.case-study-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+@media only screen and (max-width: 50rem) {
+  .case-study-cards {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+.case-study-cards figure {
+  margin: 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #e4d8cd;
+  border: 2px solid #1b1b1b;
+}
+@media only screen and (max-width: 50rem) {
+  .case-study-cards figure:nth-child(1) {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom: none;
+    padding-bottom: 0.5rem;
+  }
+  .case-study-cards figure:nth-child(2) {
+    border-radius: 0;
+    border-bottom: none;
+    border-top: none;
+    padding-bottom: 0.5rem;
+  }
+  .case-study-cards figure:nth-child(3) {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top: none;
+  }
+}
+.case-study-cards figure h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+.case-study-cards figure p {
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+}
+.case-study-writeup {
+  margin-top: 2rem;
+}
+.case-study-writeup-no-cards {
+  margin-top: 0;
+}
+.case-study-visuals {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+.case-study-visuals img:not([class]) {
+  border: 1px solid #8d8d8d;
+}
+.case-study-visuals-browser {
+  margin-bottom: -2rem;
+}
+.case-study-visuals-insert {
+  padding: 1rem;
+  background-color: #ffffff;
+}
+
+.pswp__img {
+  background-color: transparent !important;
+}
+
+.pswp__button {
+  outline-offset: -0.5rem;
+}
+
+.skip-to-main {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-to-main:focus-visible {
+  margin: 0;
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+  transition: none;
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  font-size: 1rem;
+  color: #f6f0e8;
+  background: #1b1b1b;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  z-index: 3;
+  border-radius: 0.5rem;
+}
+
+.not-found img {
+  margin-top: 2rem;
+}
+
+/*# sourceMappingURL=styles.css.map */

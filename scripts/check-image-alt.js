@@ -69,22 +69,22 @@ function findPictureCalls(text) {
 
 async function checkImageAlt() {
   const allFiles = await walkFiles(SRC_DIR);
-  const templates = allFiles.filter((file) => file.endsWith(".njk"));
+  const templates = allFiles.filter((file) => file.endsWith(".astro"));
   const issues = [];
 
   for (const file of templates) {
     const text = await fs.readFile(file, "utf8");
-    const calls = findPictureCalls(text);
-    for (const call of calls) {
-      const block = text.slice(call.start, call.end);
-      const hasAlt = /\balt\s*:/.test(block);
-      const hasDecorative = /\bdecorative\s*:/.test(block);
-      if (!hasAlt && !hasDecorative) {
-        issues.push({
-          file,
-          line: indexToLine(text, call.start)
-        });
-      }
+    const componentRegex = /<Picture\b[\s\S]*?\/>/g;
+    let match;
+    while ((match = componentRegex.exec(text))) {
+      const block = match[0];
+      const hasAlt = /\balt=/.test(block);
+      const hasDecorative = /\bdecorative(?:=|\s|>)/.test(block);
+      if (hasAlt || hasDecorative) continue;
+      issues.push({
+        file,
+        line: indexToLine(text, match.index)
+      });
     }
   }
 

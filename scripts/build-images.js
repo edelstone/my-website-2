@@ -4,12 +4,12 @@ const crypto = require("crypto");
 const sharp = require("sharp");
 
 const SOURCE_DIR = path.join(__dirname, "..", "src", "images");
-const OUTPUT_DIR = path.join(__dirname, "..", "_site", "images");
+const OUTPUT_DIR = path.join(__dirname, "..", "public", "images");
 const NETLIFY_CACHE_DIR = process.env.NETLIFY_BUILD_CACHE_DIR;
 const CACHE_DIR = NETLIFY_CACHE_DIR
   ? path.join(NETLIFY_CACHE_DIR, "images")
   : path.join(__dirname, "..", ".cache", "images");
-const MANIFEST_PATH = path.join(__dirname, "..", "src", "_data", "imageMeta.json");
+const MANIFEST_PATH = path.join(__dirname, "..", "src", "data", "imageMeta.ts");
 const WEBP_QUALITY = 80;
 const RESPONSIVE_WIDTHS = [800, 1400, 2000];
 
@@ -309,7 +309,8 @@ async function buildImages() {
   console.log(`Cache hits: ${cacheHits}, cache misses: ${cacheMisses}.`);
 
   await fs.mkdir(path.dirname(MANIFEST_PATH), { recursive: true });
-  await fs.writeFile(MANIFEST_PATH, JSON.stringify(imageMeta, null, 2));
+  const moduleSource = `export const imageMeta = ${JSON.stringify(imageMeta, null, 2)} as const;\n\nexport default imageMeta;\n`;
+  await fs.writeFile(MANIFEST_PATH, moduleSource);
 }
 
 buildImages().catch((error) => {

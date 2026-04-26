@@ -19,9 +19,8 @@ This is the source code for my portfolio website. You’re free to use any of th
 
 ## Built with
 
-- [Eleventy](https://www.11ty.dev)
+- [Astro](https://astro.build)
 - [Netlify](https://www.netlify.com)
-- [Nunjucks](https://mozilla.github.io/nunjucks/)
 - [PhotoSwipe](https://photoswipe.com)
 - [Sass](https://sass-lang.com)
 - [Sharp](https://sharp.pixelplumbing.com)
@@ -33,13 +32,15 @@ This is the source code for my portfolio website. You’re free to use any of th
 1. Clone this project
 2. Install dependencies: `npm install`
 3. Start the dev server: `npm start`
-4. Open `http://localhost:8080`
+4. Open `http://localhost:4321`
 
 Build for production with `npm run build`.
 
+Preview the production build locally with `npm run preview`.
+
 ### Image pipeline
 
-Images are built automatically during `npm run build` and written to `_site/images`. Generated files are not committed.
+Images are built automatically during `npm run build` and written to `public/images`. Astro compiles Sass from `src/styles` during dev/build and outputs the final site to `dist/`. Generated files are not committed.
 
 #### Features
 

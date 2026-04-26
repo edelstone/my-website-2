@@ -1,0 +1,23 @@
+---
+import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
+import Nav from "../components/Nav.astro";
+import "../styles/styles.scss";
+
+const { caseStudy = false, pathname = "/", title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={title} pathname={pathname} />
+  </head>
+  <body>
+    <Header />
+    <Nav pathname={pathname} />
+    <main id="main" class="main constrain">
+      <slot />
+    </main>
+    {caseStudy && <script type="module" src="/js/photoswipe-init.js"></script>}
+  </body>
+</html>

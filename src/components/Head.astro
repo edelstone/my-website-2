@@ -1,0 +1,43 @@
+---
+import { site } from "../data/site";
+
+const { title, pathname = "/" } = Astro.props;
+
+function normalizePath(value: string | undefined) {
+  if (!value || value === "/") return "/";
+  if (value === "/404.html") return value;
+  return value.endsWith("/") ? value : `${value}/`;
+}
+
+const pagePath = normalizePath(pathname);
+const isHome = pagePath === "/";
+const is404 = pagePath === "/404.html";
+const pageTitle = isHome ? site.name : `${title} | ${site.name}`;
+const canonicalUrl = `${site.url}${pagePath}`;
+---
+
+<meta charset="utf-8" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H5KFJDXTSR"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag("js", new Date());
+  gtag("config", "G-H5KFJDXTSR");
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={site.description} />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={site.description} />
+<meta property="og:image" content={site.shareImage} />
+{!is404 && <meta property="og:url" content={canonicalUrl} />}
+{!is404 && <link rel="canonical" href={canonicalUrl} />}
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<title>{pageTitle}</title>

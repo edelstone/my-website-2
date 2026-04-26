@@ -1,7 +1,7 @@
 const fs = require("fs/promises");
 const path = require("path");
 
-const SITE_DIR = path.join(__dirname, "..", "_site");
+const SITE_DIR = path.join(__dirname, "..", "dist");
 
 async function walkFiles(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -95,7 +95,7 @@ async function checkImages() {
     const allFiles = await walkFiles(SITE_DIR);
     htmlFiles = allFiles.filter((file) => file.endsWith(".html"));
   } catch (error) {
-    console.warn("Image check skipped: _site not found.");
+    console.warn("Image check skipped: dist not found.");
     return;
   }
 

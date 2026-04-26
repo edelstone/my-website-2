@@ -3,19 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "description": "I’m a product designer focusing on utilitarian software and brands. I like dogs, national parks, and making useful things with talented people.",
-  "main": "index.js",
   "scripts": {
-    "watch:css": "sass --watch src/styles:_site/css --style=expanded",
-    "build:css": "sass src/styles:_site/css --style=compressed",
-    "watch:11ty": "eleventy --serve",
-    "build:11ty": "eleventy",
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build:site": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "build:images": "node scripts/build-images.js",
     "clean:images": "node -e \"require('fs').rmSync('.cache/images', { recursive: true, force: true }); console.log('Cleared .cache/images');\"",
     "check:images": "node scripts/check-image-refs.js",
     "check:unused-images": "node scripts/check-unused-images.js",
     "check:alts": "node scripts/check-image-alt.js",
-    "build": "npm run build:css && npm run build:images && npm run build:11ty && npm run check:images && npm run check:unused-images && npm run check:alts",
-    "start": "concurrently \"npm run watch:css\" \"npm run watch:11ty\""
+    "build": "npm run build:images && npm run build:site && npm run check:images && npm run check:unused-images && npm run check:alts",
+    "start": "npm run dev"
   },
   "keywords": [
     "product-design",
@@ -30,12 +28,8 @@
   "engines": {
     "node": ">=18"
   },
-  "overrides": {
-    "markdown-it": "^14.1.1"
-  },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "concurrently": "^9.0.1",
+    "astro": "^5.13.5",
     "netlify-plugin-cache": "^1.0.3",
     "sass": "^1.97.3",
     "sharp": "^0.33.4"

@@ -1,7 +1,7 @@
 const fs = require("fs/promises");
 const path = require("path");
 
-const SITE_DIR = path.join(__dirname, "..", "_site");
+const SITE_DIR = path.join(__dirname, "..", "dist");
 const SOURCE_DIR = path.join(__dirname, "..", "src", "images");
 const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".gif"]);
 
@@ -126,7 +126,7 @@ async function checkUnusedImages() {
     const allFiles = await walkFiles(SITE_DIR);
     htmlFiles = allFiles.filter((file) => file.endsWith(".html"));
   } catch (error) {
-    console.warn("Unused image check skipped: _site not found.");
+    console.warn("Unused image check skipped: dist not found.");
     return;
   }
 
