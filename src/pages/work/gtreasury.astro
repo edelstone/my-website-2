@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import Picture from "../../components/Picture.astro";
+---
+
+<BaseLayout title="Modernizing a monolith" pathname="/work/gtreasury/" caseStudy={true}>
+  <div class="case-study">
+    <div class="case-study-header">
+      <div class="case-study-header-content constrain">
+        <h1><Icon name="gtreasury" />Modernizing a monolith</h1>
+        <div class="case-study-header-nav">
+          <a title="Previous" href="/work/material-palettes/"><Icon name="previous" /></a>
+          <a title="Next" href="/work/balto/"><Icon name="next" /></a>
+        </div>
+      </div>
+    </div>
+    <div class="case-study-cards">
+      <figure>
+        <h2>Role</h2>
+        <p>UX Engineer</p>
+      </figure>
+      <figure>
+        <h2>Problem</h2>
+        <p>An aging application with deeply inconsistent styles, user experience, and information architecture.</p>
+      </figure>
+      <figure>
+        <h2>Top outcome</h2>
+        <p>A scalable design system with dozens of components that catalyzed a long-term modernization effort.</p>
+      </figure>
+    </div>
+    <div class="case-study-writeup">
+      <p><a href="https://gtreasury.com">GTreasury</a> builds treasury management software for governments and large institutions. Its primary application dates back to the early days of the web and had become fragmented and inconsistent over time.</p>
+      <p>I led a ground-up redesign and content strategy, delivering structured, component-based artifacts designed to endure as teams transitioned to a modern JavaScript framework. The resulting design system, nicknamed <em>Obelisk</em>, was immediately used to prototype high-priority user flows and prove its value.</p>
+      <p>Partnering with a front-end engineer, I wrote the CSS for a <a href="https://gtreasury.netlify.app">pixel-perfect coded prototype</a> that brought the system to life.</p>
+    </div>
+    <div class="case-study-visuals pswp-gallery">
+      <Picture name="gt-browser" ext="png" alt="Product shot, cash module" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
+      <Picture name="gt-dashboard" ext="png" alt="Product shot, dashboard" lightbox />
+      <Picture name="gt-form" ext="png" alt="Product shot, create a deal" lightbox />
+      <Picture name="gt-worksheet" ext="png" alt="Product shot, worksheet" lightbox />
+      <Picture name="gt-table" ext="png" alt="Product shot, table functions" lightbox />
+    </div>
+  </div>
+</BaseLayout>

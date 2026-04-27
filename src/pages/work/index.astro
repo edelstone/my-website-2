@@ -1,30 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Picture from "../../components/Picture.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
-import { imageMeta } from "../../data/imageMeta";
 
-type WorkEntry = CollectionEntry<"work">;
-type ImageKey = keyof typeof imageMeta;
-type ImageName = ImageKey extends `${infer N}.${string}` ? N : never;
-type ImageExtension = ImageKey extends `${string}.${infer E}` ? E : never;
-
-const thumbSizes =
-  "(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc((100vw - 4rem) / 2), 29rem";
-const workEntries: WorkEntry[] = (await getCollection("work")).sort(
-  (a: WorkEntry, b: WorkEntry) => a.data.order - b.data.order,
-);
-
-const sections = [
-  { id: "professional", title: "Professional works" },
-  { id: "open-source", title: "Open-source projects" },
-];
-
-function chunk<T>(items: T[], size: number): T[][] {
-  return Array.from({ length: Math.ceil(items.length / size) }, (_, index) =>
-    items.slice(index * size, index * size + size),
-  );
-}
+const thumbSizes = "(max-width: 40rem) calc(100vw - 2rem), (max-width: 60rem) calc((100vw - 4rem) / 2), 29rem";
 ---
 
 <BaseLayout title="My portfolio" pathname="/work/">
@@ -33,43 +11,126 @@ function chunk<T>(items: T[], size: number): T[][] {
       <h1>My portfolio</h1>
     </div>
     <div class="work-sections">
-      {
-        sections.map((section) => {
-          const entries = workEntries.filter(
-            (entry) => entry.data.section === section.id,
-          );
-
-          return (
-            <div class="work-section">
-              <div class="work-header">
-                <h2>{section.title}</h2>
-              </div>
-              <div class="work-grid">
-                {chunk(entries, 2).map((row) => (
-                  <div class="work-row">
-                    {row.map(({ data }) => (
-                      <a href={`/work/${data.slug}/`} class="work-card">
-                        <figure>
-                          <Picture
-                            name={data.thumb.name as ImageName}
-                            ext={data.thumb.ext as ImageExtension}
-                            alt={data.thumb.alt}
-                            sizes={thumbSizes}
-                          />
-                          <figcaption>
-                            <h3>{data.title}</h3>
-                            <p>{data.summary}</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          );
-        })
-      }
+      <div class="work-section">
+        <div class="work-header">
+          <h2>Professional works</h2>
+        </div>
+        <div class="work-grid">
+          <div class="work-row">
+            <a href="gtreasury" class="work-card">
+              <figure>
+                <Picture
+                  name="thumb-gt"
+                  ext="png"
+                  alt="GTreasury dashboard cashflow chart in action"
+                  sizes={thumbSizes}
+                />
+                <figcaption>
+                  <h3>Modernizing a monolith</h3>
+                  <p>A component-based redesign and content strategy for a global financial firm.</p>
+                </figcaption>
+              </figure>
+            </a>
+            <a href="balto" class="work-card">
+              <figure>
+                <Picture
+                  name="thumb-balto"
+                  ext="png"
+                  alt="Balto chat client with an active conversation"
+                  sizes={thumbSizes}
+                />
+                <figcaption>
+                  <h3>A.I. phone home</h3>
+                  <p>Real-time chat and listening tools for coaches in high-volume contact centers.</p>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="work-row">
+            <a href="kuali" class="work-card">
+              <figure>
+                <Picture
+                  name="thumb-kuali"
+                  ext="png"
+                  alt="Kuali Research header and sidebar, highlighting co-branding"
+                  sizes={thumbSizes}
+                />
+                <figcaption>
+                  <h3>For the common good</h3>
+                  <p>A unifying experience for the world’s most crucial research projects.</p>
+                </figcaption>
+              </figure>
+            </a>
+            <a href="texas-state" class="work-card">
+              <figure>
+                <Picture
+                  name="thumb-txst"
+                  ext="png"
+                  alt="Texas State color hierarchy and typography samples"
+                  sizes={thumbSizes}
+                />
+                <figcaption>
+                  <h3>Branding a bobcat</h3>
+                  <p>An accessible digital identity to align and inspire a renowned Texas institution.</p>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="work-section">
+        <div class="work-header">
+          <h2>Open-source projects</h2>
+        </div>
+        <div class="work-grid">
+          <div class="work-row">
+            <a href="tints-and-shades" class="work-card">
+              <figure>
+                <Picture
+                  name="thumb-tints-shades"
+                  ext="png"
+                  alt="Tint & Shade Generator palettes with complementary colors menu open"
+                  sizes={thumbSizes}
+                />
+                <figcaption>
+                  <h3>Tint &amp; Shade Generator</h3>
+                  <p>One of the most popular color tools on the web, with users in over 180 countries.</p>
+                </figcaption>
+              </figure>
+            </a>
+            <a href="tock" class="work-card">
+              <figure>
+                <Picture
+                  name="thumb-tock"
+                  ext="png"
+                  alt="Tock app popover open below Mac menu bar with several common apps"
+                  sizes={thumbSizes}
+                />
+                <figcaption>
+                  <h3>Tock</h3>
+                  <p>A super-minimal timer with natural-language parsing and configurable tones.</p>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="work-row">
+            <a href="material-palettes" class="work-card">
+              <figure>
+                <Picture
+                  name="thumb-material"
+                  ext="png"
+                  alt="Material Palettes primary and secondary color arrays"
+                  sizes={thumbSizes}
+                />
+                <figcaption>
+                  <h3>Material Palettes</h3>
+                  <p>Perfect color palettes based on Google’s design system methodology.</p>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </BaseLayout>
