@@ -1,20 +1,15 @@
 import { site } from "../data/site";
+import { getCollection } from "astro:content";
 
-const paths = [
-  "/",
-  "/about/",
-  "/contact/",
-  "/work/",
-  "/work/gtreasury/",
-  "/work/balto/",
-  "/work/kuali/",
-  "/work/texas-state/",
-  "/work/tints-and-shades/",
-  "/work/tock/",
-  "/work/material-palettes/"
-];
-
-export function GET() {
+export async function GET() {
+  const workEntries = await getCollection("work");
+  const paths = [
+    "/",
+    "/about/",
+    "/contact/",
+    "/work/",
+    ...workEntries.map((entry) => `/work/${entry.data.slug}/`)
+  ];
   const lastmod = new Date().toISOString();
   const urls = paths
     .map((path) => `  <url>\n    <loc>${site.url}${path}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`)

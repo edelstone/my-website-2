@@ -1,0 +1,113 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import Picture from "../../components/Picture.astro";
+import { imageMeta } from "../../data/imageMeta";
+
+type WorkEntry = CollectionEntry<"work">;
+type Visual = WorkEntry["data"]["visuals"][number];
+type ImageKey = keyof typeof imageMeta;
+type ImageName = ImageKey extends `${infer N}.${string}` ? N : never;
+type ImageExtension = ImageKey extends `${string}.${infer E}` ? E : never;
+type Props = {
+  entry: WorkEntry;
+  previous: WorkEntry;
+  next: WorkEntry;
+};
+
+export async function getStaticPaths() {
+  const entries: WorkEntry[] = (await getCollection("work")).sort(
+    (a: WorkEntry, b: WorkEntry) => a.data.order - b.data.order,
+  );
+
+  return entries.map((entry, index) => ({
+    params: { slug: entry.data.slug },
+    props: {
+      entry,
+      previous: entries[(index - 1 + entries.length) % entries.length],
+      next: entries[(index + 1) % entries.length],
+    },
+  }));
+}
+
+const { entry, previous, next } = Astro.props as Props;
+
+const { Content } = await render(entry);
+const { cards, icon, logoClass, logoImage, slug, title, visuals } = entry.data;
+const logoImageStyle =
+  slug === "tock"
+    ? "position: relative; top: -1.8rem; margin-bottom: -1.8rem;"
+    : undefined;
+const writeupClass = cards
+  ? "case-study-writeup"
+  : "case-study-writeup case-study-writeup-no-cards";
+---
+
+<BaseLayout title={title} pathname={`/work/${slug}/`} caseStudy={true}>
+  <div class="case-study">
+    <div class="case-study-header">
+      <div class="case-study-header-content constrain">
+        <h1>
+          {icon && <Icon name={icon} />}{
+            logoImage && (
+              <img
+                src={logoImage}
+                alt=""
+                aria-hidden="true"
+                class={logoClass}
+                width="1024"
+                height="1024"
+                style={logoImageStyle}
+              />
+            )
+          }{title}
+        </h1>
+        <div class="case-study-header-nav">
+          <a title="Previous" href={`/work/${previous.data.slug}/`}
+            ><Icon name="previous" /></a
+          >
+          <a title="Next" href={`/work/${next.data.slug}/`}
+            ><Icon name="next" /></a
+          >
+        </div>
+      </div>
+    </div>
+    {
+      cards && (
+        <div class="case-study-cards">
+          <figure>
+            <h2>Role</h2>
+            <p>{cards.role}</p>
+          </figure>
+          <figure>
+            <h2>Problem</h2>
+            <p>{cards.problem}</p>
+          </figure>
+          <figure>
+            <h2>Top outcome</h2>
+            <p>{cards.outcome}</p>
+          </figure>
+        </div>
+      )
+    }
+    <div class={writeupClass}>
+      <Content />
+    </div>
+    <div class="case-study-visuals pswp-gallery">
+      {
+        visuals.map((visual: Visual, index: number) => (
+          <Picture
+            name={visual.name as ImageName}
+            ext={visual.ext as ImageExtension}
+            alt={visual.alt}
+            class={visual.class}
+            loading={index === 0 ? "eager" : "lazy"}
+            fetchpriority={index === 0 ? "high" : undefined}
+            lightbox
+          />
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
