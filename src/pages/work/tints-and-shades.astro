@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Icon from "../../components/Icon.astro";
+import Pagination from "../../components/Pagination.astro";
 import Picture from "../../components/Picture.astro";
 ---
 
@@ -8,10 +8,10 @@ import Picture from "../../components/Picture.astro";
   <div class="case-study">
     <div class="case-study-header">
       <div class="case-study-header-content constrain">
-        <h1><Icon name="tintsAndShades" />Tint &amp; Shade Generator</h1>
+        <h1>Tint &amp; Shade Generator</h1>
         <div class="case-study-header-nav">
-          <a title="Previous" href="/work/texas-state/"><Icon name="previous" /></a>
-          <a title="Next" href="/work/tock/"><Icon name="next" /></a>
+          <a title="Previous" href="/work/texas-state/"><Pagination name="previous" /></a>
+          <a title="Next" href="/work/tock/"><Pagination name="next" /></a>
         </div>
       </div>
     </div>
@@ -24,9 +24,9 @@ import Picture from "../../components/Picture.astro";
       </ul>
     </div>
     <div class="case-study-visuals pswp-gallery">
-      <Picture name="tints-shades-home" ext="png" alt="Product shot, home" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
-      <Picture name="tints-shades-palettes" ext="png" alt="Product shot, generated color palettes" class="case-study-visuals-browser" lightbox />
-      <Picture name="tints-shades-export" ext="png" alt="Product shot, export all colors" class="case-study-visuals-browser" lightbox />
+      <Picture name="tints-shades-home" alt="Product shot, home" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
+      <Picture name="tints-shades-palettes" alt="Product shot, generated color palettes" class="case-study-visuals-browser" lightbox />
+      <Picture name="tints-shades-export" alt="Product shot, export all colors" class="case-study-visuals-browser" lightbox />
     </div>
   </div>
 </BaseLayout>

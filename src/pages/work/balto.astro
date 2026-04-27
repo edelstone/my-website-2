@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Icon from "../../components/Icon.astro";
+import Pagination from "../../components/Pagination.astro";
 import Picture from "../../components/Picture.astro";
 ---
 
@@ -8,10 +8,10 @@ import Picture from "../../components/Picture.astro";
   <div class="case-study">
     <div class="case-study-header">
       <div class="case-study-header-content constrain">
-        <h1><Icon name="balto" />A.I. phone home</h1>
+        <h1>A.I. phone home</h1>
         <div class="case-study-header-nav">
-          <a title="Previous" href="/work/gtreasury/"><Icon name="previous" /></a>
-          <a title="Next" href="/work/kuali/"><Icon name="next" /></a>
+          <a title="Previous" href="/work/gtreasury/"><Pagination name="previous" /></a>
+          <a title="Next" href="/work/kuali/"><Pagination name="next" /></a>
         </div>
       </div>
     </div>
@@ -34,11 +34,11 @@ import Picture from "../../components/Picture.astro";
       <p>Building on Balto’s machine learning foundation, I conceived and validated multiple user flows that resulted in a new product offering, <em>Real-Time Coaching</em>. The module introduced a native chat experience and an array of data-visualization tools, giving managers an at-a-glance view of team activity and productivity.</p>
     </div>
     <div class="case-study-visuals pswp-gallery">
-      <Picture name="balto-browser" ext="png" alt="Product shot, agent chat" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
-      <Picture name="balto-alerts" ext="png" alt="Product shot, alerts table" lightbox />
-      <Picture name="balto-form" ext="png" alt="Product shot, create an alert" lightbox />
-      <Picture name="balto-log" ext="png" alt="Product shot, activity log" lightbox />
-      <Picture name="balto-scores" ext="png" alt="Product shot, agent scores" lightbox />
+      <Picture name="balto-browser" alt="Product shot, agent chat" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
+      <Picture name="balto-alerts" alt="Product shot, alerts table" lightbox />
+      <Picture name="balto-form" alt="Product shot, create an alert" lightbox />
+      <Picture name="balto-log" alt="Product shot, activity log" lightbox />
+      <Picture name="balto-scores" alt="Product shot, agent scores" lightbox />
     </div>
   </div>
 </BaseLayout>

@@ -2,5 +2,3 @@ node_modules
 .cache
 .astro
 dist
-public/images
-AGENTS.md

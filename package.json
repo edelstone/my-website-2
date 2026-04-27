@@ -5,14 +5,8 @@
   "description": "I’m a product designer focusing on utilitarian software and brands. I like dogs, national parks, and making useful things with talented people.",
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
-    "build:site": "ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
-    "build:images": "node scripts/build-images.js",
-    "clean:images": "node -e \"require('fs').rmSync('.cache/images', { recursive: true, force: true }); console.log('Cleared .cache/images');\"",
-    "check:images": "node scripts/check-image-refs.js",
-    "check:unused-images": "node scripts/check-unused-images.js",
-    "check:alts": "node scripts/check-image-alt.js",
-    "build": "npm run build:images && npm run build:site && npm run check:images && npm run check:unused-images && npm run check:alts",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
     "start": "npm run dev"
   },
   "keywords": [
@@ -26,12 +20,10 @@
   "author": "Michael Edelstone <michael.edelstone@gmail.com> (https://michaeledelstone.com)",
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=22.12.0"
   },
   "devDependencies": {
     "astro": "^6.1.9",
-    "netlify-plugin-cache": "^1.0.3",
-    "sass": "^1.97.3",
-    "sharp": "^0.33.4"
+    "sass": "^1.97.3"
   }
 }

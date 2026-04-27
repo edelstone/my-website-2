@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Icon from "../../components/Icon.astro";
+import Pagination from "../../components/Pagination.astro";
 import Picture from "../../components/Picture.astro";
 ---
 
@@ -8,10 +8,10 @@ import Picture from "../../components/Picture.astro";
   <div class="case-study">
     <div class="case-study-header">
       <div class="case-study-header-content constrain">
-        <h1><Icon name="kuali" />For the common good</h1>
+        <h1>For the common good</h1>
         <div class="case-study-header-nav">
-          <a title="Previous" href="/work/balto/"><Icon name="previous" /></a>
-          <a title="Next" href="/work/texas-state/"><Icon name="next" /></a>
+          <a title="Previous" href="/work/balto/"><Pagination name="previous" /></a>
+          <a title="Next" href="/work/texas-state/"><Pagination name="next" /></a>
         </div>
       </div>
     </div>
@@ -34,12 +34,12 @@ import Picture from "../../components/Picture.astro";
       <p>Independent product lines, each with dedicated sales and development teams, had evolved separate interfaces with little shared structure or alignment. In response, I incrementally developed a unifying, responsive framework across products, introducing common navigation, global search functionality, and integrated co-branding.</p>
     </div>
     <div class="case-study-visuals pswp-gallery">
-      <Picture name="kuali-browser" ext="png" alt="Product shot, system search" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
-      <Picture name="kuali-find" ext="png" alt="Product shot, find documents" lightbox />
-      <Picture name="kuali-apps" ext="png" alt="Product shot, application switcher" lightbox />
-      <Picture name="kuali-nav" ext="png" alt="Product shot, main navigation" lightbox />
-      <Picture name="kuali-mobile" ext="png" alt="Product shot, mobile layout" class="case-study-visuals-multi" lightbox />
-      <Picture name="kuali-cobrand" ext="png" alt="Product shot, co-branding" lightbox />
+      <Picture name="kuali-browser" alt="Product shot, system search" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
+      <Picture name="kuali-find" alt="Product shot, find documents" lightbox />
+      <Picture name="kuali-apps" alt="Product shot, application switcher" lightbox />
+      <Picture name="kuali-nav" alt="Product shot, main navigation" lightbox />
+      <Picture name="kuali-mobile" alt="Product shot, mobile layout" class="case-study-visuals-multi" lightbox />
+      <Picture name="kuali-cobrand" alt="Product shot, co-branding" lightbox />
     </div>
   </div>
 </BaseLayout>

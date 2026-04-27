@@ -1,35 +1,18 @@
 ---
-import { imageMeta } from "../data/imageMeta";
-
-type ImageMeta = typeof imageMeta;
-type ImageKey = keyof ImageMeta;
-type ImageName = ImageKey extends `${infer N}.${infer E}` ? N : never;
-type ImageExtension = ImageKey extends `${infer N}.${infer E}` ? E : never;
-type ImageFormat = "png" | "jpg" | "webp";
-
-type PictureSource = {
-  media?: string;
-  type?: string;
-  name: ImageName;
-  format: ImageFormat;
-};
-
-type WidthKey = keyof ImageMeta[ImageKey]["widths"];
+import { getImage } from "astro:assets";
+import { getImageByName } from "../data/images";
 
 type Props = {
   alt?: string;
   class?: string;
   decoding?: "async" | "sync" | "auto";
   decorative?: boolean;
-  ext: ImageExtension;
   fetchpriority?: "auto" | "high" | "low";
   id?: string;
-  includeDefaultWebp?: boolean;
   lightbox?: boolean;
   loading?: "lazy" | "eager";
-  name: ImageName;
+  name: string;
   sizes?: string;
-  sources?: PictureSource[];
   style?: string;
   widths?: number[];
 };
@@ -39,67 +22,73 @@ const {
   class: className = "",
   decoding = "async",
   decorative = false,
-  ext,
   fetchpriority,
   id,
-  includeDefaultWebp = true,
   lightbox = false,
   loading = "lazy",
   name,
   sizes = "(max-width: 50rem) 100vw, 1020px",
-  sources = [],
   style,
   widths = [800, 1400, 2000]
 } = Astro.props as Props;
 
-const makeSrcSet = (base: ImageName, ext: ImageFormat) =>
-  widths.map((width: number) => `/images/${base}-${width}w.${ext} ${width}w`).join(", ");
+function getEffectiveWidths(image: ImageMetadata, requestedWidths: number[]) {
+  return [...new Set(requestedWidths.map((width) => Math.min(width, image.width)))].sort(
+    (a, b) => a - b
+  );
+}
 
-const makeSourceSrcSet = (source: PictureSource) =>
-  makeSrcSet(source.name, source.format);
+function getDefaultWidth(responsiveWidths: number[]) {
+  return responsiveWidths[Math.floor(responsiveWidths.length / 2)];
+}
 
-const defaultWidth = widths[Math.floor(widths.length / 2)];
-const largestWidth = widths[widths.length - 1];
-const defaultWidthKey = String(defaultWidth) as WidthKey;
-const largestWidthKey = String(largestWidth) as WidthKey;
-const imageKey = `${name}.${ext}` as ImageKey;
-const meta = imageMeta[imageKey];
-const sizeData = meta?.widths?.[defaultWidthKey];
-const lightboxSize = meta?.widths?.[largestWidthKey];
+const image = getImageByName(name);
+const imageFormat = image.format;
+const responsiveWidths = getEffectiveWidths(image, widths);
+const defaultWidth = getDefaultWidth(responsiveWidths);
+const largestWidth = responsiveWidths[responsiveWidths.length - 1];
 
-const imageSrc = `/images/${name}-${defaultWidth}w.${ext}`;
-const imageSrcSet = makeSrcSet(name, ext);
-const webpSrcSet = makeSrcSet(name, "webp");
-const lightboxHref = `/images/${name}-${largestWidth}w.${ext}`;
-const lightboxSrcSet = makeSrcSet(name, ext);
+const defaultImage = await getImage({
+  src: image,
+  width: defaultWidth,
+  widths: responsiveWidths,
+  format: imageFormat
+});
+
+const webpImage = await getImage({
+  src: image,
+  width: defaultWidth,
+  widths: responsiveWidths,
+  format: "webp"
+});
+
+const lightboxImage = lightbox
+  ? await getImage({
+      src: image,
+      width: largestWidth,
+      format: imageFormat
+    })
+  : null;
 ---
 
 {lightbox ? (
   <a
     class="pswp-item"
-    href={lightboxHref}
-    data-pswp-width={lightboxSize?.width}
-    data-pswp-height={lightboxSize?.height}
-    data-pswp-srcset={lightboxSrcSet}
+    href={lightboxImage?.src}
+    data-pswp-width={lightboxImage?.attributes.width}
+    data-pswp-height={lightboxImage?.attributes.height}
+    data-pswp-srcset={defaultImage.srcSet.attribute}
     data-pswp-sizes={sizes}
     data-pswp-caption={alt || undefined}
   >
     <picture>
-      {sources.map((source: PictureSource) => (
-        <source
-          media={source.media}
-          type={source.type}
-          srcset={makeSourceSrcSet(source)}
-          sizes={sizes}
-        />
-      ))}
-      {includeDefaultWebp && <source type="image/webp" srcset={webpSrcSet} sizes={sizes} />}
+      {webpImage && <source type="image/webp" srcset={webpImage.srcSet.attribute} sizes={sizes} />}
       <img
-        src={imageSrc}
-        srcset={imageSrcSet}
+        src={defaultImage.src}
+        srcset={defaultImage.srcSet.attribute}
         sizes={sizes}
-        width={sizeData?.width}
-        height={sizeData?.height}
+        width={defaultImage.attributes.width}
+        height={defaultImage.attributes.height}
         alt={decorative ? "" : alt}
         aria-hidden={decorative ? "true" : undefined}
         class={className || undefined}
@@ -113,21 +102,13 @@ const lightboxSrcSet = makeSrcSet(name, ext);
   </a>
 ) : (
   <picture>
-    {sources.map((source: PictureSource) => (
-      <source
-        media={source.media}
-        type={source.type}
-        srcset={makeSourceSrcSet(source)}
-        sizes={sizes}
-      />
-    ))}
-    {includeDefaultWebp && <source type="image/webp" srcset={webpSrcSet} sizes={sizes} />}
+    {webpImage && <source type="image/webp" srcset={webpImage.srcSet.attribute} sizes={sizes} />}
     <img
-      src={imageSrc}
-      srcset={imageSrcSet}
+      src={defaultImage.src}
+      srcset={defaultImage.srcSet.attribute}
       sizes={sizes}
-      width={sizeData?.width}
-      height={sizeData?.height}
+      width={defaultImage.attributes.width}
+      height={defaultImage.attributes.height}
       alt={decorative ? "" : alt}
       aria-hidden={decorative ? "true" : undefined}
       class={className || undefined}

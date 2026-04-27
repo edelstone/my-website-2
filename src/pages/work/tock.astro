@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Icon from "../../components/Icon.astro";
+import Pagination from "../../components/Pagination.astro";
 import Picture from "../../components/Picture.astro";
 ---
 
@@ -8,10 +8,10 @@ import Picture from "../../components/Picture.astro";
   <div class="case-study">
     <div class="case-study-header">
       <div class="case-study-header-content constrain">
-        <h1><img src="/images/tock-icon.png" alt="" aria-hidden="true" class="logo-tock" />Tock</h1>
+        <h1>Tock</h1>
         <div class="case-study-header-nav">
-          <a title="Previous" href="/work/tints-and-shades/"><Icon name="previous" /></a>
-          <a title="Next" href="/work/material-palettes/"><Icon name="next" /></a>
+          <a title="Previous" href="/work/tints-and-shades/"><Pagination name="previous" /></a>
+          <a title="Next" href="/work/material-palettes/"><Pagination name="next" /></a>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@ import Picture from "../../components/Picture.astro";
       </ul>
     </div>
     <div class="case-study-visuals pswp-gallery">
-      <Picture name="tock-app" ext="png" alt="Collage of various Tock popovers and settings menu" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
+      <Picture name="tock-app" alt="Collage of various Tock popovers and settings menu" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
     </div>
   </div>
 </BaseLayout>

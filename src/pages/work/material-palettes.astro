@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Icon from "../../components/Icon.astro";
+import Pagination from "../../components/Pagination.astro";
 import Picture from "../../components/Picture.astro";
 ---
 
@@ -8,10 +8,10 @@ import Picture from "../../components/Picture.astro";
   <div class="case-study">
     <div class="case-study-header">
       <div class="case-study-header-content constrain">
-        <h1><Icon name="materialPalettes" />Material Palettes</h1>
+        <h1>Material Palettes</h1>
         <div class="case-study-header-nav">
-          <a title="Previous" href="/work/tock/"><Icon name="previous" /></a>
-          <a title="Next" href="/work/gtreasury/"><Icon name="next" /></a>
+          <a title="Previous" href="/work/tock/"><Pagination name="previous" /></a>
+          <a title="Next" href="/work/gtreasury/"><Pagination name="next" /></a>
         </div>
       </div>
     </div>
@@ -23,8 +23,8 @@ import Picture from "../../components/Picture.astro";
       </ul>
     </div>
     <div class="case-study-visuals pswp-gallery">
-      <Picture name="material-home" ext="png" alt="Product shot, home" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
-      <Picture name="material-export" ext="png" alt="Product shot, export" class="case-study-visuals-browser" lightbox />
+      <Picture name="material-home" alt="Product shot, home" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
+      <Picture name="material-export" alt="Product shot, export" class="case-study-visuals-browser" lightbox />
     </div>
   </div>
 </BaseLayout>

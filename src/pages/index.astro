@@ -1,34 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Picture from "../components/Picture.astro";
-import { media } from "../data/media";
+
+const portraitSizes = "(max-width: 40rem) 100vw, 18rem";
 ---
 
 <BaseLayout title="Designer + neat person" pathname="/">
   <div class="homebase">
     <div class="homebase-visual">
-      <Picture
-        name="me-portrait"
-        ext="jpg"
-        decorative
-        sizes="(max-width: 40rem) 100vw, 18rem"
-        loading="eager"
-        fetchpriority="high"
-        sources={[
-          {
-            name: "me-landscape",
-            format: "webp",
-            type: "image/webp",
-            media: media.portraitSwap
-          },
-          {
-            name: "me-landscape",
-            format: "jpg",
-            type: "image/jpeg",
-            media: media.portraitSwap
-          }
-        ]}
-      />
+      <Picture name="me-portrait" class="homebase-portrait" decorative sizes={portraitSizes} loading="eager" fetchpriority="high" />
+      <Picture name="me-landscape" class="homebase-landscape" decorative sizes={portraitSizes} loading="eager" fetchpriority="high" />
     </div>
     <div class="homebase-text">
       <div class="homebase-text-header">
