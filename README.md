@@ -20,7 +20,7 @@ This is the source code for my portfolio website. You’re free to use any of th
 ## Built with
 
 - [Astro](https://astro.build)
-- [Netlify](https://www.netlify.com)
+- [Netlify](https://netlify.com)
 - [PhotoSwipe](https://photoswipe.com)
 - [Sass](https://sass-lang.com)
 
