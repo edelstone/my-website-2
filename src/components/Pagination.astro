@@ -1,0 +1,14 @@
+---
+const icons = {
+  next: `<svg xmlns="http://www.w3.org/2000/svg" aria-label="next" viewBox="0 0 64 64"><path d="M47 32a2.991 2.991 0 0 1-.879 2.12l-20 20a3 3 0 0 1-4.242-4.242L39.757 32 21.88 14.12a3 3 0 0 1 4.242-4.242l20 20A2.99 2.99 0 0 1 47 32Z"/></svg>`,
+  previous: `<svg xmlns="http://www.w3.org/2000/svg" aria-label="previous" viewBox="0 0 64 64"><path d="M17 32a2.991 2.991 0 0 1 .879-2.12l20-20a3 3 0 0 1 4.242 4.242L24.243 32 42.12 49.879a3 3 0 0 1-4.242 4.243l-20-20A2.99 2.99 0 0 1 17 32Z"/></svg>`
+} as const;
+
+type IconName = keyof typeof icons;
+type Props = { name: IconName };
+const { name } = Astro.props as Props;
+
+const markup = icons[name];
+---
+
+<Fragment set:html={markup} />

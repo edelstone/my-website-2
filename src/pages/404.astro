@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import whatdYouDo from "../images/whatd-you-do.gif";
+---
+
+<BaseLayout title="Page not found" pathname="/404.html">
+  <div class="not-found">
+    <h1 class="not-found-header">Page not found</h1>
+    <img src={whatdYouDo.src} width={whatdYouDo.width} height={whatdYouDo.height} alt="" />
+    <div class="not-found-text">
+      <p>The page you’re looking for doesn’t exist or has been moved. It may be entirely my fault and I’m sorry.</p>
+    </div>
+  </div>
+</BaseLayout>

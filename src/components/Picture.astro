@@ -1,0 +1,122 @@
+---
+import { getImage } from "astro:assets";
+import { getImageByName } from "../data/images";
+
+type Props = {
+  alt?: string;
+  class?: string;
+  decoding?: "async" | "sync" | "auto";
+  decorative?: boolean;
+  fetchpriority?: "auto" | "high" | "low";
+  id?: string;
+  lightbox?: boolean;
+  loading?: "lazy" | "eager";
+  name: string;
+  sizes?: string;
+  style?: string;
+  widths?: number[];
+};
+
+const {
+  alt = "",
+  class: className = "",
+  decoding = "async",
+  decorative = false,
+  fetchpriority,
+  id,
+  lightbox = false,
+  loading = "lazy",
+  name,
+  sizes = "(max-width: 50rem) 100vw, 1020px",
+  style,
+  widths = [800, 1400, 2000]
+} = Astro.props as Props;
+
+function getEffectiveWidths(image: ImageMetadata, requestedWidths: number[]) {
+  return [...new Set(requestedWidths.map((width) => Math.min(width, image.width)))].sort(
+    (a, b) => a - b
+  );
+}
+
+function getDefaultWidth(responsiveWidths: number[]) {
+  return responsiveWidths[Math.floor(responsiveWidths.length / 2)];
+}
+
+const image = getImageByName(name);
+const imageFormat = image.format;
+const responsiveWidths = getEffectiveWidths(image, widths);
+const defaultWidth = getDefaultWidth(responsiveWidths);
+const largestWidth = responsiveWidths[responsiveWidths.length - 1];
+
+const defaultImage = await getImage({
+  src: image,
+  width: defaultWidth,
+  widths: responsiveWidths,
+  format: imageFormat
+});
+
+const webpImage = await getImage({
+  src: image,
+  width: defaultWidth,
+  widths: responsiveWidths,
+  format: "webp"
+});
+
+const lightboxImage = lightbox
+  ? await getImage({
+      src: image,
+      width: largestWidth,
+      format: imageFormat
+    })
+  : null;
+---
+
+{lightbox ? (
+  <a
+    class="pswp-item"
+    href={lightboxImage?.src}
+    data-pswp-width={lightboxImage?.attributes.width}
+    data-pswp-height={lightboxImage?.attributes.height}
+    data-pswp-srcset={defaultImage.srcSet.attribute}
+    data-pswp-sizes={sizes}
+    data-pswp-caption={alt || undefined}
+  >
+    <picture>
+      {webpImage && <source type="image/webp" srcset={webpImage.srcSet.attribute} sizes={sizes} />}
+      <img
+        src={defaultImage.src}
+        srcset={defaultImage.srcSet.attribute}
+        sizes={sizes}
+        width={defaultImage.attributes.width}
+        height={defaultImage.attributes.height}
+        alt={decorative ? "" : alt}
+        aria-hidden={decorative ? "true" : undefined}
+        class={className || undefined}
+        id={id}
+        style={style}
+        loading={loading}
+        decoding={decoding}
+        fetchpriority={fetchpriority}
+      />
+    </picture>
+  </a>
+) : (
+  <picture>
+    {webpImage && <source type="image/webp" srcset={webpImage.srcSet.attribute} sizes={sizes} />}
+    <img
+      src={defaultImage.src}
+      srcset={defaultImage.srcSet.attribute}
+      sizes={sizes}
+      width={defaultImage.attributes.width}
+      height={defaultImage.attributes.height}
+      alt={decorative ? "" : alt}
+      aria-hidden={decorative ? "true" : undefined}
+      class={className || undefined}
+      id={id}
+      style={style}
+      loading={loading}
+      decoding={decoding}
+      fetchpriority={fetchpriority}
+    />
+  </picture>
+)}

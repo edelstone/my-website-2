@@ -155,6 +155,20 @@ h2 {
   }
 
   &-visual {
+    .homebase-landscape {
+      display: none;
+    }
+
+    @include breakpoint('small') {
+      .homebase-portrait {
+        display: none;
+      }
+
+      .homebase-landscape {
+        display: block;
+      }
+    }
+
     img {
       border-radius: $radius-prime;
       border: 2px solid $dark;
@@ -249,45 +263,6 @@ h2 {
       align-items: center;
       gap: 1rem;
       padding: 0 1rem .5rem;
-
-      h1 svg,
-      h1 img {
-        height: auto;
-        display: inline;
-        margin-right: 1.25rem;
-
-        &.logo {
-          &-gt {
-            width: 3.2rem;
-          }
-
-          &-balto {
-            width: 2.5rem;
-          }
-
-          &-kuali {
-            width: 1.8rem;
-          }
-
-          &-txst {
-            width: 4rem;
-          }
-
-          &-tints-and-shades {
-            width: 1.9rem;
-          }
-
-          &-material-palettes {
-            width: 2rem;
-          }
-
-          &-tock {
-            width: 2.2rem;
-            position: relative;
-            top: 0.2rem;
-          }
-        }
-      }
     }
 
     &-nav {

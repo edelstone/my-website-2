@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Pagination from "../../components/Pagination.astro";
+import Picture from "../../components/Picture.astro";
+---
+
+<BaseLayout title="Branding a bobcat" pathname="/work/texas-state/" caseStudy={true}>
+  <div class="case-study">
+    <div class="case-study-header">
+      <div class="case-study-header-content constrain">
+        <h1>Branding a bobcat</h1>
+        <div class="case-study-header-nav">
+          <a title="Previous" href="/work/kuali/"><Pagination name="previous" /></a>
+          <a title="Next" href="/work/tints-and-shades/"><Pagination name="next" /></a>
+        </div>
+      </div>
+    </div>
+    <div class="case-study-cards">
+      <figure>
+        <h2>Role</h2>
+        <p>UI/UX and Marketing Designer</p>
+      </figure>
+      <figure>
+        <h2>Problem</h2>
+        <p>Content management system templates had not been refreshed in over a decade.</p>
+      </figure>
+      <figure>
+        <h2>Top outcome</h2>
+        <p>Deployed the institution’s first accessible, responsive digital identity across more than 500 websites and apps.</p>
+      </figure>
+    </div>
+    <div class="case-study-writeup">
+      <p><a href="https://txst.edu">Texas State University</a> is a renowned institution that had fallen behind digitally. Although the university converted to a custom CMS in the early 2000s, shifting priorities left front-end templates largely unchanged, and publishers struggled to present information effectively.</p>
+      <p>I identified and led several initiatives to close this gap, resulting in 1) an accessible, multi-column template used by hundreds of content creators, 2) an admissions-focused, responsive homepage, and 3) a flexible digital identity documented to guide future product updates. Each represented a first for the university.</p>
+    </div>
+    <div class="case-study-visuals pswp-gallery">
+      <Picture name="txst-browser" alt="Texas State style guide" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
+      <Picture name="txst-homepage" alt="Texas State homepage mockup" lightbox />
+      <Picture name="txst-components" alt="Style guide component examples" lightbox />
+      <Picture name="txst-sliders" alt="Style guide slider component" lightbox />
+      <Picture name="txst-template" alt="Texas State template examples" lightbox />
+      <Picture name="txst-marketing" alt="University Marketing team bios page" lightbox />
+    </div>
+  </div>
+</BaseLayout>

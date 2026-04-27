@@ -1,5 +1,4 @@
 node_modules
-_site
 .cache
-AGENTS.md
-src/_data/imageMeta.json
+.astro
+dist

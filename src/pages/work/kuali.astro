@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Pagination from "../../components/Pagination.astro";
+import Picture from "../../components/Picture.astro";
+---
+
+<BaseLayout title="For the common good" pathname="/work/kuali/" caseStudy={true}>
+  <div class="case-study">
+    <div class="case-study-header">
+      <div class="case-study-header-content constrain">
+        <h1>For the common good</h1>
+        <div class="case-study-header-nav">
+          <a title="Previous" href="/work/balto/"><Pagination name="previous" /></a>
+          <a title="Next" href="/work/texas-state/"><Pagination name="next" /></a>
+        </div>
+      </div>
+    </div>
+    <div class="case-study-cards">
+      <figure>
+        <h2>Role</h2>
+        <p>Product Designer</p>
+      </figure>
+      <figure>
+        <h2>Problem</h2>
+        <p>Product lines had diverged over time, resulting in a disjointed experience and confused stakeholders.</p>
+      </figure>
+      <figure>
+        <h2>Top outcome</h2>
+        <p>A shared commitment to product alignment through a unified layout and navigation scheme.</p>
+      </figure>
+    </div>
+    <div class="case-study-writeup">
+      <p><a href="https://kuali.co">Kuali</a> builds software products for higher education institutions, serving academics, administrators, and students. I was the primary designer for the Research product, conducting user interviews, designing and testing prototypes, and occasionally coding my own designs to reduce engineering overhead.</p>
+      <p>Independent product lines, each with dedicated sales and development teams, had evolved separate interfaces with little shared structure or alignment. In response, I incrementally developed a unifying, responsive framework across products, introducing common navigation, global search functionality, and integrated co-branding.</p>
+    </div>
+    <div class="case-study-visuals pswp-gallery">
+      <Picture name="kuali-browser" alt="Product shot, system search" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
+      <Picture name="kuali-find" alt="Product shot, find documents" lightbox />
+      <Picture name="kuali-apps" alt="Product shot, application switcher" lightbox />
+      <Picture name="kuali-nav" alt="Product shot, main navigation" lightbox />
+      <Picture name="kuali-mobile" alt="Product shot, mobile layout" class="case-study-visuals-multi" lightbox />
+      <Picture name="kuali-cobrand" alt="Product shot, co-branding" lightbox />
+    </div>
+  </div>
+</BaseLayout>

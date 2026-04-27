@@ -19,40 +19,18 @@ This is the source code for my portfolio website. You’re free to use any of th
 
 ## Built with
 
-- [Eleventy](https://www.11ty.dev)
+- [Astro](https://astro.build)
 - [Netlify](https://www.netlify.com)
-- [Nunjucks](https://mozilla.github.io/nunjucks/)
 - [PhotoSwipe](https://photoswipe.com)
 - [Sass](https://sass-lang.com)
-- [Sharp](https://sharp.pixelplumbing.com)
 
 ## Local development
 
-*Prerequisites: Node.js 18+*
+*Prerequisites: Node.js 22.12+*
 
 1. Clone this project
 2. Install dependencies: `npm install`
 3. Start the dev server: `npm start`
-4. Open `http://localhost:8080`
+4. Open `http://localhost:4321`
 
-Build for production with `npm run build`.
-
-### Image pipeline
-
-Images are built automatically during `npm run build` and written to `_site/images`. Generated files are not committed.
-
-#### Features
-
-- Responsive images with correct width and height attributes
-- Alt text enforced (or explicit `decorative`)
-- Build fails on missing image references
-- Build fails on unused source images
-- Images are cached until source or processing rules are updated
-- Cache is clearable with `npm run clean:images`
-- Exception lists for format/size overrides
-
-#### Format outputs
-
-- PNG → compressed + WebP
-- JPG → optimized + WebP
-- GIF → copied as-is
+Build for production with `npm run build`. Preview the production build locally with `npm run preview`.
