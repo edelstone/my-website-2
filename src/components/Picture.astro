@@ -29,13 +29,11 @@ const {
   name,
   sizes = "(max-width: 50rem) 100vw, 1020px",
   style,
-  widths = [800, 1400, 2000]
+  widths = [800, 1400, 2000],
 } = Astro.props as Props;
 
 function getEffectiveWidths(image: ImageMetadata, requestedWidths: number[]) {
-  return [...new Set(requestedWidths.map((width) => Math.min(width, image.width)))].sort(
-    (a, b) => a - b
-  );
+  return [...new Set(requestedWidths.map((width) => Math.min(width, image.width)))].sort((a, b) => a - b);
 }
 
 function getDefaultWidth(responsiveWidths: number[]) {
@@ -52,35 +50,56 @@ const defaultImage = await getImage({
   src: image,
   width: defaultWidth,
   widths: responsiveWidths,
-  format: imageFormat
+  format: imageFormat,
 });
 
 const webpImage = await getImage({
   src: image,
   width: defaultWidth,
   widths: responsiveWidths,
-  format: "webp"
+  format: "webp",
 });
 
 const lightboxImage = lightbox
   ? await getImage({
       src: image,
       width: largestWidth,
-      format: imageFormat
+      format: imageFormat,
     })
   : null;
 ---
 
-{lightbox ? (
-  <a
-    class="pswp-item"
-    href={lightboxImage?.src}
-    data-pswp-width={lightboxImage?.attributes.width}
-    data-pswp-height={lightboxImage?.attributes.height}
-    data-pswp-srcset={defaultImage.srcSet.attribute}
-    data-pswp-sizes={sizes}
-    data-pswp-caption={alt || undefined}
-  >
+{
+  lightbox ? (
+    <a
+      class="pswp-item"
+      href={lightboxImage?.src}
+      data-pswp-width={lightboxImage?.attributes.width}
+      data-pswp-height={lightboxImage?.attributes.height}
+      data-pswp-srcset={defaultImage.srcSet.attribute}
+      data-pswp-sizes={sizes}
+      data-pswp-caption={alt || undefined}
+    >
+      <picture>
+        {webpImage && <source type="image/webp" srcset={webpImage.srcSet.attribute} sizes={sizes} />}
+        <img
+          src={defaultImage.src}
+          srcset={defaultImage.srcSet.attribute}
+          sizes={sizes}
+          width={defaultImage.attributes.width}
+          height={defaultImage.attributes.height}
+          alt={decorative ? "" : alt}
+          aria-hidden={decorative ? "true" : undefined}
+          class={className || undefined}
+          id={id}
+          style={style}
+          loading={loading}
+          decoding={decoding}
+          fetchpriority={fetchpriority}
+        />
+      </picture>
+    </a>
+  ) : (
     <picture>
       {webpImage && <source type="image/webp" srcset={webpImage.srcSet.attribute} sizes={sizes} />}
       <img
@@ -99,24 +118,5 @@ const lightboxImage = lightbox
         fetchpriority={fetchpriority}
       />
     </picture>
-  </a>
-) : (
-  <picture>
-    {webpImage && <source type="image/webp" srcset={webpImage.srcSet.attribute} sizes={sizes} />}
-    <img
-      src={defaultImage.src}
-      srcset={defaultImage.srcSet.attribute}
-      sizes={sizes}
-      width={defaultImage.attributes.width}
-      height={defaultImage.attributes.height}
-      alt={decorative ? "" : alt}
-      aria-hidden={decorative ? "true" : undefined}
-      class={className || undefined}
-      id={id}
-      style={style}
-      loading={loading}
-      decoding={decoding}
-      fetchpriority={fetchpriority}
-    />
-  </picture>
-)}
+  )
+}

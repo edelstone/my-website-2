@@ -12,15 +12,17 @@ const currentPath = normalizePath(pathname);
 ---
 
 <nav class="nav constrain">
-  {nav.map((item) => {
-    const url = item.url;
-    const isExact = currentPath === url;
-    const isSection = currentPath.startsWith(url);
+  {
+    nav.map((item) => {
+      const url = item.url;
+      const isExact = currentPath === url;
+      const isSection = currentPath.startsWith(url);
 
-    return (
-      <a href={url} aria-current={isExact || isSection ? "page" : undefined}>
-        {item.label}
-      </a>
-    );
-  })}
+      return (
+        <a href={url} aria-current={isExact || isSection ? "page" : undefined}>
+          {item.label}
+        </a>
+      );
+    })
+  }
 </nav>
