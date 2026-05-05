@@ -23,7 +23,7 @@
     "node": ">=22.12.0"
   },
   "devDependencies": {
-    "astro": "^6.1.9",
+    "astro": "^6.2.2",
     "sass": "^1.97.3"
   },
   "dependencies": {
