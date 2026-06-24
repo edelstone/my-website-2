@@ -10,41 +10,113 @@ import Picture from "../../components/Picture.astro";
       <div class="case-study-header-content constrain">
         <h1>Kuali</h1>
         <div class="case-study-header-nav">
-          <a title="Previous" href="/work/balto/"><Pagination name="previous" /></a>
-          <a title="Next" href="/work/texas-state/"><Pagination name="next" /></a>
+          <a title="Previous" href="/work/balto/"
+            ><Pagination name="previous" /></a
+          >
+          <a title="Next" href="/work/texas-state/"
+            ><Pagination name="next" /></a
+          >
         </div>
       </div>
     </div>
-    <div class="case-study-cards">
-      <figure>
-        <h2>Role</h2>
-        <p>Product Designer</p>
-      </figure>
-      <figure>
-        <h2>Problem</h2>
-        <p>Product lines had diverged over time, resulting in a disjointed experience and confused stakeholders.</p>
-      </figure>
-      <figure>
-        <h2>Top outcome</h2>
-        <p>A shared commitment to product alignment through a unified layout and navigation scheme.</p>
-      </figure>
+    <div class="case-study-overview">
+      <ul>
+        <li>
+          <strong>My role:</strong> Product Designer
+        </li>
+        <li>
+          <strong>The problem:</strong> Higher education researchers and administrators,
+          some managing decades of critical documentation, had no efficient way to
+          surface records from a large and complex database. The legacy search interface
+          was a single, rigid form that was sluggish and poorly suited to the diversity
+          of institutions and roles.
+        </li>
+        <li>
+          <strong>Top outcome:</strong> A validated search and filtering system featuring
+          customizable, saveable lookup views, tested with real clients, giving users
+          precision control over their records.
+        </li>
+      </ul>
     </div>
-    <div class="case-study-writeup">
+    <div class="case-study-content">
+      <h2>Context and scope</h2>
       <p>
-        <a href="https://kuali.co">Kuali</a> builds software products for higher education institutions, serving academics, administrators, and students. I was the primary designer for the Research product,
-        conducting user interviews, designing and testing prototypes, and occasionally coding my own designs to reduce engineering overhead.
+        Kuali builds software for higher education institutions, serving
+        researchers, compliance teams, students, and faculty. I was the primary
+        designer for the Research product, embedded with a product manager and
+        roughly a dozen engineers in a matrix organization where each designer
+        owned a dedicated product line.
       </p>
       <p>
-        Independent product lines, each with dedicated sales and development teams, had evolved separate interfaces with little shared structure or alignment. In response, I incrementally developed a
-        unifying, responsive framework across products, introducing common navigation, global search functionality, and integrated co-branding.
+        My work spanned the entire design process: user interviews, concept
+        sketching, high-fidelity prototyping, and production CSS. I also
+        contributed to a cross-product initiative to unify the platform’s
+        navigation and design system.
       </p>
+      <h2>Execution</h2>
+      <ul>
+        <li>
+          <strong>Discovery:</strong> Conducted recorded user interviews with stakeholders
+          and end users to document pain points, existing workarounds, and workflow
+          edge cases across multiple institutions and departments.
+        </li>
+        <li>
+          <strong>Concept development:</strong> Explored multiple low-fidelity approaches,
+          landing on a dual-mode solution: a traditional omnibar for power users and
+          a custom lookup builder allowing users to define, save, and share targeted
+          views of the database.
+        </li>
+        <li>
+          <strong>Validation:</strong> Ran iterative testing sessions with real users,
+          documenting feedback across rounds. The custom lookup concept landed well
+          with participants, particularly the ability for product owners to deploy
+          role-specific views to their teams.
+        </li>
+        <li>
+          <strong>Platform extension:</strong> The document finder's universal search
+          patterns sparked a broader initiative with the design team, resulting in
+          high-fidelity designs for a shared navigation system, global search, and
+          co-branding framework addressing long-standing requests from multi-product
+          customers.
+        </li>
+      </ul>
     </div>
     <div class="case-study-visuals pswp-gallery">
-      <Picture name="kuali-browser" alt="Product shot, system search" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
+      <Picture
+        name="kuali-browser"
+        alt="Product shot, system search"
+        class="case-study-visuals-browser"
+        loading="eager"
+        lightbox
+        fetchpriority="high"
+      />
+      <Picture
+        name="kuali-find-results"
+        alt="Sketch, find documents with results"
+        lightbox
+      />
+      <Picture
+        name="kuali-find-columns"
+        alt="Sketch, show and hide columns dialog"
+        lightbox
+      />
+      <Picture
+        name="kuali-find-searches"
+        alt="Sketch, saved searches slide-out sidebar"
+        lightbox
+      />
+      <Picture
+        name="kuali-find-builder"
+        alt="Sketch, find documents custom form builder"
+        lightbox
+      />
       <Picture name="kuali-find" alt="Product shot, find documents" lightbox />
-      <Picture name="kuali-apps" alt="Product shot, application switcher" lightbox />
+      <Picture
+        name="kuali-apps"
+        alt="Product shot, application switcher"
+        lightbox
+      />
       <Picture name="kuali-nav" alt="Product shot, main navigation" lightbox />
-      <Picture name="kuali-mobile" alt="Product shot, mobile layout" class="case-study-visuals-multi" lightbox />
       <Picture name="kuali-cobrand" alt="Product shot, co-branding" lightbox />
     </div>
   </div>

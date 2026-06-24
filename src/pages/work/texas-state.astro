@@ -4,48 +4,117 @@ import Pagination from "../../components/Pagination.astro";
 import Picture from "../../components/Picture.astro";
 ---
 
-<BaseLayout title="Texas State University" pathname="/work/texas-state/" caseStudy={true}>
+<BaseLayout
+  title="Texas State University"
+  pathname="/work/texas-state/"
+  caseStudy={true}
+>
   <div class="case-study">
     <div class="case-study-header">
       <div class="case-study-header-content constrain">
         <h1>Texas State University</h1>
         <div class="case-study-header-nav">
-          <a title="Previous" href="/work/kuali/"><Pagination name="previous" /></a>
-          <a title="Next" href="/work/tints-and-shades/"><Pagination name="next" /></a>
+          <a title="Previous" href="/work/kuali/"
+            ><Pagination name="previous" /></a
+          >
+          <a title="Next" href="/work/tints-and-shades/"
+            ><Pagination name="next" /></a
+          >
         </div>
       </div>
     </div>
-    <div class="case-study-cards">
-      <figure>
-        <h2>Role</h2>
-        <p>UI/UX and Marketing Designer</p>
-      </figure>
-      <figure>
-        <h2>Problem</h2>
-        <p>Content management system templates had not been refreshed in over a decade.</p>
-      </figure>
-      <figure>
-        <h2>Top outcome</h2>
-        <p>Deployed the institution’s first accessible, responsive digital identity across more than 500 websites and apps.</p>
-      </figure>
+    <div class="case-study-overview">
+      <ul>
+        <li>
+          <strong>My role:</strong> UI/UX and Marketing Designer
+        </li>
+        <li>
+          <strong>The problem:</strong> Texas State’s digital presence had stagnated
+          for over a decade. CMS templates relied on table-based layouts with no mobile
+          support, and hundreds of campus units struggled to present information effectively.
+          With admissions traffic already at 50% mobile, the gap between the university’s
+          digital presence and user expectations was significant and growing.
+        </li>
+        <li>
+          <strong>Top outcome:</strong> Delivered a comprehensive digital overhaul,
+          introducing the institution’s first responsive CMS templates, accessible
+          digital identity, and admissions-driven homepage strategy, rolled out across
+          500+ university units through a structured six-month migration.
+        </li>
+      </ul>
     </div>
-    <div class="case-study-writeup">
+    <div class="case-study-content">
+      <h2>Context and scope</h2>
       <p>
-        <a href="https://txst.edu">Texas State University</a> is a renowned institution that had fallen behind digitally. Although the university converted to a custom CMS in the early 2000s, shifting priorities
-        left front-end templates largely unchanged, and publishers struggled to present information effectively.
+        Texas State University is a large public research institution serving
+        tens of thousands of students on a historic and beautiful campus. As the
+        sole digital designer in the marketing department, my responsibilities
+        ranged from homepage management to coaching content editors on CMS best
+        practices.
       </p>
       <p>
-        I identified and led several initiatives to close this gap, resulting in 1) an accessible, multi-column template used by hundreds of content creators, 2) an admissions-focused, responsive
-        homepage, and 3) a flexible digital identity documented to guide future product updates. Each represented a first for the university.
+        While the role initially had limited expectations, I identified a
+        significant opportunity and pitched a modernization initiative to the
+        incoming Director of Marketing. Securing cross-functional buy-in from
+        marketing and engineering leadership, I led the overhaul from discovery
+        through full deployment.
       </p>
+      <h2>Execution</h2>
+      <ul>
+        <li>
+          <strong>Discovery and alignment:</strong> Conducted focus groups in early
+          spring to isolate publisher and end-user pain points, build a data-backed
+          case for a comprehensive update, and align stakeholders across a politically
+          complex institution.
+        </li>
+        <li>
+          <strong>Design and development:</strong> Designed responsive, multi-column
+          CMS templates, a new admissions-focused homepage, and a documented digital
+          identity system. Delivered full HTML/CSS prototypes for engineering handoff,
+          with much of the production CSS utilized by developers. Deployed by December
+          of the same year.
+        </li>
+        <li>
+          <strong>Adoption and validation:</strong> Confirmed post-launch success
+          via multiple metrics: user surveys indicated positive sentiment, analytics
+          showed increased mobile engagement, and accessibility audits demonstrated
+          measurable compliance improvements.
+        </li>
+        <li>
+          <strong>Organizational impact:</strong> Pioneered cross-functional collaboration
+          between marketing and web engineering teams in a previously siloed and high-friction
+          environment, contributing to the long-term efficiency of web initiatives.
+        </li>
+      </ul>
     </div>
     <div class="case-study-visuals pswp-gallery">
-      <Picture name="txst-browser" alt="Texas State style guide" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
-      <Picture name="txst-homepage" alt="Texas State homepage mockup" lightbox />
-      <Picture name="txst-components" alt="Style guide component examples" lightbox />
-      <Picture name="txst-sliders" alt="Style guide slider component" lightbox />
-      <Picture name="txst-template" alt="Texas State template examples" lightbox />
-      <Picture name="txst-marketing" alt="University Marketing team bios page" lightbox />
+      <Picture
+        name="txst-browser"
+        alt="Texas State style guide"
+        class="case-study-visuals-browser"
+        loading="eager"
+        lightbox
+        fetchpriority="high"
+      />
+      <Picture name="txst-mobile" alt="Mobile homepage sketch" lightbox />
+      <Picture name="txst-emergency" alt="Homepage emergency alerts" lightbox />
+      <Picture name="txst-homepage" alt="Homepage glamor mockup" lightbox />
+      <Picture
+        name="txst-components"
+        alt="Style guide component examples"
+        lightbox
+      />
+      <Picture name="txst-sliders" alt="Responsive slider component" lightbox />
+      <Picture
+        name="txst-template"
+        alt="Texas State template examples"
+        lightbox
+      />
+      <Picture
+        name="txst-marketing"
+        alt="University Marketing team bios page"
+        lightbox
+      />
     </div>
   </div>
 </BaseLayout>

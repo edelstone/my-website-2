@@ -4,30 +4,55 @@ import Pagination from "../../components/Pagination.astro";
 import Picture from "../../components/Picture.astro";
 ---
 
-<BaseLayout title="Material Palettes" pathname="/work/material-palettes/" caseStudy={true}>
+<BaseLayout
+  title="Material Palettes"
+  pathname="/work/material-palettes/"
+  caseStudy={true}
+>
   <div class="case-study">
     <div class="case-study-header">
       <div class="case-study-header-content constrain">
         <h1>Material Palettes</h1>
         <div class="case-study-header-nav">
-          <a title="Previous" href="/work/tock/"><Pagination name="previous" /></a>
+          <a title="Previous" href="/work/tock/"
+            ><Pagination name="previous" /></a
+          >
           <a title="Next" href="/work/gtreasury/"><Pagination name="next" /></a>
         </div>
       </div>
     </div>
-    <div class="case-study-writeup case-study-writeup-no-cards">
+    <div class="case-study-content case-study-content-os">
       <p>
-        An open-source color utility built on the official Material Design color algorithm. While Google provides a native palette tool, it remains buried in technical documentation and poorly
-        optimized for rapid, repeated workflows. This project isolates the core algorithm into a focused, standalone interface built for speed and frequent use.
+        An open-source color utility built on the official Material Design color
+        algorithm. While Google provides a native palette tool, it’s buried deep
+        in their technical documentation and is poorly optimized for regular
+        use. This project isolates the core algorithm into a focused, standalone
+        experience.
       </p>
       <ul>
         <li><a href="https://materialpalettes.com">Website</a></li>
-        <li><a href="https://github.com/edelstone/material-palette-generator">Source code</a></li>
+        <li>
+          <a href="https://github.com/edelstone/material-palette-generator"
+            >Source code</a
+          >
+        </li>
       </ul>
     </div>
-    <div class="case-study-visuals pswp-gallery">
-      <Picture name="material-home" alt="Product shot, home" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
-      <Picture name="material-export" alt="Product shot, export" class="case-study-visuals-browser" lightbox />
+    <div class="case-study-visuals case-study-visuals-os pswp-gallery">
+      <Picture
+        name="material-home"
+        alt="Product shot, home"
+        class="case-study-visuals-browser"
+        loading="eager"
+        lightbox
+        fetchpriority="high"
+      />
+      <Picture
+        name="material-export"
+        alt="Product shot, export"
+        class="case-study-visuals-browser"
+        lightbox
+      />
     </div>
   </div>
 </BaseLayout>

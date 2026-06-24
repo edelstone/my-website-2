@@ -8,15 +8,6 @@ This is the source code for my portfolio website. You’re free to use any of th
 
 [Lausanne](https://weltkern.com/typefaces/lausanne) by Nizar Kazan at WELTKERN®.
 
-## Colors
-
-- White: `#ffffff`
-- Light: `#f6f0e8`
-- Tan: `#e4d8cd`
-- Blue: `#005198`
-- Gray: `#8d8d8d`
-- Dark: `#1b1b1b`
-
 ## Built with
 
 - [Astro](https://astro.build)

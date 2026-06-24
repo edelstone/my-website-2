@@ -4,32 +4,66 @@ import Pagination from "../../components/Pagination.astro";
 import Picture from "../../components/Picture.astro";
 ---
 
-<BaseLayout title="Tint & Shade Generator" pathname="/work/tints-and-shades/" caseStudy={true}>
+<BaseLayout
+  title="Tint & Shade Generator"
+  pathname="/work/tints-and-shades/"
+  caseStudy={true}
+>
   <div class="case-study">
     <div class="case-study-header">
       <div class="case-study-header-content constrain">
         <h1>Tint &amp; Shade Generator</h1>
         <div class="case-study-header-nav">
-          <a title="Previous" href="/work/texas-state/"><Pagination name="previous" /></a>
+          <a title="Previous" href="/work/texas-state/"
+            ><Pagination name="previous" /></a
+          >
           <a title="Next" href="/work/tock/"><Pagination name="next" /></a>
         </div>
       </div>
     </div>
-    <div class="case-study-writeup case-study-writeup-no-cards">
+    <div class="case-study-content case-study-content-os">
       <p>
-        An open-source web application designed to accurately calculate and display mathematical tints and shades from a given
-        hex value. It has evolved into one of the most widely used color utilities on the web, serving designers, developers, educators, and data professionals across more than 180 countries.
+        An open-source web application designed to accurately calculate and
+        display mathematical tints and shades from a given hex value. It has
+        evolved into one of the most widely used color utilities on the web,
+        serving designers, developers, educators, and data professionals across
+        more than 180 countries.
       </p>
       <ul>
         <li><a href="https://maketintsandshades.com">Website</a></li>
-        <li><a href="https://github.com/edelstone/tints-and-shades">Source code</a></li>
-        <li><a href="https://www.figma.com/community/plugin/1580658889126377365/tint-shade-generator">Figma plugin</a></li>
+        <li>
+          <a href="https://github.com/edelstone/tints-and-shades">Source code</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.figma.com/community/plugin/1580658889126377365/tint-shade-generator"
+            >Figma plugin</a
+          >
+        </li>
       </ul>
     </div>
-    <div class="case-study-visuals pswp-gallery">
-      <Picture name="tints-shades-home" alt="Product shot, home" class="case-study-visuals-browser" loading="eager" lightbox fetchpriority="high" />
-      <Picture name="tints-shades-palettes" alt="Product shot, generated color palettes" class="case-study-visuals-browser" lightbox />
-      <Picture name="tints-shades-export" alt="Product shot, export all colors" class="case-study-visuals-browser" lightbox />
+    <div class="case-study-visuals case-study-visuals-os pswp-gallery">
+      <Picture
+        name="tints-shades-home"
+        alt="Product shot, home"
+        class="case-study-visuals-browser"
+        loading="eager"
+        lightbox
+        fetchpriority="high"
+      />
+      <Picture
+        name="tints-shades-palettes"
+        alt="Product shot, generated color palettes"
+        class="case-study-visuals-browser"
+        lightbox
+      />
+      <Picture
+        name="tints-shades-export"
+        alt="Product shot, export all colors"
+        class="case-study-visuals-browser"
+        lightbox
+      />
     </div>
   </div>
 </BaseLayout>

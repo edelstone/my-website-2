@@ -33,7 +33,9 @@ const {
 } = Astro.props as Props;
 
 function getEffectiveWidths(image: ImageMetadata, requestedWidths: number[]) {
-  return [...new Set(requestedWidths.map((width) => Math.min(width, image.width)))].sort((a, b) => a - b);
+  return [
+    ...new Set(requestedWidths.map((width) => Math.min(width, image.width))),
+  ].sort((a, b) => a - b);
 }
 
 function getDefaultWidth(responsiveWidths: number[]) {
@@ -81,7 +83,13 @@ const lightboxImage = lightbox
       data-pswp-caption={alt || undefined}
     >
       <picture>
-        {webpImage && <source type="image/webp" srcset={webpImage.srcSet.attribute} sizes={sizes} />}
+        {webpImage && (
+          <source
+            type="image/webp"
+            srcset={webpImage.srcSet.attribute}
+            sizes={sizes}
+          />
+        )}
         <img
           src={defaultImage.src}
           srcset={defaultImage.srcSet.attribute}
@@ -101,7 +109,13 @@ const lightboxImage = lightbox
     </a>
   ) : (
     <picture>
-      {webpImage && <source type="image/webp" srcset={webpImage.srcSet.attribute} sizes={sizes} />}
+      {webpImage && (
+        <source
+          type="image/webp"
+          srcset={webpImage.srcSet.attribute}
+          sizes={sizes}
+        />
+      )}
       <img
         src={defaultImage.src}
         srcset={defaultImage.srcSet.attribute}
