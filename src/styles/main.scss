@@ -9,11 +9,6 @@
 
 html {
   background-color: $light;
-  font-size: 110%;
-
-  @include breakpoint('large') {
-    font-size: 100%;
-  }
 
   @include breakpoint('medium') {
     font-size: 92.5%;
@@ -180,11 +175,33 @@ h2 {
   }
 }
 
+// Writing
+.writing {
+  &-section {
+    padding-bottom: 1rem;
+  }
+
+  &-inline {
+    max-width: 40rem;
+    margin: 3rem auto 1rem;
+
+    img {
+      border-radius: $radius-primary;
+    }
+
+    figcaption {
+      margin-top: .5rem;
+      text-align: center;
+      font-size: 1rem;
+    }
+  }
+}
+
 // Work
 .work {
   &-sections {
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   &-grid {
@@ -194,6 +211,10 @@ h2 {
 
     @include breakpoint('medium') {
       gap: 1.5rem;
+    }
+
+    @include breakpoint('small') {
+      gap: 2rem;
     }
   }
 
@@ -208,6 +229,7 @@ h2 {
 
     @include breakpoint('small') {
       grid-template-columns: 1fr;
+      gap: 2rem;
     }
   }
 

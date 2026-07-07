@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Picture from "../components/Picture.astro";
+---
+
+<BaseLayout title="The gap was never the code" pathname="/ai/">
+  <div class="writing">
+    <div class="writing-header">
+      <h1>The gap was never the code</h1>
+    </div>
+    <div class="writing-section">
+      <p>I got into this industry backwards.</p>
+      <p>
+        In 2009 the University of Texas ran a program that hired social sciences
+        grads and taught them administrative computing on the job. With Natural
+        and ADABAS, we looked into the past of a giant institution trying not to
+        fall behind, while we looked forward with the tools of the modern web:
+        HTML, CSS, and JavaScript. Coming from the bicycle industry, this was a
+        huge opportunity and I knew it.
+      </p>
+      <p>
+        So, I didn’t learn to code to become a better designer. I found design
+        because I was already coding. And my favorite tool was CSS, because CSS
+        let me design.
+      </p>
+    </div>
+    <div class="writing-section">
+      <h2>The last ten percent</h2>
+      <p>
+        My path wound from higher education to enterprise tech and into modern
+        product design. Figma became the standard, Agile the rhythm, and I
+        staked a solid position between designer and developer everywhere I
+        went.
+      </p>
+      <p>
+        At Files.com, designers were expected to push their own PRs – I loved
+        that. But despite my CSS expertise, I felt a ceiling there too. Modern
+        React tooling, build systems, and the foundations derived from a proper
+        CS education created a natural separation between the engineers and
+        myself. We even invented a role to tackle the problem, “local dev
+        assist,” an engineer on call for the moment I hit a terminal error
+        running our apps locally.
+      </p>
+      <p>
+        I could design the component and (mostly) build the component, but
+        getting unstuck might cost someone else’s afternoon.
+      </p>
+    </div>
+    <div class="writing-section">
+      <h2>Backlog? What backlog?</h2>
+      <p>
+        My open source projects illustrate the progression best. The <a
+          href="/work/tints-and-shades">Tint & Shade Generator</a
+        > had open issues tagged “help wanted” for ages, the ones <em>just</em> past
+        what I could close alone. One night I pointed Claude Code at the first one.
+        Then the next.
+      </p>
+      <p>Years of backlog cleared in <em>days</em>.</p>
+      <p>
+        Migrating the whole site from 11ty to Astro, a job I’d conservatively
+        budgeted a week for, took minutes. When Claude restructured something
+        sub-optimally, I knew. I could knowledgeably revert, modify, and push
+        back the same way I would with a peer engineer (only this one wasn’t
+        rushing to meet other deadlines).
+      </p>
+      <p>
+        When macOS altered their timer utility in Tahoe 26, rather than adapt my
+        workflow to theirs, I built my own. <a href="/work/tock">Tock</a> is a macOS
+        menu bar timer built in Swift, a language I’d never written, conceived of
+        and shipped to the App Store within a couple days. Claude navigated the App
+        Store’s weird submission quirks as easily as the code.
+      </p>
+      <figure class="writing-inline">
+        <Picture name="tock" alt="Tock running in the macOS menu bar" />
+        <figcaption>Tock, doing its thing.</figcaption>
+      </figure>
+    </div>
+    <div class="writing-section">
+      <h2>The new debate</h2>
+      <p>
+        Remember that whole “should designers code” debate? Seems quaint now. It
+        kind of settled itself, no?
+      </p>
+      <p>
+        While I recognize that the design craft, particularly early-stage, does
+        its best work free from the constraints of development, the source of
+        truth is ultimately what’s delivered to users. And there’s never been a
+        greater time to flex your code prowess. Sure, AI output is mixed and the
+        hype is exhausting, but that ambiguity is the natural place for the next
+        generation of curious creators.
+      </p>
+      <p>
+        The designers who invested in code weren’t just preparing for the jobs
+        that asked for it, they were preparing for this moment of acceleration.
+        Twenty dollars a month for a coding partner. My employers used to pay
+        for that in thousands of dollars of borrowed engineering time, at a
+        tenth of the speed.
+      </p>
+      <p>Whatever the gap was – tooling, language, time – there’s no excuse left for it.</p>
+    </div>
+  </div>
+</BaseLayout>
