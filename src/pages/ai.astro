@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Picture from "../components/Picture.astro";
+import tockDemo from "../images/tock-demo.gif";
 ---
 
 <BaseLayout title="The gap was never the code" pathname="/ai/">
@@ -72,7 +72,14 @@ import Picture from "../components/Picture.astro";
         quirks stopped being a reason not to ship.
       </p>
       <figure class="writing-inline">
-        <Picture name="tock-demo" alt="Tock running in the macOS menu bar" />
+        <img
+          src={tockDemo.src}
+          alt="Tock running in the macOS menu bar"
+          width={tockDemo.width}
+          height={tockDemo.height}
+          loading="lazy"
+          decoding="async"
+        />
         <figcaption>Tock app, doing its thing.</figcaption>
       </figure>
     </div>
