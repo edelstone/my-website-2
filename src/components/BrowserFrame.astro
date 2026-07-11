@@ -1,0 +1,62 @@
+---
+type Props = {
+  class?: string;
+  title: string;
+  url: string;
+  width?: number;
+  height?: number;
+};
+
+const {
+  class: className = "",
+  title,
+  url,
+  width = 1280,
+  height = Math.round(width * 0.7),
+} = Astro.props as Props;
+---
+
+<div class:list={["browser-frame", className]}>
+  <div class="browser-frame-toolbar">
+    <span class="browser-frame-dot browser-frame-dot--red"></span>
+    <span class="browser-frame-dot browser-frame-dot--yellow"></span>
+    <span class="browser-frame-dot browser-frame-dot--green"></span>
+    <span class="browser-frame-address">{title}</span>
+  </div>
+  <div
+    class="browser-frame-viewport"
+    data-frame-width={width}
+    style={`aspect-ratio: ${width} / ${height};`}
+  >
+    <iframe
+      class="browser-frame-iframe"
+      src={url}
+      title={title}
+      loading="lazy"
+      width={width}
+      height={height}
+    ></iframe>
+  </div>
+</div>
+
+<script>
+  function scaleBrowserFrame(viewport: HTMLElement) {
+    const iframe = viewport.querySelector<HTMLIFrameElement>(
+      ".browser-frame-iframe",
+    );
+    const frameWidth = Number(viewport.dataset.frameWidth);
+    if (!iframe || !frameWidth) return;
+
+    const resize = () => {
+      const scale = viewport.clientWidth / frameWidth;
+      iframe.style.transform = `scale(${scale})`;
+    };
+
+    new ResizeObserver(resize).observe(viewport);
+    resize();
+  }
+
+  document
+    .querySelectorAll<HTMLElement>(".browser-frame-viewport")
+    .forEach(scaleBrowserFrame);
+</script>

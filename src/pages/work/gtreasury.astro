@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Pagination from "../../components/Pagination.astro";
 import Picture from "../../components/Picture.astro";
+import BrowserFrame from "../../components/BrowserFrame.astro";
 ---
 
 <BaseLayout title="GTreasury" pathname="/work/gtreasury/" caseStudy={true}>
@@ -76,6 +77,11 @@ import Picture from "../../components/Picture.astro";
       </ul>
     </div>
     <div class="case-study-visuals pswp-gallery">
+      <BrowserFrame
+        title="gtreasury.netlify.app"
+        url="https://gtreasury.netlify.app/financial-instruments/portfolios"
+      />
+      <!--
       <Picture
         name="gt-browser"
         alt="Product shot, cash module"
@@ -84,6 +90,7 @@ import Picture from "../../components/Picture.astro";
         lightbox
         fetchpriority="high"
       />
+      -->
       <Picture name="gt-brainstorm" alt="Brainstorming sticky notes" lightbox />
       <Picture
         name="gt-palette"
