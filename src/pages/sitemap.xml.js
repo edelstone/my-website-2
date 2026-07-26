@@ -1,18 +1,21 @@
 import { site } from "../data/site";
 
-const paths = [
-  "/",
-  "/about/",
-  "/contact/",
-  "/work/",
-  "/work/gtreasury/",
-  "/work/balto/",
-  "/work/kuali/",
-  "/work/texas-state/",
-  "/work/tints-and-shades/",
-  "/work/tock/",
-  "/work/material-palettes/"
-];
+const pageModules = import.meta.glob("./**/*.astro");
+
+const EXCLUDED = new Set(["404"]);
+
+function toPath(key) {
+  const trimmed = key.replace(/^\.\//, "").replace(/\.astro$/, "");
+  if (trimmed === "index") return "/";
+  if (trimmed.endsWith("/index")) return `/${trimmed.slice(0, -"/index".length)}/`;
+  return `/${trimmed}/`;
+}
+
+const paths = Object.keys(pageModules)
+  .filter((key) => !key.includes("["))
+  .map(toPath)
+  .filter((path) => !EXCLUDED.has(path.replace(/\//g, "")))
+  .sort();
 
 export function GET() {
   const lastmod = new Date().toISOString();
