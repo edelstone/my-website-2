@@ -21,99 +21,164 @@ import BrowserFrame from "../../components/BrowserFrame.astro";
     <div class="case-study-overview">
       <ul>
         <li>
-          <strong>My role:</strong> UX engineer
+          <strong>Role:</strong> UX engineer (design systems + prototyping)
         </li>
         <li>
-          <strong>The problem:</strong> Core financial workflows were fragmented across
-          six codebases, a dozen color palettes, and aging legacy frameworks, while
-          years of acquisitions and shifting priorities produced conflicting interactions
-          across the platform. This increased errors and made basic tasks tedious
-          to learn and complete.
+          <strong>Challenge:</strong> Six disconnected codebases and conflicting UX
+          patterns causing fragmented workflows and high error rates.
         </li>
         <li>
-          <strong>Top outcome:</strong> Developed and deployed the <em
-            >Obelisk</em
-          > design system, a centralized component library that unified five product
-          lines and accelerated modernization efforts.
+          <strong>Top outcome:</strong> Created and deployed the Obelisk design system
+          (40+ components), unifying all product lines ahead of a major platform modernization
+          and $1B acquisition.
         </li>
       </ul>
     </div>
-    <div class="case-study-content">
-      <h2>Context and scope</h2>
+    <div class="case-study-content pswp-gallery">
+      <h2>From fragments to a shared system</h2>
       <p>
-        GTreasury builds enterprise treasury management software used by global
-        corporations to manage cash, liquidity, debt, payments, and financial
-        risk. The core application is a legacy web system with decades of
-        incremental development, resulting in fragmented and inconsistent
-        experiences over time.
+        GTreasury’s product ecosystem had grown through years of acquisitions.
+        Five product lines lived across six codebases, each with different
+        frameworks, visual languages, and interaction patterns. This
+        fragmentation increased user error rates and made basic financial tasks
+        tedious to complete.
       </p>
       <p>
-        Working alongside a UX specialist responsible for user research, I
-        focused on translating findings into system-level design decisions
-        through early-stage exploration, rapid prototyping, and iterative
-        validation with users.
+        Working alongside a UX researcher, I audited the platform to identify
+        reusable interface patterns. The goal was to establish a design system
+        that could drive modernization without forcing product teams to rebuild
+        from scratch.
       </p>
-      <h2>Execution</h2>
-      <ul>
-        <li>
-          <strong>Systemic audit and redesign:</strong> Examined disconnected codebases
-          to identify shared interface patterns and formalize a unified design system,
-          producing structured, reusable artifacts to support modernization.
-        </li>
-        <li>
-          <strong>Priority prototyping:</strong> Reimagined critical workflows (e.g.,
-          payment creation and cash worksheet management) based on user interview
-          insights, validating improvements through high-fidelity prototypes leveraging
-          the design system.
-        </li>
-        <li>
-          <strong>Implementation:</strong> Partnered with a frontend engineer to build
-          a <a href="https://gtreasury.netlify.app/">coded prototype</a> with Angular
-          and Kendo UI, ensuring layout precision and proper handling of interactive
-          states. Later, extended these patterns into production CSS, adapting for
-          real-world constraints and existing dependencies.
-        </li>
-      </ul>
-    </div>
-    <div class="case-study-visuals pswp-gallery">
-      <BrowserFrame
-        title="gtreasury.netlify.app"
-        url="https://gtreasury.netlify.app/financial-instruments/portfolios"
-      />
-      <Picture name="gt-brainstorm" alt="Brainstorming sticky notes" lightbox />
-      <Picture
-        name="gt-palette"
-        alt="Design system shot, color palette"
-        lightbox
-      />
-      <Picture
-        name="gt-buttons"
-        alt="Design system shot, button component"
-        lightbox
-      />
-      <Picture
-        name="gt-wizard"
-        alt="Design system shot, wizard component"
-        lightbox
-      />
-      <Picture
-        name="gt-table"
-        alt="Design system shot, table functions"
-        lightbox
-      />
-      <Picture
-        name="gt-dashboard-flow"
-        alt="High-fidelity dashboard"
-        lightbox
-      />
-      <Picture
-        name="gt-dashboard-create"
-        alt="Product shot, create dashboard"
-        lightbox
-      />
-      <Picture name="gt-dashboard" alt="Product shot, dashboard" lightbox />
-      <Picture name="gt-form" alt="Product shot, create deal" lightbox />
-      <Picture name="gt-worksheet" alt="Product shot, worksheet" lightbox />
+      <div class="case-study-image-block">
+        <figure class="case-study-image-solo">
+          <Picture
+            name="gt-brainstorm"
+            alt="Sticky notes mapping shared UI patterns across legacy products"
+            caption="Auditing shared interface patterns and synthesizing research
+            findings."
+            showCaption={false}
+            lightbox
+          />
+          <figcaption class="case-study-image-caption">
+            Auditing shared interface patterns and synthesizing research
+            findings.
+          </figcaption>
+        </figure>
+      </div>
+      <h2>Building Obelisk</h2>
+      <p>
+        I led the creation of Obelisk, a Figma design system structured around
+        design tokens, reusable components, and complex multi-state patterns. It
+        expanded to 40+ core components, including dense data tables, complex
+        forms, and financial dashboards.
+      </p>
+      <p>
+        Rather than treating Obelisk as a visual reference, I structured it for
+        direct engineering handoff. Token naming, variables, and component
+        properties were aligned to match frontend architecture, establishing a
+        shared translation layer between design and code.
+      </p>
+      <div class="case-study-image-block">
+        <figure>
+          <div class="case-study-image-grid">
+            <Picture
+              name="gt-palette"
+              alt="Color palette token hierarchy and variable definitions in the Obelisk design system"
+              caption="Obelisk color system: Defining scales and semantic tokens for neutral, primary, success, warning, and failure modes."
+              showCaption={false}
+              lightbox
+            />
+            <Picture
+              name="gt-buttons"
+              alt="Button component variants, sizes, and interactive states in Figma"
+              caption="Button component spec: Mapping interactive hover, active, and disabled states."
+              showCaption={false}
+              lightbox
+            />
+            <Picture
+              name="gt-wizard"
+              alt="Multi-step wizard modal component layout with progress indicators"
+              caption="Multi-step wizard: Building higher-order setup flows using upstream tokens."
+              showCaption={false}
+              lightbox
+            />
+            <Picture
+              name="gt-table"
+              alt="Dense financial data table component with labels"
+              caption="Data table component: Demonstrating density, total functionality, and edge cases."
+              showCaption={false}
+              lightbox
+            />
+          </div>
+          <figcaption class="case-study-image-caption">
+            Core design tokens and multi-state UI components built for dense
+            enterprise workflows in Obelisk.
+          </figcaption>
+        </figure>
+      </div>
+      <h2>Validating through prototyping</h2>
+      <p>
+        To prove the system in practice, we applied Obelisk to high-friction
+        workflows like payment creation and cash worksheet management. I
+        translated research insights into high-fidelity Figma prototypes,
+        testing complex states and dense data layouts.
+      </p>
+      <p>
+        Next, I partnered with frontend engineering to build a <a
+          href="https://gtreasury.netlify.app/dashboard"
+          >production-ready Angular prototype</a
+        >. Writing the underlying Sass and component logic allowed us to solve
+        layout constraints, accessibility edge cases, and interactive states
+        before touching production code.
+      </p>
+      <div class="case-study-image-block">
+        <figure>
+          <div class="case-study-image-grid">
+            <Picture
+              name="gt-form"
+              alt="High-fidelity deal creation form layout in Figma"
+              caption="Financial deal creation layout: Optimizing tab order, field grouping, and inline validation for rapid data entry."
+              showCaption={false}
+              lightbox
+            />
+            <Picture
+              name="gt-worksheet-i18n"
+              alt="Internationalized cash positioning worksheet prototype with multi-currency data"
+              caption="Cash positioning worksheet: Stress-testing dense financial grids against internationalized formatting."
+              showCaption={false}
+              lightbox
+            />
+          </div>
+          <figcaption class="case-study-image-caption">
+            High-fidelity Figma prototypes evaluating complex form structures
+            and internationalized worksheet flows.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="case-study-image-block">
+        <figure>
+          <BrowserFrame
+            title="gtreasury.netlify.app"
+            url="https://gtreasury.netlify.app/financial-instruments/portfolios"
+          />
+          <figcaption class="case-study-image-caption">
+            Interactive prototype executing live Obelisk tokens, Sass
+            architecture, and component state logic in the browser.
+          </figcaption>
+        </figure>
+      </div>
+      <h2>Modernizing a monolith</h2>
+      <p>
+        Obelisk was deployed across all five product lines, with over half of
+        its 40+ components shared globally across teams. It gave design and
+        engineering a unified vocabulary, drastically reducing redundant
+        component development across legacy codebases.
+      </p>
+      <p>
+        The system established the design and implementation foundation for
+        GTreasury’s platform modernization, positioning the product line ahead
+        of its $1B acquisition.
+      </p>
     </div>
   </div>
 </BaseLayout>

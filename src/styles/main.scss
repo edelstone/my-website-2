@@ -280,13 +280,21 @@ h2 {
   &-header {
     background-color: $light;
     margin: 0 calc(50% - 50vw);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    &.is-stuck {
+      box-shadow: 0 3px 0 $dark;
+    }
 
     &-content {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 1rem;
-      padding: 0 1rem .5rem;
+      padding: .25rem 1rem;
+      margin-top: -.25rem;
     }
 
     &-nav {
@@ -306,7 +314,7 @@ h2 {
   }
 
   &-overview {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 
     ul {
       padding: 0;
@@ -326,7 +334,7 @@ h2 {
   }
 
   &-content {
-    margin: 2.5rem 0;
+    margin: 3rem 0;
 
     &-os {
       margin: 1.5rem 0;
@@ -350,70 +358,132 @@ h2 {
       gap: 2rem;
     }
   }
-}
 
-.browser-frame {
-  overflow: hidden;
-  background-color: $dark;
-  border-radius: $radius-small;
-  border: 1px solid $gray;
+  &-image {
+    &-block {
+      margin: 5rem auto;
+      background-color: $tan;
+      padding: 1rem;
+      border-radius: $radius-primary;
 
-  &-toolbar {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .75rem 1rem;
+      @include breakpoint('small') {
+        margin-block: 3rem;
+      }
+
+      img:not([class]) {
+        border: 1px solid $gray;
+        border-radius: $radius-small;
+      }
+
+      figure {
+        margin: 0;
+      }
+    }
+
+    &-caption {
+      font-size: 1rem;
+      text-align: center;
+      margin-top: 1rem;
+      line-height: 1.4;
+      max-width: 58rem;
+      margin-inline: auto;
+    }
+
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+
+      @include breakpoint('small') {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
   }
 
-  &-dot {
-    width: .65rem;
-    height: .65rem;
-    border-radius: 50%;
-
-    &--red {
-      background-color: #ff5f57;
-    }
-
-    &--yellow {
-      background-color: #febc2e;
-    }
-
-    &--green {
-      background-color: #28c840;
-    }
+  // Various image blocks are meant to overflow constraints
+  &-image-block {
+    width: min(calc(100vw - 2rem), 70rem);
+    margin-inline: calc(50% - min(calc(50vw - 1rem), 35rem));
   }
 
-  &-address {
-    flex: 1;
-    margin-left: .5rem;
-    padding: .25rem .75rem;
+  &-browser-frame {
     overflow: hidden;
-    font-size: .75rem;
-    color: rgba($white, .75);
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background-color: rgba($white, .1);
-    border-radius: 999px;
-  }
+    background-color: $dark;
+    border-radius: $radius-small;
+    border: 1px solid $gray;
 
-  &-viewport {
-    position: relative;
-    overflow: hidden;
-  }
+    &-toolbar {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1rem;
+    }
 
-  &-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: $white;
-    border: 0;
-    transform-origin: top left;
+    &-dot {
+      width: .65rem;
+      height: .65rem;
+      border-radius: 50%;
+
+      &--red {
+        background-color: #ff5f57;
+      }
+
+      &--yellow {
+        background-color: #febc2e;
+      }
+
+      &--green {
+        background-color: #28c840;
+      }
+    }
+
+    &-address {
+      flex: 1;
+      margin-left: .5rem;
+      padding: .25rem .75rem;
+      overflow: hidden;
+      font-size: .75rem;
+      color: rgba($white, .75);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      background-color: rgba($white, .1);
+      border-radius: 999px;
+    }
+
+    &-viewport {
+      position: relative;
+      overflow: hidden;
+    }
+
+    &-embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $white;
+      border: 0;
+      transform-origin: top left;
+    }
   }
 }
 
 // Photoswipe
 .pswp__img {
   background-color: transparent !important;
+}
+
+.pswp__caption {
+  position: absolute;
+  right: 1rem;
+  bottom: .5rem;
+  left: 1rem;
+  color: $dark;
+  font-size: 1rem;
+  margin: auto;
+  padding: .5rem 1rem;
+  background-color: $dark;
+  color: $white;
+  width: max-content;
 }
 
 .pswp__button {

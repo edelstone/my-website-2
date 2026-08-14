@@ -11,38 +11,42 @@ const {
   class: className = "",
   title,
   url,
-  width = 1280,
-  height = Math.round(width * 0.7),
+  width = 1440,
+  height = Math.round(width * 0.62),
 } = Astro.props as Props;
 ---
 
-<div class:list={["browser-frame", className]}>
-  <div class="browser-frame-toolbar">
-    <span class="browser-frame-dot browser-frame-dot--red"></span>
-    <span class="browser-frame-dot browser-frame-dot--yellow"></span>
-    <span class="browser-frame-dot browser-frame-dot--green"></span>
-    <span class="browser-frame-address">{title}</span>
+<div class:list={["case-study-browser-frame", className]}>
+  <div class="case-study-browser-frame-toolbar">
+    <span class="case-study-browser-frame-dot case-study-browser-frame-dot--red"
+    ></span>
+    <span
+      class="case-study-browser-frame-dot case-study-browser-frame-dot--yellow"
+    ></span>
+    <span
+      class="case-study-browser-frame-dot case-study-browser-frame-dot--green"
+    ></span>
+    <span class="case-study-browser-frame-address">{title}</span>
   </div>
   <div
-    class="browser-frame-viewport"
+    class="case-study-browser-frame-viewport"
     data-frame-width={width}
     style={`aspect-ratio: ${width} / ${height};`}
   >
     <iframe
-      class="browser-frame-iframe"
+      class="case-study-browser-frame-embed"
       src={url}
       title={title}
       loading="lazy"
       width={width}
-      height={height}
-    ></iframe>
+      height={height}></iframe>
   </div>
 </div>
 
 <script>
   function scaleBrowserFrame(viewport: HTMLElement) {
     const iframe = viewport.querySelector<HTMLIFrameElement>(
-      ".browser-frame-iframe",
+      ".case-study-browser-frame-embed",
     );
     const frameWidth = Number(viewport.dataset.frameWidth);
     if (!iframe || !frameWidth) return;
@@ -57,6 +61,6 @@ const {
   }
 
   document
-    .querySelectorAll<HTMLElement>(".browser-frame-viewport")
+    .querySelectorAll<HTMLElement>(".case-study-browser-frame-viewport")
     .forEach(scaleBrowserFrame);
 </script>

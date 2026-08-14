@@ -4,6 +4,7 @@ import { getImageByName } from "../data/images";
 
 type Props = {
   alt?: string;
+  caption?: string;
   class?: string;
   decoding?: "async" | "sync" | "auto";
   decorative?: boolean;
@@ -12,6 +13,7 @@ type Props = {
   lightbox?: boolean;
   loading?: "lazy" | "eager";
   name: string;
+  showCaption?: boolean;
   sizes?: string;
   style?: string;
   widths?: number[];
@@ -19,6 +21,7 @@ type Props = {
 
 const {
   alt = "",
+  caption,
   class: className = "",
   decoding = "async",
   decorative = false,
@@ -27,6 +30,7 @@ const {
   lightbox = false,
   loading = "lazy",
   name,
+  showCaption = true,
   sizes = "(max-width: 50rem) 100vw, 1020px",
   style,
   widths = [800, 1400, 2000],
@@ -80,7 +84,7 @@ const lightboxImage = lightbox
       data-pswp-height={lightboxImage?.attributes.height}
       data-pswp-srcset={defaultImage.srcSet.attribute}
       data-pswp-sizes={sizes}
-      data-pswp-caption={alt || undefined}
+      data-pswp-caption={caption || undefined}
     >
       <picture>
         {webpImage && (
@@ -106,7 +110,36 @@ const lightboxImage = lightbox
           fetchpriority={fetchpriority}
         />
       </picture>
+      {showCaption && caption && <span class="case-study-image-caption">{caption}</span>}
     </a>
+  ) : caption ? (
+    <figure class="case-study-image-frame">
+      <picture>
+        {webpImage && (
+          <source
+            type="image/webp"
+            srcset={webpImage.srcSet.attribute}
+            sizes={sizes}
+          />
+        )}
+        <img
+          src={defaultImage.src}
+          srcset={defaultImage.srcSet.attribute}
+          sizes={sizes}
+          width={defaultImage.attributes.width}
+          height={defaultImage.attributes.height}
+          alt={decorative ? "" : alt}
+          aria-hidden={decorative ? "true" : undefined}
+          class={className || undefined}
+          id={id}
+          style={style}
+          loading={loading}
+          decoding={decoding}
+          fetchpriority={fetchpriority}
+        />
+      </picture>
+      <figcaption class="case-study-image-caption">{caption}</figcaption>
+    </figure>
   ) : (
     <picture>
       {webpImage && (

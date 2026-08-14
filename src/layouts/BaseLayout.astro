@@ -3,6 +3,7 @@ import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
 import Nav from "../components/Nav.astro";
 import PhotoSwipeLoader from "../components/PhotoSwipeLoader.astro";
+import StickyHeaderLoader from "../components/StickyHeaderLoader.astro";
 import "photoswipe/style.css";
 import "../styles/styles.scss";
 
@@ -21,5 +22,6 @@ const { caseStudy = false, pathname = "/", title } = Astro.props;
       <slot />
     </main>
     {caseStudy && <PhotoSwipeLoader />}
+    {caseStudy && <StickyHeaderLoader />}
   </body>
 </html>
