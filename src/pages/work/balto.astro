@@ -20,71 +20,166 @@ import Picture from "../../components/Picture.astro";
     <div class="case-study-overview">
       <ul>
         <li>
-          <strong>My role:</strong> Product designer
+          <strong>Role:</strong> Product designer
         </li>
         <li>
-          <strong>The problem:</strong> Balto built a proprietary, real-time AI engine
-          before the technology became ubiquitous, but its value was confined to a
-          narrow desktop widget focused on agent-facing metrics. To capture larger
-          markets, leadership launched an aggressive expansion into coaching and QA
-          territory, requiring intensive design.
+          <strong>The challenge:</strong> Transitioning a proprietary real-time AI
+          engine from an isolated desktop widget into a scalable enterprise coaching
+          and QA platform.
         </li>
         <li>
           <strong>Top outcome:</strong> Designed and delivered a comprehensive set
-          of high-fidelity prototypes for a new <em>Real-Time Coaching</em> initiative,
-          establishing the foundational product architecture and aligning the company
-          around a shared vision.
+          of high-fidelity prototypes for Real-Time Coaching, establishing the foundational
+          product architecture and aligning leadership around a shared vision.
         </li>
       </ul>
     </div>
-    <div class="case-study-content">
-      <h2>Context and scope</h2>
+    <div class="case-study-content pswp-gallery">
+      <h2>From desktop widget to enterprise platform</h2>
       <p>
-        Balto builds AI-driven listening software that analyzes live audio and
-        streams real-time insights to enterprise call center operations. The
-        initial product offering was highly effective but structurally isolated
-        and difficult to scale.
+        Balto builds AI-driven listening software that analyzes live call center
+        audio to stream real-time guidance. While the core engine was highly
+        effective, its original value was confined to a narrow desktop widget
+        focused strictly on agent-facing metrics—making it difficult to sell
+        into large enterprise operations.
       </p>
       <p>
-        Hired as a contract designer during a period of rapid growth, I
-        partnered with product and design leadership to accelerate concept
-        development and transform emerging machine learning capabilities into
-        novel, cohesive user experiences.
+        To expand into real-time coaching and quality assurance (QA) markets,
+        leadership initiated an aggressive product overhaul. I joined as a
+        contract product designer to partner with product leadership,
+        translating raw machine learning capabilities into a cohesive,
+        multi-user platform strategy.
       </p>
-      <h2>Execution</h2>
-      <ul>
-        <li>
-          <strong>Product definition:</strong> Partnered continuously with the product
-          manager to define scope and direction, translating raw feature requirements
-          into low-fidelity wireframes and structural flows.
-        </li>
-        <li>
-          <strong>Rapid prototyping:</strong> Designed high-fidelity prototypes spanning
-          chat, alerts, interventions, and operational dashboards, creating alignment
-          for stakeholder review and developer handoff.
-        </li>
-        <li>
-          <strong>Iteration and systems merge:</strong> Facilitated daily review cycles
-          with leadership and engineering teams, while systematically integrating
-          evolving visual components and brand standards alongside the design lead.
-        </li>
-      </ul>
-    </div>
-    <div class="case-study-visuals pswp-gallery">
-      <Picture
-        name="balto-browser"
-        alt="Product shot, agent chat"
-        class="case-study-visuals-browser"
-        loading="eager"
-        lightbox
-        fetchpriority="high"
-      />
-      <Picture name="balto-sketch" alt="Low fidelity sketches" lightbox />
-      <Picture name="balto-flow" alt="High-fidelity coaching flow" lightbox />
-      <Picture name="balto-alerts" alt="Product shot, alerts table" lightbox />
-      <Picture name="balto-form" alt="Product shot, create an alert" lightbox />
-      <Picture name="balto-log" alt="Product shot, activity log" lightbox />
-      <Picture name="balto-scores" alt="Product shot, agent scores" lightbox />
+      <div class="case-study-image-block">
+        <figure class="case-study-image-solo">
+          <Picture
+            name="balto-sketch"
+            alt="Low-fidelity wireframes mapping out real-time call center coaching workflows"
+            caption="Translating raw AI engine capabilities into low-fidelity structural flows and wireframes."
+            showCaption={false}
+            lightbox
+          />
+          <figcaption class="case-study-image-caption">
+            Translating raw AI engine capabilities into low-fidelity structural
+            flows and wireframes.
+          </figcaption>
+        </figure>
+      </div>
+      <h2>Architecting the coaching ecosystem</h2>
+      <p>
+        Expanding into call center operations required designing for distinct
+        user roles simultaneously: agents handling live calls, supervisors
+        monitoring teams in real time, and administrators managing QA rules.
+      </p>
+      <p>
+        Working alongside the product manager, I mapped complex feature
+        requirements into discrete interaction patterns. We established core
+        workflows for real-time agent prompts, automated event triggers, and
+        supervisor intervention tools built to handle live, high-stress
+        environments.
+      </p>
+      <div class="case-study-image-block">
+        <figure>
+          <div class="case-study-image-grid">
+            <Picture
+              name="balto-add-alert"
+              alt="Add new alert modal interface for setting up rule-based real-time AI triggers"
+              caption="Alert builder: Setting up rule-based trigger criteria, target agents, and associated playbooks for real-time monitoring."
+              showCaption={false}
+              lightbox
+            />
+            <Picture
+              name="balto-alert-browser"
+              alt="Call monitoring card showing flagged compliance alerts, action controls, and a live call transcript snippet"
+              caption="Live call monitor: Displaying real-time AI alert triggers, conversation transcripts, and supervisor intervention controls."
+              showCaption={false}
+              lightbox
+            />
+            <Picture
+              name="balto-call-score"
+              alt="Agent call evaluation dashboard showing automated category scores and checklist compliance popover"
+              caption="Call evaluation view: Aggregating AI checklist compliance, section scores, and overall call performance metrics."
+              showCaption={false}
+              lightbox
+            />
+            <Picture
+              name="balto-criteria-builder"
+              alt="Playbook rule configuration interface mapping phrase criteria, presence requirements, and point weights"
+              caption="Playbook builder: Defining phrase match rules, presence requirements, and scoring weights for real-time prompt triggers."
+              showCaption={false}
+              lightbox
+            />
+          </div>
+          <figcaption class="case-study-image-caption">
+            Core interface patterns defining agent assistance, real-time
+            supervisor alerts, and administrative rule creation.
+          </figcaption>
+        </figure>
+      </div>
+      <h2>High-stakes, real-time feedback</h2>
+      <p>
+        Call center operations move fast, and cognitive overload is a constant
+        risk. When the AI detects a critical moment on a call, the supervisor
+        needs immediate context to decide whether to listen in, send a direct
+        coaching tip, or take over the call entirely.
+      </p>
+      <p>
+        I created high-fidelity prototype flows to stress-test these high-stakes
+        interactions. We refined density, visual hierarchy, and status
+        indicators so supervisors could evaluate agent performance and trigger
+        interventions in seconds without disrupting ongoing operations.
+      </p>
+      <div class="case-study-image-block">
+        <figure>
+          <div class="case-study-image-grid">
+            <Picture
+              name="balto-alerts"
+              alt="Balto web application interface showing configured alerts table alongside a live supervisor feed and chat sidebar"
+              caption="Real-Time Coaching alerts: Managing system-wide alert rules alongside live supervisor monitoring and agent chat panels."
+              showCaption={false}
+              lightbox
+            />
+            <Picture
+              name="balto-config"
+              alt="QA Scorecard builder interface displaying call evaluation categories, percentage weights, and scorecard configuration settings"
+              caption="Scorecard builder: Configuring evaluation categories, weighted scoring models, and compliance criteria for call auditing."
+              showCaption={false}
+              lightbox
+            />
+            <Picture
+              name="balto-log"
+              alt="Activity Log interface showing agent alert counts, call logs, and expandable supervisor chat histories"
+              caption="Activity log: Tracking historical alert volumes across agent teams with inspectable chat transcripts and call records."
+              showCaption={false}
+              lightbox
+            />
+            <Picture
+              name="balto-loading"
+              alt="Balto reporting dashboard interface displaying a central loading spinner with the message We're crunching the numbers..."
+              caption="Loading state: Displaying feedback during asynchronous data fetching and report generation."
+              showCaption={false}
+              lightbox
+            />
+          </div>
+          <figcaption class="case-study-image-caption">
+            High-fidelity prototype flows evaluating live supervisor
+            interventions and post-call performance scoring views.
+          </figcaption>
+        </figure>
+      </div>
+      <h2>Aligning stakeholders and scaling the vision</h2>
+      <p>
+        To keep engineering and executive leadership aligned, I facilitated
+        rapid, daily review cycles using detailed Figma prototypes. Working
+        closely with the lead designer, I helped integrate evolving visual
+        patterns and brand standards into a unified component library.
+      </p>
+      <p>
+        The resulting product architecture transformed Balto from a
+        point-solution widget into a complete real-time coaching platform,
+        providing the foundational product strategy needed to drive their
+        enterprise expansion.
+      </p>
     </div>
   </div>
 </BaseLayout>

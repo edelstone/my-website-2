@@ -371,7 +371,6 @@ h2 {
       }
 
       img:not([class]) {
-        border: 1px solid $gray;
         border-radius: $radius-small;
       }
 
@@ -411,7 +410,6 @@ h2 {
     overflow: hidden;
     background-color: $dark;
     border-radius: $radius-small;
-    border: 1px solid $gray;
 
     &-toolbar {
       display: flex;
